@@ -9,7 +9,7 @@ import GoogleMapComponent from './google-map'
 export default function Hero() {
   const pathname = usePathname()
   const [bg, setBg] = useState('/Images/carousel/landingpage.jpg')
-  console.log(pathname);
+  // console.log(pathname);
   let carousel = ['/Images/carousel/landingpage.jpg', '/Images/carousel/carousel3.jpg', '/Images/carousel/carousel5.jpg']
 
   useEffect(() => {
@@ -74,9 +74,7 @@ export default function Hero() {
       return (
         <div className='text-center flex flex-col items-center'>
           <p className='text-julius md:text-[64px] font-[300] leading-normal uppercase'>Contact us</p>
-          <div className='max-w-[903px]'>
-            <GoogleMapComponent />
-          </div>
+          <GoogleMapComponent />
         </div>
       )
     } else if (pathname == '/book-now') {
@@ -90,18 +88,17 @@ export default function Hero() {
   }
 
   return (
-    <section className='h-[100vh] w-[100vw] text-white  transition-all duration-500 px-[5%]'
+    <section className='h-[100vh] w-[100vw] text-white  transition-all duration-500 px-[5%]' id='hero'
       style={{ backgroundImage: `url("${bg}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className='absolute inset-0 bg-black opacity-20 z-[9]'></div>
       <div className='relative z-[10] h-[100vh] flex flex-col justify-center'>
         {content()}
-        <div className='w-full flex justify-center'>
+        <div className='w-full flex flex-col items-center'>
           <Link
             href='#nav'
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 absolute bottom-14 animate-bounce hover:cursor-pointer"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 absolute bottom-[40px] mx-auto animate-bounce hover:cursor-pointer">
               <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           </Link>

@@ -1,7 +1,13 @@
+'use client'
+
+import applyScrollAnimation from '@/components/scroll-animation'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Services() {
+  useEffect(() => {
+    applyScrollAnimation('.scrollElement7', '.scrollElement7')
+  }, [])
   const serviceDetails = [
     {
       img: "/Images/healthy.png",
@@ -24,14 +30,14 @@ export default function Services() {
       <p className='text-[22px] md:text-[36px] font-[600] leading-normal pb-[40px] text-left font-source'>Khaleej team, catering services <br />
         and success stories</p>
       <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] md:gap-[20px] mt-[40px]'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] md:gap-[20px] mt-[40px] scrollElement7'>
         {serviceDetails.map((service, id) => {
           return (
-            <div className='bg-[#FFD369] rounded-[10px] shadow-custom p-[15px] font-montserrat' key={id}>
+            <div className='bg-[#FFD369] rounded-[10px] shadow-custom p-[15px] lg:p-[30px] font-montserrat' key={id}>
               <Image
                 src={service.img}
-                width={200}
-                height={200}
+                width={400}
+                height={400}
                 alt='service image'
                 className='w-[100%] h-auto'
               />
@@ -42,7 +48,6 @@ export default function Services() {
             </div>
           )
         })}
-
       </div>
     </section>
   )

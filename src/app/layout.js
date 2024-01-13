@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
         <ContextProvider>
           <Layout>
             <Hero />
+            <div id='nav'></div>
             <Navbar />
             {children}
             <Footer />

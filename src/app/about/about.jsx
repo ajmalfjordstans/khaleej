@@ -1,7 +1,13 @@
+'use client'
+
+import applyScrollAnimation from '@/components/scroll-animation'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function AboutSection() {
+  useEffect(() => {
+    applyScrollAnimation('.scrollElement', '.scrollElement')
+  }, [])
   return (
     // flex flex-col items-end
     <div className='min-h-[100vh] relative text-white bg-black pt-[150px]'>
@@ -14,7 +20,7 @@ export default function AboutSection() {
       />
       <div
         //  absolute top-[150px] left-0
-        className='z-[10] w-full md:w-[80vw] object-cover'
+        className='z-[10] w-full md:w-[80vw] object-cover scrollElement'
         style={{
           backgroundColor: ' rgba(137, 24, 46, 0.70)',
           position: 'relative',
