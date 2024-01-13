@@ -12,8 +12,8 @@ export default function PageFlip() {
     setPage(e.data)
   }, []);
   return (
-    <div className='text-white my-8 '>
-      <HTMLFlipBook width={400} height={500} className='mx-auto' ref={book} showCover={true}
+    <div className='text-white my-8'>
+      <HTMLFlipBook width={330} height={500} className='mx-auto w-[330px] md:w-[400px]' ref={book} showCover={true}
         onFlip={onFlip}
       >
         <Image src={`/menu/1.jpg`} height={350} width={280} className='' alt='menu page' />
