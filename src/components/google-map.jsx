@@ -6,18 +6,18 @@ export default function GoogleMapComponent() {
   const placeId = 'ChIJl9-3QABhd0gRHUJdxTRAJ-M';
   const [placeDetails, setPlaceDetails] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/place-details/${placeId}`);
-        setPlaceDetails(response.data);
-      } catch (error) {
-        console.error('Error fetching place details:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(`/api/place-details/${placeId}`);
+  //       setPlaceDetails(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching place details:', error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [placeId]);
+  //   fetchData();
+  // }, [placeId]);
   return (
     <>
       <div className='px-[5%] lg:px-0 max-w-[903px] w-full md:h-[240px] lg:h-[300px] my-[30px]'>
@@ -27,7 +27,7 @@ export default function GoogleMapComponent() {
           style={{ border: "0" }}
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </>
   )

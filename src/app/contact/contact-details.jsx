@@ -1,4 +1,5 @@
-import Form from '@/components/form'
+import ContactForm from '@/components/contact-form'
+import Form from '@/components/majlis-booking-form'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -71,7 +72,7 @@ export default function ContactDetails() {
         </div>
       </div>
       <div className='w-full bg-secondary rounded-[10px] p-[10px] shadow-custom'>
-        {/* <Form /> */}
+        <ContactForm />
       </div>
     </div>
   )

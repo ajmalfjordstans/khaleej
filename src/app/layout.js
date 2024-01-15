@@ -6,7 +6,7 @@ import Footer from '@/components/footer'
 import Layout from '@/components/layout'
 import Loading from '@/components/loading'
 import { ContextProvider } from '@/context/context'
-import { Metadata } from 'next'
+
 const inter = Inter({ subsets: ['latin'] })
 
 const source = Source_Serif_4({
@@ -39,13 +39,13 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} ${source.variable} ${julius.variable} ${montserrat.variable} overflow-x-hidden`}>
         {/* <Loading /> */}
         <ContextProvider>
-          <Layout>
-            <Hero />
-            <div id='nav'></div>
-            <Navbar />
-            {children}
-            <Footer />
-          </Layout>
+            <Layout>
+              <Hero />
+              <div id='nav'></div>
+              <Navbar />
+              {children}
+              <Footer />
+            </Layout>
         </ContextProvider>
       </body>
     </html>

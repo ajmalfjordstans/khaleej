@@ -1,9 +1,10 @@
 'use client'
 
-import Form from '@/components/form'
+import Form from '@/components/majlis-booking-form'
 import applyScrollAnimation from '@/components/scroll-animation'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
+
 
 export default function ContactSection() {
   useEffect(() => {
