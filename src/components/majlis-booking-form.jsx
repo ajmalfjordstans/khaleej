@@ -15,7 +15,7 @@ export default function Form() {
     values.time = timestamp.toLocaleTimeString();
     // console.log('Form data:', values);
     try {
-      const response = await fetch('http://localhost:3005/majlis-form', {
+      const response = await fetch('https://bright-button-dove.cyclic.app/majlis-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

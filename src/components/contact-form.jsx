@@ -3,14 +3,13 @@
 import React from 'react'
 import { useFormik } from "formik";
 import { Button } from "@material-tailwind/react";
-import { basicSchema } from "@/schemas";
+import { contactFormSchema } from "@/schemas";
 
 export default function ContactForm() {
-  const onSubmitContactForm = async (values, action) => {
-    console.log('Submitting');
-    console.log('Form data:', values);
+  const onSubmit = async (values, action) => {
     try {
-      const response = await fetch('http://localhost:3005/contact-form', {
+      const response = await fetch('https://bright-button-dove.cyclic.app/contact-form', {
+        // const response = await fetch('http://localhost:3005/contact-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,12 +32,12 @@ export default function ContactForm() {
   const { values, handleBlur, handleChange, handleSubmit, errors, touched, isSubmitting } = useFormik({
     initialValues: {
       name: 'Mohammed',
-      email: '',
-      phoneNumber: '',
-      message: '',
+      email: 'mdajmalmt@gmail.com',
+      phoneNumber: '9605745465',
+      message: 'Hi',
     },
-    validationSchema: basicSchema,
-    onSubmitContactForm,
+    validationSchema: contactFormSchema,
+    onSubmit,
   })
   return (
     <div className="p-[20px]">
@@ -86,6 +85,7 @@ export default function ContactForm() {
             className="bg-inherit w-full text-black border-[1px] border-primary rounded-[3px] p-3"
           />
         </div>
+        {errors.message && touched.message && <p className="text-[red]">{errors.message}</p>}
         <Button type="submit" disabled={isSubmitting} className="bg-primary ">
           Submit
         </Button>
