@@ -15,6 +15,7 @@ export default function Form() {
     values.time = timestamp.toLocaleTimeString();
     // console.log('Form data:', values);
     try {
+      // const response = await fetch('http://localhost:3005/majlis-form', {
       const response = await fetch('https://bright-button-dove.cyclic.app/majlis-form', {
         method: 'POST',
         headers: {
@@ -58,7 +59,7 @@ export default function Form() {
             value={values.name}
             onChange={handleChange}
             onBlur={handleBlur}
-            id="name" type="text" 
+            id="name" type="text"
             className={`bg-inherit w-full text-black border-[1px] border-primary rounded-[3px] p-3 ${errors.name && touched.name ? "border-[red]" : ""}`}
           />
           {errors.name && touched.name && <p className="text-[red]">{errors.name}</p>}
@@ -69,7 +70,7 @@ export default function Form() {
             value={values.email}
             onChange={handleChange}
             onBlur={handleBlur}
-            id="email" type="email" 
+            id="email" type="email"
             className={`bg-inherit w-full text-black border-[1px] border-primary rounded-[3px] p-3 ${errors.email && touched.email ? "border-[red]" : ""}`}
           />
           {errors.email && touched.email && <p className="text-[red]">{errors.email}</p>}
@@ -85,7 +86,7 @@ export default function Form() {
               className="bg-inherit w-full text-black border-[1px] border-primary rounded-[3px] "
               format='D MMMM YYYY'
               minDate={dayjs(new Date())}
-              />
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="time">Time</label>

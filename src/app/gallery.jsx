@@ -9,7 +9,7 @@ export default function Gallery() {
     applyScrollAnimation('.scrollElement4', '.triggerElement4')
   }, [])
   return (
-    <section className='container mx-auto px-[5%] lg:px-0 py-20 '>
+    <section className='container mx-auto px-[5%] lg:px-0 py-20 ' id='gallery'>
       <p className='text-[42px] md:text-[64px] font-[600] leading-normal pb-[40px] text-left font-source scrollElement'>Khaleej Gallery</p>
       <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 mt-8 triggerElement4">

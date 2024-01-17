@@ -11,7 +11,7 @@ export default function ContactSection() {
     applyScrollAnimation('.scrollElement5', '.scrollElement5')
   }, [])
   return (
-    <section className='bg-gradient-to-b from-primary to-black text-white'>
+    <section className='bg-gradient-to-b to-primary from-black text-white'>
       <div className='container mx-auto px-[5%] lg:px-0 py-10 grid grid-cols-1 lg:grid-cols-2 gap-3'>
         <div className='flex flex-col justify-center scrollElement5'>
           <p className='text-[22px] md:text-[36px] font-[600] leading-normal pb-[40px] text-left font-source '> Majlis Magic<br />Book your’s Now!</p>

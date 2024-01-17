@@ -8,8 +8,8 @@ import { contactFormSchema } from "@/schemas";
 export default function ContactForm() {
   const onSubmit = async (values, action) => {
     try {
+      // const response = await fetch('http://localhost:3005/contact-form', {
       const response = await fetch('https://bright-button-dove.cyclic.app/contact-form', {
-        // const response = await fetch('http://localhost:3005/contact-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
