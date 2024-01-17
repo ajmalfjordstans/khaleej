@@ -38,6 +38,13 @@ export default function Form() {
 
   const { values, handleBlur, handleChange, handleSubmit, errors, touched, isSubmitting } = useFormik({
     initialValues: {
+      // name: 'Mohammed',
+      // email: 'frontend.fjordstans@gmail.com',
+      // date: '',
+      // time: '',
+      // numberOfPersons: '1',
+      // phoneNumber: '9605745465',
+      // message: '',
       name: '',
       email: '',
       date: '',
