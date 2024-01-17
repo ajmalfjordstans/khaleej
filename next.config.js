@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export',
   images: {
     domains: ['<backend paths>'],
-    unoptimized: true
+    // unoptimized: true
   },
 }
 
