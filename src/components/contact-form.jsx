@@ -31,10 +31,10 @@ export default function ContactForm() {
 
   const { values, handleBlur, handleChange, handleSubmit, errors, touched, isSubmitting } = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      phoneNumber: '',
-      message: '',
+      name: 'Mohammed',
+      email: 'frontend.fjordstans@gmail.com',
+      phoneNumber: '9605745465',
+      message: 'Hi',
     },
     validationSchema: contactFormSchema,
     onSubmit,

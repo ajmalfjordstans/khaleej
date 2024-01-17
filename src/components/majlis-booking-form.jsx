@@ -38,13 +38,13 @@ export default function Form() {
 
   const { values, handleBlur, handleChange, handleSubmit, errors, touched, isSubmitting } = useFormik({
     initialValues: {
-      name: '',
-      email: '',
+      name: 'Mohammed',
+      email: 'frontend.fjordstans@gmail.com',
       date: '',
       time: '',
-      numberOfPersons: '',
-      phoneNumber: '',
-      message: '',
+      numberOfPersons: '1',
+      phoneNumber: '9605745465',
+      message: 'Hi',
     },
     validationSchema: basicSchema,
     onSubmit,
