@@ -2,7 +2,7 @@
 const nextConfig = {
   // output: 'export',
   images: {
-    domains: ['scontent.cdninstagram.com'],
+    domains: ['<backend paths>','scontent.cdninstagram.com'],
     // unoptimized: true
   },
 }
