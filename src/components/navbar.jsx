@@ -63,7 +63,7 @@ export default function Navbar() {
           >Contact</Link>
           <Link
             // onClick={() => clickHandle()}
-            href="#gallery"
+            href="https://www.khaleejmandi.co.uk/#gallery"
           >Gallery</Link>
           {/* <Link
               // onClick={() => clickHandle()}

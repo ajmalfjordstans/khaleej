@@ -38,20 +38,20 @@ export default function Form() {
 
   const { values, handleBlur, handleChange, handleSubmit, errors, touched, isSubmitting } = useFormik({
     initialValues: {
-      // name: 'Mohammed',
-      // email: 'frontend.fjordstans@gmail.com',
-      // date: '',
-      // time: '',
-      // numberOfPersons: '1',
-      // phoneNumber: '9605745465',
-      // message: '',
-      name: '',
-      email: '',
+      name: 'Mohammed',
+      email: 'frontend.fjordstans@gmail.com',
       date: '',
       time: '',
-      numberOfPersons: '',
-      phoneNumber: '',
+      numberOfPersons: '1',
+      phoneNumber: '9605745465',
       message: '',
+      // name: '',
+      // email: '',
+      // date: '',
+      // time: '',
+      // numberOfPersons: '',
+      // phoneNumber: '',
+      // message: '',
     },
     validationSchema: basicSchema,
     onSubmit,
@@ -90,7 +90,7 @@ export default function Form() {
               name="date"
               value={dayjs(date)}
               onChange={(newValue) => setDate(newValue)}
-              className="bg-inherit w-full text-black border-[1px] border-primary rounded-[3px] "
+              className="bg-inherit w-full !text-white border-[1px] border-primary rounded-[3px] "
               format='D MMMM YYYY'
               minDate={dayjs(new Date())}
             />
@@ -103,6 +103,7 @@ export default function Form() {
               value={dayjs(date)}
               onChange={(newValue) => setDate(newValue)}
               className=" !border-primary focus:!border-primary text-white w-full"
+              minTime={dayjs(new Date())}
             />
           </div>
         </div>
