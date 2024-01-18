@@ -12,7 +12,7 @@ export default function AboutSection() {
     // flex flex-col items-end
     <div className='min-h-[100vh] relative text-white bg-black pt-[150px]'>
       <Image
-        src="/Images/aboutus2.jpg"
+        src="/images/aboutus2.jpg"
         height={900}
         width={900}
         alt="background"

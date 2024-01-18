@@ -59,7 +59,7 @@ export default function Form() {
 
   return (
     <div className="p-[20px]">
-      <form autoCapitalize="off" className="grid grid-cols-1 gap-3" onSubmit={handleSubmit}>
+      <form autoCapitalize="off" className="grid grid-cols-1 gap-3 text-black" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2">
           <label htmlFor="name">Name</label>
           <input

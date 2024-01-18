@@ -63,7 +63,7 @@ export default function Navbar() {
           >Contact</Link>
           <Link
             // onClick={() => clickHandle()}
-            href="https://www.khaleejmandi.co.uk/#gallery"
+            href="/#gallery"
           >Gallery</Link>
           {/* <Link
               // onClick={() => clickHandle()}
@@ -140,8 +140,8 @@ export default function Navbar() {
                   closeDrawer()
                   clickHandle()
                 }}
-                href="/book-now#hero"
-              >Book Now</Link>
+                href="/#gallery"
+              >Gallery</Link>
               <Link
                 href="tel:+447653434233"
               >Call Us</Link>

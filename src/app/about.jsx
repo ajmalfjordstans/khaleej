@@ -17,7 +17,7 @@ export default function About() {
     <section className='bg-black text-white'>
       <div className='grid grid-cols-1 md:grid-cols-2'>
         <Image
-          src='/Images/carousel/carousel3.jpg'
+          src='/images/carousel/carousel3.jpg'
           width={1000}
           height={600}
           alt='about image'
@@ -33,11 +33,10 @@ export default function About() {
               href="/about"
             >
               <Button
-                className='bg-primary rounded-[5px] w-[242px] mt-[45px]'
+                className='bg-primary rounded-[5px] w-[242px] mt-[45px] capitalize font-[400] font-source'
               >Read More...</Button>
             </Link>
           </div>
-
         </div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2'>
@@ -51,14 +50,14 @@ export default function About() {
               href="/about"
             >
               <Button
-                className='bg-primary rounded-[5px] w-[242px] mt-[45px]'
+                className='bg-primary rounded-[5px] w-[242px] mt-[45px] capitalize font-[400] font-source'
               >Read More...</Button>
             </Link>
           </div>
 
         </div>
         <Image
-          src='/Images/majlis.jpg'
+          src='/images/majlis.jpg'
           width={1000}
           height={600}
           alt='about image'

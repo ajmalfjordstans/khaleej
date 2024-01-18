@@ -1,4 +1,4 @@
-import { Inter, Source_Serif_4, Julius_Sans_One, Montserrat } from 'next/font/google'
+import { Inter, Source_Serif_4, Julius_Sans_One, Montserrat, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import Hero from '@/components/hero'
 import Navbar from '@/components/navbar'
@@ -7,7 +7,7 @@ import Layout from '@/components/layout'
 import Loading from '@/components/loading'
 import { ContextProvider } from '@/context/context'
 
-const inter = Inter({ subsets: ['latin'] })
+const nunito = Nunito_Sans({ subsets: ['latin'] })
 
 const source = Source_Serif_4({
   variable: "--font-source",
@@ -36,7 +36,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${source.variable} ${julius.variable} ${montserrat.variable} overflow-x-hidden`}>
+      <body className={`${nunito.className} ${source.variable} ${julius.variable} ${montserrat.variable} overflow-x-hidden`}>
         {/* <Loading /> */}
         <ContextProvider>
           <Layout>

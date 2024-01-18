@@ -6,12 +6,12 @@ import React from 'react'
 
 export default function ContactDetails() {
   return (
-    <div className='container mx-auto px-[5%] lg:px-0 py-20 grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
+    <div className='container mx-auto px-[5%] lg:px-0 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
       <div className='w-full flex flex-col justify-between bg-primary rounded-[10px] p-[20px] lg:p-[40px] text-[20px] font-[400] text-white shadow-custom'>
         <div>
           <div className='flex flex-wrap gap-[30px]'>
             <Image
-              src="/Images/location.png"
+              src="/images/location.png"
               height={35}
               width={35}
               alt='icon'
@@ -21,7 +21,7 @@ export default function ContactDetails() {
           </div>
           <div className='flex flex-wrap gap-[30px] mt-[30px]'>
             <Image
-              src="/Images/contacticon.png"
+              src="/images/contacticon.png"
               height={35}
               width={35}
               alt='icon'
@@ -34,7 +34,7 @@ export default function ContactDetails() {
           </div>
           <div className='flex flex-wrap gap-[30px] mt-[30px]'>
             <Image
-              src="/Images/clock.png"
+              src="/images/clock.png"
               height={35}
               width={35}
               alt='icon'
@@ -51,7 +51,7 @@ export default function ContactDetails() {
             href="https://www.facebook.com/profile.php?id=61552072526576"
           >
             <Image
-              src="/Images/facebook.png"
+              src="/images/facebook.png"
               height={35}
               width={35}
               alt='icon'
@@ -62,7 +62,7 @@ export default function ContactDetails() {
             href="https://instagram.com/khaleejmandi.uk?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"
           >
             <Image
-              src="/Images/instagram.png"
+              src="/images/instagram.png"
               height={35}
               width={35}
               alt='icon'

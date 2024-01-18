@@ -36,7 +36,7 @@ export default function Gallery() {
           <section className='container mx-auto px-[5%] lg:px-0 py-20 ' id='gallery'>
             < p className='text-[42px] md:text-[64px] font-[600] leading-normal pb-[40px] text-left font-source scrollElement' > Khaleej Gallery</p >
             <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 triggerElement4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 triggerElement4 ">
 
               {data?.map((post, id) => {
                 return (
@@ -49,7 +49,7 @@ export default function Gallery() {
                       <Image
                         height={300}
                         width={300}
-                        className="h-[270px] max-w-[100%] rounded-lg object-cover"
+                        className="h-[270px] max-w-[100%] rounded-lg object-cover mx-auto"
                         src={post?.media_type == 'IMAGE' ? post?.media_url : post?.thumbnail_url}
                         alt="gallery-photo"
                       />

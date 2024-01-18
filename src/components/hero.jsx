@@ -10,19 +10,19 @@ import Loading from './loading'
 
 export default function Hero() {
   const [loading, setLoading] = React.useState(false)
-  const [bg, setBg] = useState('/Images/carousel/landingpage.jpg')
+  const [bg, setBg] = useState('/images/carousel/landingpage.jpg')
   const pathname = usePathname()
   // const router = useRouter()
   // console.log(router.events);
-  let carousel = ['/Images/carousel/landingpage.jpg', '/Images/carousel/carousel3.jpg', '/Images/carousel/carousel5.jpg']
+  let carousel = ['/images/carousel/landingpage.jpg', '/images/carousel/carousel3.jpg', '/images/carousel/carousel5.jpg']
 
   useEffect(() => {
-    // setBg('/Images/carousel/landingpage.jpg') startSlide()
-    if (pathname == '/') setBg('/Images/carousel/landingpage.jpg')
-    else if (pathname == '/about') setBg('/Images/newimages/aboutus1.jpg')
-    else if (pathname == '/menu') setBg('/Images/newimages/ourmenu.jpg')
-    else if (pathname == '/contact') setBg('/Images/newimages/contactus.jpg')
-    else if (pathname == '/book-now') setBg('/Images/newimages/contactus.jpg')
+    // setBg('/images/carousel/landingpage.jpg') startSlide()
+    if (pathname == '/') setBg('/images/carousel/landingpage.jpg')
+    else if (pathname == '/about') setBg('/images/newimages/aboutus1.jpg')
+    else if (pathname == '/menu') setBg('/images/newimages/ourmenu.jpg')
+    else if (pathname == '/contact') setBg('/images/newimages/contactus.jpg')
+    else if (pathname == '/book-now') setBg('/images/newimages/contactus.jpg')
   }, [pathname])
 
   const startSlide = () => {
@@ -53,13 +53,13 @@ export default function Hero() {
       return (
         <div className='text-center'>
           <p className={`font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase`}>Khaleej<br /> Mandi House</p>
-          <p className='font-julius text-[15px] md:text-[24px] uppercase mt-[20px]'>The Authentic Mandi in United Kingdom </p>
-          <p className='font-julius text-[15px] md:text-[24px] uppercase italic'>Flavours of royalty</p>
+          <p className='font-julius text-[15px] md:text-[24px] font-[600] uppercase mt-[20px]'>The Authentic Mandi in United Kingdom </p>
+          <p className='font-julius text-[15px] md:text-[24px] font-[600] uppercase '>Flavours of royalty</p>
           <Link
             href="/menu"
           >
             <Button
-              className='bg-primary rounded-[5px] w-[333px] mt-[40px]'
+              className='bg-primary rounded-[5px] w-[333px] mt-[40px] capitalize font-[400] font-source'
             >View Menu</Button>
           </Link>
         </div>

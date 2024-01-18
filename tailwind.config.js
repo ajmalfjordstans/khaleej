@@ -14,7 +14,7 @@ module.exports = withMT({
       },
       colors: {
         primary: '#89182E',
-        secondary: '#F3F25B',
+        secondary: '#FFD369', //change the color
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -26,6 +26,9 @@ module.exports = withMT({
         source: ['var(--font-source)'],
         montserrat:['var(--font-montserrat)']
       },
+      backgroundImage: {
+        'majlis-bg': "url('/images/majlis2.jpg')",
+      }
     },
   },
   plugins: [],
