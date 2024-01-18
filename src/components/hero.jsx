@@ -2,14 +2,18 @@
 
 import { Button } from '@material-tailwind/react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+
 import React, { useEffect, useState } from 'react'
 import GoogleMapComponent from './google-map'
+import Loading from './loading'
 
 export default function Hero() {
-  const pathname = usePathname()
+  const [loading, setLoading] = React.useState(false)
   const [bg, setBg] = useState('/Images/carousel/landingpage.jpg')
-  // console.log(pathname);
+  const pathname = usePathname()
+  // const router = useRouter()
+  // console.log(router.events);
   let carousel = ['/Images/carousel/landingpage.jpg', '/Images/carousel/carousel3.jpg', '/Images/carousel/carousel5.jpg']
 
   useEffect(() => {

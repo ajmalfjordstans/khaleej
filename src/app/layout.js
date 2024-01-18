@@ -39,13 +39,13 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} ${source.variable} ${julius.variable} ${montserrat.variable} overflow-x-hidden`}>
         {/* <Loading /> */}
         <ContextProvider>
-            <Layout>
-              <Hero />
-              <div id='nav'></div>
-              <Navbar />
-              {children}
-              <Footer />
-            </Layout>
+          <Layout>
+            <Hero />
+            <div id='nav'></div>
+            <Navbar />
+            {children}
+            <Footer />
+          </Layout>
         </ContextProvider>
       </body>
     </html>
