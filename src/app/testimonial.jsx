@@ -41,7 +41,7 @@ export default function Testimonial() {
 
           <div className="flex flex-col lg:flex-row w-[88%] md:w-[74%] justify-end items-center">
             {/* <img src={ReviewGoogle} alt="" className="h-[108px] md:h-[178px] mt-[15px]" /> */}
-            <div className="flex h-full w-[100%] items-center justify-center max-w-[600px]">
+            <div className="flex h-full w-[100%] items-center justify-center max-w-[600px] py-[20px]">
               <div
                 onClick={() =>
                   setCarsouelCount((state) => {
