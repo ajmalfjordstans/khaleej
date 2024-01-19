@@ -7,7 +7,9 @@ import Layout from '@/components/layout'
 import Loading from '@/components/loading'
 import { ContextProvider } from '@/context/context'
 
-const nunito = Nunito_Sans({ subsets: ['latin'] })
+const nunito = Nunito_Sans({
+  subsets: ['latin']
+})
 
 const source = Source_Serif_4({
   variable: "--font-source",
