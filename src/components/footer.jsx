@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-[5%] lg:px-0 py-8 text-white text-[14px] font-[300] leading-[180%] tracking-[0.14px]">
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
           <Image
-            src='/images/blackLogo.png'
+            src='/Images/blackLogo.png'
             height={170}
             width={245}
             alt='footer logo'
@@ -52,7 +52,7 @@ export default function Footer() {
                 href="https://instagram.com/khaleejmandi.uk?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"
               >
                 <Image
-                  src='/images/instagram.png'
+                  src='/Images/instagram.png'
                   height={25}
                   width={25}
                   alt='footer logo'
@@ -63,7 +63,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=61552072526576"
               >
                 <Image
-                  src='/images/facebook.png'
+                  src='/Images/facebook.png'
                   height={25}
                   width={25}
                   alt='footer logo'
@@ -74,7 +74,7 @@ export default function Footer() {
                 href="https://www.threads.net/@khaleejmandi.uk"
               >
                 <Image
-                  src='/images/threads.png'
+                  src='/Images/threads.png'
                   height={25}
                   width={25}
                   alt='footer logo'
@@ -85,7 +85,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@khaleejmandi.uk?_t=8hw6BNJCR4C&_r=1"
               >
                 <Image
-                  src='/images/tiktok.png'
+                  src='/Images/tiktok.png'
                   height={25}
                   width={25}
                   alt='footer logo'

@@ -10,19 +10,19 @@ import Loading from './loading'
 
 export default function Hero() {
   const [loading, setLoading] = React.useState(false)
-  const [bg, setBg] = useState('/images/carousel/landingpage.jpg')
+  const [bg, setBg] = useState('/Images/carousel/landingpage.jpg')
   const pathname = usePathname()
   // const router = useRouter()
   // console.log(router.events);
-  let carousel = ['/images/carousel/landingpage.jpg', '/images/carousel/carousel3.jpg', '/images/carousel/carousel5.jpg']
+  let carousel = ['/Images/carousel/landingpage.jpg', '/Images/carousel/carousel3.jpg', '/Images/carousel/carousel5.jpg']
 
   useEffect(() => {
-    // setBg('/images/carousel/landingpage.jpg') startSlide()
-    if (pathname == '/') setBg('/images/carousel/landingpage.jpg')
-    else if (pathname == '/about') setBg('/images/newimages/aboutus1.jpg')
-    else if (pathname == '/menu') setBg('/images/newimages/ourmenu.jpg')
-    else if (pathname == '/contact') setBg('/images/newimages/contactus.jpg')
-    else if (pathname == '/book-now') setBg('/images/newimages/contactus.jpg')
+    // setBg('/Images/carousel/landingpage.jpg') startSlide()
+    if (pathname == '/') setBg('/Images/carousel/landingpage.jpg')
+    else if (pathname == '/about') setBg('/Images/newimages/aboutus1.jpg')
+    else if (pathname == '/menu') setBg('/Images/newimages/ourmenu.jpg')
+    else if (pathname == '/contact') setBg('/Images/newimages/contactus.jpg')
+    else if (pathname == '/book-now') setBg('/Images/newimages/contactus.jpg')
   }, [pathname])
 
   const startSlide = () => {

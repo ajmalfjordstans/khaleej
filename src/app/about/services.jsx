@@ -10,17 +10,17 @@ export default function Services() {
   }, [])
   const serviceDetails = [
     {
-      img: "/images/healthy.png",
+      img: "/Images/healthy.png",
       title: "Mandi - Why a healthier choice?",
       desc: 'It’s a healthier choice with lean meats, aromatic spices, and a mix of rice and vegetables. Slow roasting enhances flavors without excessive oils. This traditional Middle Eastern dish offers a balanced blend of protein, carbohydrates, and nutrients.'
     },
     {
-      img: "/images/kiss.png",
+      img: "/Images/kiss.png",
       title: "Chef’s Kiss",
       desc: 'We take pride in our chefs,  boasting 15+ years of  experience in crafting and serving Middle Eastern cuisine.'
     },
     {
-      img: "/images/royalty.png",
+      img: "/Images/royalty.png",
       title: "Flavours of royalty",
       desc: 'Bringing Middle Eastern dining to the UK, our concept emphasizes shared meals on large platters, creating bonds of love. Experience an Arabic setting that brings royal flavors near your doorstep.'
     },

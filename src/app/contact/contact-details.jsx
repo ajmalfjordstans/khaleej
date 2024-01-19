@@ -11,7 +11,7 @@ export default function ContactDetails() {
         <div>
           <div className='flex flex-wrap gap-[30px]'>
             <Image
-              src="/images/location.png"
+              src="/Images/location.png"
               height={35}
               width={35}
               alt='icon'
@@ -21,7 +21,7 @@ export default function ContactDetails() {
           </div>
           <div className='flex flex-wrap gap-[30px] mt-[30px]'>
             <Image
-              src="/images/contacticon.png"
+              src="/Images/contacticon.png"
               height={35}
               width={35}
               alt='icon'
@@ -34,7 +34,7 @@ export default function ContactDetails() {
           </div>
           <div className='flex flex-wrap gap-[30px] mt-[30px]'>
             <Image
-              src="/images/clock.png"
+              src="/Images/clock.png"
               height={35}
               width={35}
               alt='icon'
@@ -51,7 +51,7 @@ export default function ContactDetails() {
             href="https://www.facebook.com/profile.php?id=61552072526576"
           >
             <Image
-              src="/images/facebook.png"
+              src="/Images/facebook.png"
               height={35}
               width={35}
               alt='icon'
@@ -62,7 +62,7 @@ export default function ContactDetails() {
             href="https://instagram.com/khaleejmandi.uk?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"
           >
             <Image
-              src="/images/instagram.png"
+              src="/Images/instagram.png"
               height={35}
               width={35}
               alt='icon'

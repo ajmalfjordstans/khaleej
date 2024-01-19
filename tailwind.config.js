@@ -27,7 +27,7 @@ module.exports = withMT({
         montserrat:['var(--font-montserrat)']
       },
       backgroundImage: {
-        'majlis-bg': "url('/images/majlis2.jpg')",
+        'majlis-bg': "url('/Images/majlis2.jpg')",
       }
     },
   },
