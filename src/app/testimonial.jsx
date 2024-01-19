@@ -1,36 +1,25 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from "@material-tailwind/react";
+import axios from 'axios';
+import Link from 'next/link';
 
 export default function Testimonial() {
   const [carsouelCount, setCarsouelCount] = useState(0);
-  const [reviews, setReviews] = useState([
-    {
-      "author_name": "Muhammad Kuniyil",
-      "text": "I had an epic dining experience at Khaleej. The food was not just tasty, it was truly exceptional. Every dish we ordered was bursting with flavours and left us thoroughly impressed. Great atmosphere! Complementary soup and tea was amazing.",
-    },
-    {
-      "author_name": "SAMI WALEED",
-      "text": "I just had the most incredible experience at Al Khaleej Mandi House. The food was absolutely amazing, and it truly transported me back to the Middle East. The flavours were so authentic and delicious, I felt like I was dining in the heart of the Middle East itself...",
-    },
-    {
-      "author_name": "Abhiram",
-      "text": "The restaurant has a nice ambiance and the food is delicious. I would recommend it to anyone looking for a good Mandi or  Madhbi experience in Leicester.",
-    },
-    {
-      "author_name": "Sabaa Khan",
-      "text": "Definitely recommend Amazing food. Amazing experience. Amazing service. Highly recommend the chicken madbhi. The soup and hummas was also amazing. One of the best Arab food i have had. Will definitely be coming again.",
-    },
-    {
-      "author_name": "Aswin Meparambath",
-      "text": "The best Arabic mandhi that we had in the UK. Chicken Mandi spot on. tried almost every salad in the menu all were pretty amazing. Enjoyed our time in proper Arabic ambience .and must try their Knafa. loved it❤️",
-    },
-    {
-      "author_name": "Asif Parekh",
-      "text": "Was very busy as opening week we were served by aswan fantastic service by her and food was very good  thank you",
-    },
-  ]);
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    const apiEndpoint = "https://bright-button-dove.cyclic.app/testimonial"
+    axios.get(apiEndpoint)
+      .then(response => {
+        setReviews(response?.data)
+        // console.log(response?.data);
+      })
+      .catch(error => {
+        // Handle errors
+        console.error('Error:', error.message);
+      });
+  }, [])
   return (
     <div>
       <div className="w-full bg-secondary xs:hidden pt-[50px] pb-[70px] px-[2%] black " >
@@ -39,9 +28,9 @@ export default function Testimonial() {
             <div className="border-l-[10px] border-[#7952B3] pl-[17px] text-[36px] leading-[40px] md:text-[48px] md:leading-[50px]">What Our Customers Say</div>
           </div>
 
-          <div className="flex flex-col lg:flex-row w-[88%] md:w-[74%] justify-end items-center">
+          <div className="flex flex-col lg:flex-row w-[100%] md:w-[74%] justify-end items-center">
             {/* <img src={ReviewGoogle} alt="" className="h-[108px] md:h-[178px] mt-[15px]" /> */}
-            <div className="flex h-full w-[100%] items-center justify-center max-w-[600px] py-[20px]">
+            <div className="flex h-full w-[100%] items-center justify-center max-w-[600px] py-[20px] mx-auto">
               <div
                 onClick={() =>
                   setCarsouelCount((state) => {
@@ -56,14 +45,18 @@ export default function Testimonial() {
                 </svg>
 
               </div>
-              <div className="flex flex-col items-center justify-start h-[200px] px-[20px]">
-                <h6 className="font-[700] italic">
-                  {reviews[carsouelCount].author_name}
-                </h6>
-                <p className="testimonials__text min-w-[220px] w-full mt-[35px]">
-                  {reviews[carsouelCount].text.length === 0 ? "No Review" : reviews[carsouelCount].text}
-                </p>
-              </div>
+              <a
+                href= {reviews[carsouelCount]?.author_url}
+              >
+                <div className="flex flex-col items-center justify-start h-[200px] px-[20px] mt-[30px]">
+                  <h6 className="font-[700] italic">
+                    {reviews.length > 0 ? reviews[carsouelCount]?.author_name : "Review Loading"}
+                  </h6>
+                  <p className="testimonials__text min-w-[220px] max-w-[350px] w-full mt-[35px] ">
+                    {reviews[carsouelCount]?.text.length === 0 ? "No Review" : reviews[carsouelCount]?.text.split(' ').slice(0, 25).join(' ') + "..."}
+                  </p>
+                </div>
+              </a>
               <div
                 onClick={() =>
                   setCarsouelCount((state) => {
