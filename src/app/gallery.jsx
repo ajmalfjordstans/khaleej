@@ -11,13 +11,14 @@ export default function Gallery() {
   const [data, setData] = useState()
   useEffect(() => {
     applyScrollAnimation('.scrollElement4', '.triggerElement4')
-    const apiEndpoint = 'https://v1.nocodeapi.com/mohammedajmal/instagram/cHdBEvCuLNKJBCxr';
+    // const apiEndpoint = 'https://v1.nocodeapi.com/mohammedajmal/instagram/cHdBEvCuLNKJBCxr';
+    const apiEndpoint = `https://bright-button-dove.cyclic.app/instagram-media`;
 
     axios.get(apiEndpoint)
       .then(response => {
         // Handle the response data
-        setData(response.data.data)
-        // console.log(response.data.data);
+        setData(response?.data.media.data)
+        console.log(response);
       })
       .catch(error => {
         // Handle errors

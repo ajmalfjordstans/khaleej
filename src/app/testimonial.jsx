@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from "@material-tailwind/react";
 import axios from 'axios';
-import Link from 'next/link';
 
 export default function Testimonial() {
   const [carsouelCount, setCarsouelCount] = useState(0);
