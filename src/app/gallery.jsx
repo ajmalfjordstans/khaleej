@@ -17,8 +17,8 @@ export default function Gallery() {
     axios.get(apiEndpoint)
       .then(response => {
         // Handle the response data
-        setData(response?.data.media.data)
-        console.log(response);
+        setData(response?.data)
+        // console.log(response?.data);
       })
       .catch(error => {
         // Handle errors
