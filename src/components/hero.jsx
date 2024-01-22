@@ -92,11 +92,11 @@ export default function Hero() {
   }
 
   return (
-    <section className='h-[100vh] w-[100vw] text-white  transition-all duration-500 px-[5%]' id='hero'
+    <section className='h-[100dvh] w-[100vw] text-white  transition-all duration-500 px-[5%]' id='hero'
       style={{ backgroundImage: `url("${bg}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className='absolute inset-0 bg-black opacity-20 z-[9]'></div>
-      <div className='relative z-[10] h-[100vh] flex flex-col justify-center'>
+      <div className='relative z-[10] h-[100dvh] flex flex-col justify-center'>
         {content()}
         <div className='w-full flex flex-col items-center'>
           <Link

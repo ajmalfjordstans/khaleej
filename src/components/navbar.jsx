@@ -110,35 +110,35 @@ export default function Navbar() {
               <Link
                 onClick={() => {
                   closeDrawer()
-                  clickHandle()
+                  // clickHandle()
                 }}
                 href="/#hero"
               >Home</Link>
               <Link
                 onClick={() => {
                   closeDrawer()
-                  clickHandle()
+                  // clickHandle()
                 }}
                 href="/about#hero"
               >About</Link>
               <Link
                 onClick={() => {
                   closeDrawer()
-                  clickHandle()
+                  // clickHandle()
                 }}
                 href="/menu#hero"
               >Menu</Link>
               <Link
                 onClick={() => {
                   closeDrawer()
-                  clickHandle()
+                  // clickHandle()
                 }}
                 href="/contact#hero"
               >Contact</Link>
               <Link
                 onClick={() => {
                   closeDrawer()
-                  clickHandle()
+                  // clickHandle()
                 }}
                 href="/#gallery"
               >Gallery</Link>
