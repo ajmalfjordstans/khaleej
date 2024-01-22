@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from "@material-tailwind/react";
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function Testimonial() {
   const [carsouelCount, setCarsouelCount] = useState(0);
@@ -22,12 +23,17 @@ export default function Testimonial() {
   return (
     <div>
       <div className="w-full bg-secondary xs:hidden pt-[50px] pb-[70px] px-[2%] black " >
-        <div className="container mx-auto flex flex-col md:flex-row flew-wrap justify-between px-[5%] lg:px-0">
+        <div className="container mx-auto flex flex-col lg:flex-row flew-wrap justify-between px-[5%] lg:px-0">
           <div className="flex justify-center items-center max-w-[257px]">
             <div className="border-l-[10px] border-[#7952B3] pl-[17px] text-[36px] leading-[40px] md:text-[48px] md:leading-[50px]">What Our Customers Say</div>
           </div>
-
-          <div className="flex flex-col lg:flex-row w-[100%] md:w-[74%] justify-end items-center">
+          <Image
+            src="/Images/google-review.svg"
+            height="320"
+            width='320'
+            className='p-[30px] mx-auto'
+          />
+          <div className="flex flex-col lg:flex-row w-[100%] md:w-auto justify-end items-center">
             {/* <img src={ReviewGoogle} alt="" className="h-[108px] md:h-[178px] mt-[15px]" /> */}
             <div className="flex h-full w-[100%] items-center justify-center max-w-[600px] py-[20px] mx-auto">
               <div
@@ -45,7 +51,7 @@ export default function Testimonial() {
 
               </div>
               <a
-                href= {reviews[carsouelCount]?.author_url}
+                href={reviews[carsouelCount]?.author_url}
               >
                 <div className="flex flex-col items-center justify-start h-[200px] px-[20px] mt-[30px]">
                   <h6 className="font-[700] italic">
