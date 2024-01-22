@@ -16,7 +16,7 @@ export default function Form() {
     // console.log('Form data:', values);
     try {
       // const response = await fetch('http://localhost:3005/majlis-form', {
-      const response = await fetch('https://bright-button-dove.cyclic.app/majlis-form', {
+      const response = await fetch('https://pitch-capable-tornado.glitch.me/majlis-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

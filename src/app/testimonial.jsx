@@ -8,7 +8,7 @@ export default function Testimonial() {
   const [carsouelCount, setCarsouelCount] = useState(0);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    const apiEndpoint = "https://bright-button-dove.cyclic.app/testimonial"
+    const apiEndpoint = "https://pitch-capable-tornado.glitch.me/testimonial"
     axios.get(apiEndpoint)
       .then(response => {
         setReviews(response?.data)
