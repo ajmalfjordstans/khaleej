@@ -21,9 +21,9 @@ export default function Footer() {
               <p>12-14 Highfield St, Leicester <br />LE2 1AB, UK</p>
             </Link>
             <Link
-              href="mailto:khaleejfoodsuk@gmail.com"
+              href="mailto:leicester@khaleejmandi.co.uk"
             >
-              <p className='mt-3'>khaleejfoodsuk@gmail.com</p>
+              <p className='mt-3'>leicester@khaleejmandi.co.uk</p>
             </Link>
             <Link
               href='tel:0 116 507 4571'

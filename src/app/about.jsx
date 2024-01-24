@@ -15,7 +15,7 @@ export default function About() {
 
   return (
     <section className='bg-black text-white'>
-      <div className='grid grid-cols-1 md:grid-cols-2'>
+      <div className='grid grid-cols-1 md:grid-cols-2 md:h-[90vh]'>
         <Image
           src='/Images/carousel/carousel3.jpg'
           width={1000}
@@ -30,7 +30,7 @@ export default function About() {
           <p className='mt-[30px] text-[14px] md:text-[16px]'>In Khaleej&apos;s ovens, Mandi magic unfolds, slow-cooking rice and tender meats to perfection. We&apos;ve brought the Middle East&apos;s unity and culture to the UK, inviting you to savor Mandi&apos;s rich heritage at Khaleej.</p>
           <div className='w-full flex justify-center'>
             <Link
-              href="/about"
+              href="/about#hero"
             >
               <Button
                 className='bg-primary rounded-[5px] w-[242px] mt-[45px] capitalize font-[400] font-source'
@@ -39,7 +39,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-2'>
+      <div className='grid grid-cols-1 md:grid-cols-2 md:h-[90vh] overflow-hidden'>
         <div className='p-[10%] md:p-[10%] text-justify scrollElement2'>
           <p className='text-[22px] md:text-[36px] font-[600] leading-normal pb-[40px] text-left font-source'>Savoring love together : The MAJLIS dining experience.</p>
           <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>
@@ -47,7 +47,7 @@ export default function About() {
           <p className='mt-[30px] text-[14px] md:text-[16px]'>This concept extends beyond meals, encouraging social interaction and creating an immersive experience that celebrates the joy of dining together.</p>
           <div className='w-full flex justify-center'>
             <Link
-              href="/about"
+              href="/about#hero"
             >
               <Button
                 className='bg-primary rounded-[5px] w-[242px] mt-[45px] capitalize font-[400] font-source'

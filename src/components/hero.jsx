@@ -33,7 +33,7 @@ export default function Hero() {
     const intervalId = setInterval(() => {
       currentIndex = (currentIndex + 1) % carousel.length;
       setCarouselBg(carousel[currentIndex]);
-    }, 5000);
+    }, 10000);
     if (pathname !== '/') clearInterval(intervalId)
     return () => clearInterval(intervalId);
   }
@@ -80,7 +80,7 @@ export default function Hero() {
     } else if (pathname == '/contact') {
       return (
         <div className='text-center flex flex-col items-center'>
-          <p className='text-julius md:text-[64px] font-[300] leading-normal uppercase'>Contact us</p>
+          <p className='font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>Contact us</p>
           <GoogleMapComponent />
         </div>
       )
@@ -100,7 +100,7 @@ export default function Hero() {
       <section className='h-[100dvh] w-[100vw] text-white  transition-all duration-500 px-[5%] flex items-center justify-center' id='hero'
         style={{ backgroundImage: `url("${carouselBg}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
-        <div className='absolute inset-0 bg-black opacity-20 z-[9]'></div>
+        <div className='absolute inset-0 bg-black opacity-40 z-[9]'></div>
         <div className='text-center z-[10]'>
           <p className={`font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase`}>Khaleej<br /> Mandi House</p>
           <p className='font-julius text-[15px] md:text-[24px] font-[600] uppercase mt-[20px]'>The Authentic Mandi in United Kingdom </p>
@@ -112,6 +112,15 @@ export default function Hero() {
               className='bg-primary rounded-[5px] w-[333px] mt-[40px] capitalize font-[400] font-source'
             >View Menu</Button>
           </Link>
+          <div className='w-full flex flex-col items-center'>
+            <Link
+              href='#nav'
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 absolute bottom-[40px] mx-auto animate-bounce hover:cursor-pointer">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
     )
