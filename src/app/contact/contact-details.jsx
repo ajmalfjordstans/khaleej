@@ -28,8 +28,16 @@ export default function ContactDetails() {
               className='h-[35px] w-[35px]'
             />
             <div>
-              <p>Phone : 0 116 507 4571</p>
-              <p>Email : leicester@khaleejmandi.co.uk</p>
+              <Link
+                href='tel:0 116 507 4571'
+              >
+                <p>Phone : 0 116 507 4571</p>
+              </Link>
+              <Link
+                href="mailto:leicester@khaleejmandi.co.uk"
+              >
+                <p>Email : leicester@khaleejmandi.co.uk</p>
+              </Link>
             </div>
           </div>
           <div className='flex flex-wrap gap-[30px] mt-[30px]'>
