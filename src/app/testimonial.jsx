@@ -58,7 +58,11 @@ export default function Testimonial() {
                     {reviews.length > 0 ? reviews[carsouelCount]?.author_name : "Review Loading"}
                   </h6>
                   <p className="testimonials__text min-w-[220px] max-w-[350px] w-full mt-[35px] ">
-                    {reviews[carsouelCount]?.text.length === 0 ? "No Review" : reviews[carsouelCount]?.text.split(' ').slice(0, 25).join(' ') + "..."}
+                    {
+                      reviews[carsouelCount]?.text
+                        ? reviews[carsouelCount]?.text.split(' ').slice(0, 25).join(' ') + "..."
+                        : "Loading"
+                    }
                   </p>
                 </div>
               </a>
