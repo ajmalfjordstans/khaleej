@@ -29,9 +29,9 @@ export default function ContactDetails() {
             />
             <div>
               <Link
-                href='tel:0 116 507 4571'
+                href='tel:+44 116 507 4571'
               >
-                <p>Phone : 0 116 507 4571</p>
+                <p>Phone : +44 116 507 4571</p>
               </Link>
               <Link
                 href="mailto:leicester@khaleejmandi.co.uk"

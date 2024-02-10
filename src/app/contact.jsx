@@ -1,12 +1,18 @@
 'use client'
 
+import CancelBooking from '@/components/cancel-booking'
 import Form from '@/components/majlis-booking-form'
 import applyScrollAnimation from '@/components/scroll-animation'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 export default function ContactSection() {
+  const [activeTab, setActiveTab] = useState('bookNow');
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
   useEffect(() => {
     applyScrollAnimation('.scrollElement5', '.scrollElement5')
   }, [])
@@ -21,10 +27,35 @@ export default function ContactSection() {
             <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>
           </div>
         </div>
-        <div className='bg-white rounded-[2px] container mx-auto px-[5%] lg:px-0 my-10'
+        <div className='bg-white rounded-[2px] container mx-auto px-[5%] lg:px-0 my-10 text-black'
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.29)" }}
         >
-          <Form />
+          <div className="flex space-x-4 pt-[15px] pl-[20px]">
+            <button
+              className={`transition duration-300 ease-in-out px-4 py-2 border-b-4 ${activeTab === 'bookNow'
+                ? 'border-primary text-primary'
+                : 'border-transparent text-gray-500 hover:text-primary'
+                }`}
+              onClick={() => handleTabChange('bookNow')}
+            >
+              Book Now
+            </button>
+            <button
+              className={`transition duration-300 ease-in-out px-4 py-2 border-b-4 ${activeTab === 'cancelBooking'
+                ? 'border-primary text-primary'
+                : 'border-transparent text-gray-500 hover:text-primary'
+                }`}
+              onClick={() => handleTabChange('cancelBooking')}
+            >
+              Cancel Booking
+            </button>
+          </div>
+          {activeTab === 'bookNow' ?
+            <Form />
+            :
+            <CancelBooking />
+          }
+
         </div>
       </div>
     </section>

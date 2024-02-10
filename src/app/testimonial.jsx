@@ -9,7 +9,7 @@ export default function Testimonial() {
   const [carsouelCount, setCarsouelCount] = useState(0);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    const apiEndpoint = "https://pitch-capable-tornado.glitch.me/testimonial"
+    const apiEndpoint = "https://khaleej-backend.onrender.com/testimonial"
     axios.get(apiEndpoint)
       .then(response => {
         setReviews(response?.data)
@@ -32,6 +32,7 @@ export default function Testimonial() {
             height="320"
             width='320'
             className='p-[30px] mx-auto'
+            alt='google review logo'
           />
           <div className="flex flex-col lg:flex-row w-[100%] md:w-auto justify-end items-center">
             {/* <img src={ReviewGoogle} alt="" className="h-[108px] md:h-[178px] mt-[15px]" /> */}

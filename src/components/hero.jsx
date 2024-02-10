@@ -100,7 +100,7 @@ export default function Hero() {
       <section className='h-[100dvh] w-[100vw] text-white  transition-all duration-500 px-[5%] flex items-center justify-center' id='hero'
         style={{ backgroundImage: `url("${carouselBg}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
-        <div className='absolute inset-0 bg-black opacity-40 z-[9]'></div>
+        <div className='absolute inset-0 bg-black opacity-40 z-[9] h-[100dvh]'></div>
         <div className='text-center z-[10]'>
           <p className={`font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase`}>Khaleej<br /> Mandi House</p>
           <p className='font-julius text-[15px] md:text-[24px] font-[600] uppercase mt-[20px]'>The Authentic Mandi in United Kingdom </p>

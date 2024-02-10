@@ -35,18 +35,17 @@ export const metadata = {
 }
 
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, isAdminPage }) {
   return (
     <html lang="en">
       <body className={`${nunito.className} ${source.variable} ${julius.variable} ${montserrat.variable} overflow-x-hidden`}>
         {/* <Loading /> */}
         <ContextProvider>
           <Layout>
-            <Hero />
+            {/* <Hero />
             <div id='nav'></div>
-            <Navbar />
+            <Navbar /> */}
             {children}
-            <Footer />
           </Layout>
         </ContextProvider>
       </body>

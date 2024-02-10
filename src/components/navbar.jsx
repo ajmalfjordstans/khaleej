@@ -70,7 +70,7 @@ export default function Navbar() {
               href="/book-now#hero"
             >Book Now</Link> */}
           <Link
-            href="tel:+447653434233"
+            href="tel:+44 116 507 4571"
           >Call Us</Link>
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function Navbar() {
                 href="/#gallery"
               >Gallery</Link>
               <Link
-                href="tel:+447653434233"
+                href="tel:+44 116 507 4571"
               >Call Us</Link>
             </div>
           </div>

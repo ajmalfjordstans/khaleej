@@ -89,7 +89,7 @@ export default function Gallery() {
     applyScrollAnimation('.scrollElement4', '.triggerElement4')
     // const apiEndpoint = 'https://v1.nocodeapi.com/mohammedajmal/instagram/cHdBEvCuLNKJBCxr';
     // const apiEndpoint = `https://bright-button-dove.cyclic.app/instagram-media`;
-    // const apiEndpoint = `https://pitch-capable-tornado.glitch.me/instagram-media`;
+    // const apiEndpoint = `https://khaleej-backend.onrender.com/instagram-media`;
 
     // axios.get(apiEndpoint)
     //   .then(response => {

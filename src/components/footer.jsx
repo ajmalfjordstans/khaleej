@@ -26,9 +26,9 @@ export default function Footer() {
               <p className='mt-3'>leicester@khaleejmandi.co.uk</p>
             </Link>
             <Link
-              href='tel:0 116 507 4571'
+              href='tel:+44 116 507 4571'
             >
-              <p className='mt-3'>0 116 507 4571</p>
+              <p className='mt-3'>+44 116 507 4571</p>
             </Link>
           </div>
           <div className='pt-[40px] flex flex-col'>
