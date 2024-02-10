@@ -15,6 +15,7 @@ export default function Enquiries() {
     const apiEndpoint = "https://khaleej-backend.onrender.com/contact/getEnquiries"
     axios.get(apiEndpoint)
       .then(response => {
+        console.log(response);
         setEnquiries(response?.data)
         setLoading(false)
       })
@@ -52,16 +53,19 @@ export default function Enquiries() {
         </div>
         {loading ?
           <div className='flex justify-center items-center h-[300px] w-full'>
-            <p className='font-[600] text-[30px]'>Loading...</p>
+            <p className='font-[600] md:text-[30px]'>Loading...</p>
           </div>
           :
           (
-            enquiries?.map((enquiry, id) => {
-              // console.log(enquiry);
-              return (
+            enquiries && enquiries.length > 0 ? (
+              enquiries.map((enquiry, id) => (
                 <Card data={enquiry} key={id} />
-              )
-            })
+              ))
+            ) : (
+              <div className='flex justify-center items-center h-[300px] w-full'>
+                <p className='font-[600] md:text-[30px]'>Nothing to show</p>
+              </div>
+            )
           )
         }
       </div>

@@ -9,8 +9,9 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon } from "@heroicons/react/24/outline"
+import SideMenu from './side-menu';
 
-export default function Navbar() {
+export default function Navbar({ showSection, setShowSection }) {
   const [open, setOpen] = React.useState(false);
 
   const openDrawer = () => setOpen(true);
@@ -44,9 +45,9 @@ export default function Navbar() {
       </div>
       <React.Fragment>
         {/* <Button onClick={openDrawer}>Open Drawer</Button> */}
-        <Drawer open={open} onClose={closeDrawer} placement="right" className="p-4">
+        <Drawer open={open} onClose={closeDrawer} placement="right" className="">
           <div className="mb-6 flex flex-col items-center justify-between">
-            <div className='flex items-center justify-between w-full'>
+            <div className='flex items-center justify-between w-full p-4'>
               <Image
                 src='/Logo.png'
                 height={101}
@@ -71,12 +72,8 @@ export default function Navbar() {
                 </svg>
               </IconButton>
             </div>
-            <div className='flex flex-col w-full gap-[20px] px-[5%]'>
-              
-
-
-
-
+            <div className='flex flex-col w-full gap-[20px]'>
+              <SideMenu setShowSection={setShowSection} showSection={showSection} closeDrawer={closeDrawer}/>
             </div>
           </div>
         </Drawer>

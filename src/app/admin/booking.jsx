@@ -45,55 +45,56 @@ export default function Booking() {
     // console.log(data);
     return (
       <div className='w-full rounded-[4px] border-[1px] border-primary shadow-md p-[20px]'>
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2 text-[14px] md:text-[18px]">
           <div className='flex flex-col gap-2'>
-            <p className='font-[700] text-[20px] leading-[22px] text-primary my-[10px]'>Contact Details</p>
-            <p className='text-[18px] leading-[22px] text-primary'>Name: {data?.name}</p>
-            <p className='text-[18px] leading-[22px] text-primary'>Email: {data?.email}</p>
-            <p className='text-[18px] leading-[22px] text-primary'>Phone: {data?.phoneNumber}</p>
+            <p className='font-[700] text-[16px] md:text-[20px] leading-[22px] text-primary my-[10px]'>Contact Details</p>
+            <p className='leading-[22px] text-primary'>Name: {data?.name}</p>
+            <p className='leading-[22px] text-primary'>Email: {data?.email}</p>
+            <p className='leading-[22px] text-primary'>Phone: {data?.phoneNumber}</p>
           </div>
           <div className='flex flex-col gap-2'>
-            <p className='font-[700] text-[20px] leading-[22px] text-primary my-[10px]'>Booking Details</p>
-            <p className='text-[18px] leading-[22px] text-primary'>No. of seats: {data?.numberOfPersons}</p>
-            <p className='text-[18px] leading-[22px] text-primary'>Date: {data?.date}</p>
-            <p className='text-[18px] leading-[22px] text-primary'>Time: {data?.time}</p>
-            <p className='text-[18px] leading-[22px] text-primary'>Status: {data?.status}</p>
+            <p className='font-[700] text-[16px] md:text-[20px] leading-[22px] text-primary my-[10px]'>Booking Details</p>
+            <p className='leading-[22px] text-primary'>No. of seats: {data?.numberOfPersons}</p>
+            <p className='leading-[22px] text-primary'>Date: {data?.date}</p>
+            <p className='leading-[22px] text-primary'>Time: {data?.time}</p>
+            <p className='leading-[22px] text-primary'>Status: {data?.status}</p>
           </div>
         </div>
-
-        {view === 'pending' ?
-          <div className='flex gap-2'>
-            <Button
-              className='capitalize tracking-[1px] bg-[#00FF00]'
-              onClick={() => { updateReservation('confirmed', data?.email) }}
-            >
-              Confirm
-            </Button>
-            <Button
-              className='capitalize tracking-[1px] bg-[#FF0000]'
-              onClick={() => { updateReservation('rejected', data?.email) }}
-            >
-              Reject
-            </Button>
-          </div>
-          : ""}
-        {view === 'confirmed' ?
-          <div className='flex gap-2'>
-            <Button
-              className='capitalize tracking-[1px] bg-[#00FF00]'
-              onClick={() => { updateReservation('completed', data?.email) }}
-            >
-              Complete
-            </Button>
-          </div>
-          : ""}
+        <div className='mt-[10px] md:mt-0'>
+          {view === 'pending' ?
+            <div className='flex gap-2'>
+              <Button
+                className='capitalize tracking-[1px] bg-[#00FF00]'
+                onClick={() => { updateReservation('confirmed', data?.email) }}
+              >
+                Confirm
+              </Button>
+              <Button
+                className='capitalize tracking-[1px] bg-[#FF0000]'
+                onClick={() => { updateReservation('rejected', data?.email) }}
+              >
+                Reject
+              </Button>
+            </div>
+            : ""}
+          {view === 'confirmed' ?
+            <div className='flex gap-2'>
+              <Button
+                className='capitalize tracking-[1px] bg-[#00FF00]'
+                onClick={() => { updateReservation('completed', data?.email) }}
+              >
+                Complete
+              </Button>
+            </div>
+            : ""}
+        </div>
       </div >
     )
   }
 
   return (
     <div className='w-full h-[90dvh] overflow-y-scroll'>
-      <div className='w-full border-b-[1px] border-[#E3E3E3] flex font-[600] text-[14px] md:text-[16px] leading-[24px] text-[#707070] sticky top-0 pt-[20px] px-[20px] bg-white '>
+      <div className='w-full border-b-[1px] border-[#E3E3E3] flex font-[600] text-[14px] md:text-[16px] leading-[24px] text-[#707070] sticky top-0 pt-[20px] px-[20px] bg-white overflow-x-scroll'>
         <span
           className={`${view == "pending" ? "text-[#7b022e] border-b-[4px] border-[#7b022e]" : ""} pb-[10px] hover:cursor-pointer px-[10px]`}
           onClick={() => setView('pending')}
@@ -114,7 +115,7 @@ export default function Booking() {
           className={`${view == "rejected" ? "text-[#7b022e] border-b-[4px] border-[#7b022e]" : ""} pb-[10px] hover:cursor-pointer px-[10px]`}
           onClick={() => setView('rejected')}
         >Rejected</span>
-        <div className='absolute right-5 hover:cursor-pointer'
+        <div className='md:absolute right-5 hover:cursor-pointer'
           onClick={getReservation}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -124,8 +125,8 @@ export default function Booking() {
       </div>
       <div className='py-[15px] flex flex-col gap-[15px] p-[20px]'>
         {loading ? (
-          <div className='flex justify-center items-center h-[300px] w-full'>
-            <p className='font-[600] text-[30px]'>Loading...</p>
+          <div className='flex justify-center items-center h-[350px] w-full'>
+            <p className='font-[600] md:text-[30px]'>Loading...</p>
           </div>
         ) : (
           reservations
@@ -137,8 +138,8 @@ export default function Booking() {
         {reservations
           ?.filter(reservation => reservation.status === view)
           .length === 0 && (
-            <div className='flex justify-center items-center h-[300px] w-full'>
-              <p className='font-[600] text-[30px]'>Nothing to show</p>
+            <div className='flex justify-center items-center h-[350px] w-full'>
+              <p className='font-[600] md:text-[30px]'>Nothing to show</p>
             </div>
           )}
       </div>

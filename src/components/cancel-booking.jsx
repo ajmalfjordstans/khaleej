@@ -40,7 +40,7 @@ export default function CancelBooking() {
   }
 
   return (
-    <div className='p-[20px]'>
+    <div className='md:p-[20px] py-[20px] md:py-0'>
       {showSearch ?
         <div className="flex flex-col gap-[2px] w-full">
           <label htmlFor="email">Enter your booking email</label>
@@ -69,42 +69,42 @@ export default function CancelBooking() {
               <table className="min-w-full divide-y divide-gray-200">
                 <tbody className="bg-white divide-y divide-gray-200">
                   <tr>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">Name</p>
                     </td>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900"> {booking.name}</p>
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">Number of Persons</p>
                     </td>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">{booking.numberOfPersons}</p>
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">Date</p>
                     </td>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">{booking.date}</p>
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">Time</p>
                     </td>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">{booking.time}</p>
                     </td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">Status</p>
                     </td>
-                    <td className="px-6 py-2 whitespace-nowrap">
+                    <td className="md:px-6 py-2 whitespace-nowrap">
                       <p className="text-sm font-medium text-gray-900">{booking.status}</p>
                     </td>
                   </tr>

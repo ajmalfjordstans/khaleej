@@ -15,9 +15,11 @@ export default function Page() {
       {loggedIn ?
         (
           <>
-            <Navbar />
+            <Navbar setShowSection={setShowSection} showSection={showSection}/>
             <div className='flex h-[90dvh]'>
-              <SideMenu setShowSection={setShowSection} showSection={showSection} />
+              <div className='hidden md:block'>
+                <SideMenu setShowSection={setShowSection} showSection={showSection} />
+              </div>
               <div className='w-full'>
                 {showSection === 'booking' ?
                   <Booking />
