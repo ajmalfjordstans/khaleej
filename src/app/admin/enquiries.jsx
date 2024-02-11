@@ -60,7 +60,7 @@ export default function Enquiries() {
   const Card = (data) => {
     // console.log(data.data);
     return (
-      <div className='w-full rounded-[4px] border-[1px] border-primary shadow-md p-[20px]'>
+      <div className='w-full rounded-[4px] border-[1px] border-primary shadow-md p-[20px] flex flex-wrap justify-between'>
         <div className="">
           <div className='flex flex-col gap-2'>
             <p className='font-[700] text-[20px] leading-[22px] text-primary my-[10px]'>Enquiry</p>
@@ -70,7 +70,7 @@ export default function Enquiries() {
             <p className='text-[18px] leading-[22px] text-primary'>Message: {data?.data.message}</p>
           </div>
         </div>
-        <div className='mt-[10px] md:mt-0 flex gap-2'>
+        <div className='mt-[10px] md:mt-0 flex gap-2 flex-row md:flex-col'>
           <Button
             color='blue'
             onClick={() => {
