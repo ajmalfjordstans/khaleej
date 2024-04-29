@@ -2,6 +2,7 @@
 
 import Loading from '@/components/loading';
 import applyScrollAnimation from '@/components/scroll-animation'
+import { Button } from '@material-tailwind/react';
 import Image from 'next/image'
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
@@ -174,6 +175,8 @@ export default function Gallery() {
       "permalink": "https://www.instagram.com/reel/C1SAkGrqW0R/"
     }
   ])
+  const [showAll, setShowAll] = useState(false);
+  const visiblePosts = showAll ? data : data.slice(0, 8);
   useEffect(() => {
     applyScrollAnimation('.scrollElement4', '.triggerElement4')
     // const apiEndpoint = 'https://v1.nocodeapi.com/mohammedajmal/instagram/cHdBEvCuLNKJBCxr';
@@ -200,7 +203,7 @@ export default function Gallery() {
           <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8 triggerElement4 ">
 
-            {data?.map((post, id) => {
+            {visiblePosts?.map((post, id) => {
               return (
                 <Link
                   href={post?.permalink}
@@ -225,6 +228,9 @@ export default function Gallery() {
                 </Link>
               )
             })}
+          </div>
+          <div className='w-full flex justify-center mt-[40px]'>
+            <Button onClick={() => setShowAll(!showAll)} className='bg-secondary mx-auto text-black'>View {showAll ? "Less" : "More"}</Button>
           </div>
         </section >
       }
