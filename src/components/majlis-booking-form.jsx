@@ -18,7 +18,7 @@ export default function Form() {
     values.time = timestamp.toLocaleTimeString();
     try {
       // const response = await fetch('http://localhost:3005/majlis', {
-      const response = await fetch('https://khaleej-backend.onrender.com/majlis-form', {
+      const response = await fetch('https://khaleej-backend.onrender.com/majlis', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
