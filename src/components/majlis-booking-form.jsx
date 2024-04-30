@@ -17,8 +17,8 @@ export default function Form() {
     values.date = timestamp.toLocaleDateString()
     values.time = timestamp.toLocaleTimeString();
     try {
-      const response = await fetch('http://localhost:3005/majlis', {
-        // const response = await fetch('https://khaleej-backend.onrender.com/majlis-form', {
+      // const response = await fetch('http://localhost:3005/majlis', {
+      const response = await fetch('https://khaleej-backend.onrender.com/majlis-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export default function Form() {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: animationData, 
+    animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
