@@ -45,7 +45,7 @@ export default function CancelBooking() {
     <div className='md:p-[20px] py-[20px] md:py-0'>
       {showSearch ?
         <div className="flex flex-col gap-[2px] w-full mt-[30px]">
-          <label htmlFor="email">Enter your booking email</label>
+          <label htmlFor="email">Enter your booking id</label>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}

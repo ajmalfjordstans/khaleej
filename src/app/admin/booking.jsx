@@ -28,13 +28,13 @@ export default function Booking() {
   }
 
   const updateReservation = async (status, id) => {
-    const email = id;
+    // const email = id;
     const updateData = {
       status: status
     };
     try {
-      // const response = await axios.post(`http://localhost:3005/majlis/updateReservation/${email}`, updateData);
-      const response = await axios.post(`https://khaleej-backend.onrender.com/majlis/updateReservation/${email}`, updateData);
+      // const response = await axios.post(`http://localhost:3005/majlis/updateReservation/${id}`, updateData);
+      const response = await axios.post(`https://khaleej-backend.onrender.com/majlis/updateReservation/${id}`, updateData);
       // console.log('Update successful:', response.data);
       getReservation()
     } catch (error) {
