@@ -42,7 +42,7 @@ export default function Booking() {
     }
   }
   const Card = ({ data }) => {
-    // console.log(data);
+    console.log(data);
     return (
       <div className='w-full rounded-[4px] border-[1px] border-primary shadow-md p-[20px]'>
         <div className="grid md:grid-cols-2 text-[14px] md:text-[18px]">
@@ -65,13 +65,13 @@ export default function Booking() {
             <div className='flex gap-2'>
               <Button
                 className='capitalize tracking-[1px] bg-[#00FF00]'
-                onClick={() => { updateReservation('confirmed', data?.email) }}
+                onClick={() => { updateReservation('confirmed', data?.id) }}
               >
                 Confirm
               </Button>
               <Button
                 className='capitalize tracking-[1px] bg-[#FF0000]'
-                onClick={() => { updateReservation('rejected', data?.email) }}
+                onClick={() => { updateReservation('rejected', data?.id) }}
               >
                 Reject
               </Button>
@@ -81,7 +81,7 @@ export default function Booking() {
             <div className='flex gap-2'>
               <Button
                 className='capitalize tracking-[1px] bg-[#00FF00]'
-                onClick={() => { updateReservation('completed', data?.email) }}
+                onClick={() => { updateReservation('completed', data?.id) }}
               >
                 Complete
               </Button>
