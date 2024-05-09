@@ -1,4 +1,4 @@
-import ContactForm from '@/components/contact-form'
+import ContactForm from '@/components/forms/contact-form'
 import Form from '@/components/majlis-booking-form'
 import Image from 'next/image'
 import Link from 'next/link'

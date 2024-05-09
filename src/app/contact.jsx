@@ -1,6 +1,6 @@
 'use client'
 
-import CancelBooking from '@/components/cancel-booking'
+import CancelBooking from '@/components/forms/cancel-booking'
 import Form from '@/components/majlis-booking-form'
 import applyScrollAnimation from '@/components/scroll-animation'
 import Image from 'next/image'

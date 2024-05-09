@@ -63,8 +63,8 @@ export default function Navbar() {
           >Contact</Link>
           <Link
             // onClick={() => clickHandle()}
-            href="/#gallery"
-          >Gallery</Link>
+            href="/careers"
+          >Careers</Link>
           {/* <Link
               // onClick={() => clickHandle()}
               href="/book-now#hero"
@@ -140,8 +140,8 @@ export default function Navbar() {
                   closeDrawer()
                   // clickHandle()
                 }}
-                href="/#gallery"
-              >Gallery</Link>
+                href="/careers"
+              >Careers</Link>
               <Link
                 href="tel:+44 116 507 4571"
               >Call Us</Link>

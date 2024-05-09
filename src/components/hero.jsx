@@ -25,6 +25,7 @@ export default function Hero() {
     else if (pathname == '/menu') setBg('/Images/newimages/ourmenu.jpg')
     else if (pathname == '/contact') setBg('/Images/newimages/contactus.jpg')
     else if (pathname == '/book-now') setBg('/Images/newimages/contactus.jpg')
+    else if (pathname == '/careers') setBg('/Images/newimages/career.jpg')
   }, [pathname])
 
   const startSlide = () => {
@@ -91,9 +92,14 @@ export default function Hero() {
 
         </div>
       )
+    } else if (pathname == '/careers') {
+      return (
+        <div className='text-center flex flex-col items-center'>
+          <p className='text-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>Careers</p>
+        </div>
+      )
     }
   }
-
 
   if (pathname == '/')
     return (
