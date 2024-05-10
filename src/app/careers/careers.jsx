@@ -32,6 +32,7 @@ const vacancies = {
     ],
     qualifications: [" Proven experience as a Mandi Chef or Yemeni Chef, or similar role in a restaurant or culinary setting",
       " Strong knowledge of Mandi or Yemeni cuisine and traditional cooking techniques",
+      " Requires a minimum of 5 years of managerial experience in the restaurant industry.",
       " Ability to work in a fast-paced environment while maintaining attention to detail",
       " Excellent communication and teamwork skills.",
       " Knowledge of food safety regulations and best practices",
