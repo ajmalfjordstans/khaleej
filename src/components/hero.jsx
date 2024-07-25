@@ -13,12 +13,12 @@ export default function Hero() {
   const [bg, setBg] = useState('/Images/carousel/landingpage.jpg')
   const [carouselBg, setCarouselBg] = useState('/Images/carousel/landingpage.jpg')
   const pathname = usePathname()
-  let carousel = ['/Images/carousel/landingpage.JPG',  '/Images/carousel/20240421-DSC03113 2.JPEG',"/Images/carousel/20240421-DSC03220 2.JPEG", "/Images/carousel/20240421-DSC03334 2.JPEG", "/Images/carousel/DSC03147.jpg", "/Images/carousel/IMG_1195.JPG"]
+  let carousel = ['/Images/carousel/landingpage.jpg',  '/Images/carousel/carousel1.jpeg',"/Images/carousel/carousel2.jpeg", "/Images/carousel/carousel3.jpeg", "/Images/carousel/carousel4.jpg", "/Images/carousel/carousel5.jpg"]
 
   useEffect(() => {
     // setBg('/Images/carousel/landingpage.jpg') startSlide()
     if (pathname == '/') {
-      setBg('/Images/carousel/landingpage.JPG')
+      setBg('/Images/carousel/landingpage.jpg')
       startSlide()
     }
     else if (pathname == '/about') setBg('/Images/newimages/aboutus1.jpg')
