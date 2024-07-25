@@ -17,7 +17,7 @@ export default function About() {
     <section className='bg-black text-white'>
       <div className='grid grid-cols-1 md:grid-cols-2 md:h-[90vh]'>
         <Image
-          src='/Images/carousel/carousel3.jpg'
+          src='/Images/story.JPG'
           width={1000}
           height={600}
           alt='about image'
