@@ -62,7 +62,7 @@ export default function MenuSection() {
                 return (
                   <SwiperSlide key={index + 1}>
                     <Image
-                      src={`/menu/${index + 1}.jpg`}
+                      src={`/new-menu/${index + 1}.jpg`}
                       height={350}
                       width={400}
                       className=''
