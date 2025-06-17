@@ -87,7 +87,7 @@ export default function MenuSection() {
           <div className='flex justify-center items-center gap-[50px] my-[30px] w-full  z-[10]'>
 
             {/* <p className='transition-opacity duration-100'>{pageNo  + " - "}{pageNo + 2}/24</p> */}
-            <Button className='bg-secondary text-black capitalize font-[400] font-source' onClick={() => window.open('/new-menu.pdf')}>View Menu</Button>
+            <Button className='bg-secondary text-black capitalize font-[400] font-source' onClick={() => window.open('/KhaleejNewMenu.pdf')}>View Menu</Button>
 
           </div>
         </div>
