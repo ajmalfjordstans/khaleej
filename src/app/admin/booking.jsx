@@ -92,6 +92,13 @@ export default function Booking() {
     )
   }
 
+  const toMillis = (t) => {
+    if (!t) return 0;
+    if (typeof t === 'string' || typeof t === 'number') return new Date(t).getTime();
+    if (t._seconds !== undefined) return t._seconds * 1000 + Math.floor(t._nanoseconds / 1e6);
+    return 0;
+  };
+
   return (
     <div className='w-full h-[90dvh] overflow-y-scroll'>
       <div className='w-full border-b-[1px] border-[#E3E3E3] flex font-[600] text-[14px] md:text-[16px] leading-[24px] text-[#707070] sticky top-0 pt-[20px] px-[20px] bg-white overflow-x-scroll'>
@@ -129,15 +136,16 @@ export default function Booking() {
             <p className='font-[600] md:text-[30px]'>Loading...</p>
           </div>
         ) : (
-          reservations
+          (reservations
             ?.filter(reservation => reservation.status === view)
+            ?.sort((a, b) => toMillis(b?.createddatetime) - toMillis(a?.createddatetime)) || [])
             .map((reservation, id) => (
               <Card data={reservation} key={id} />
             ))
         )}
-        {reservations
+        {(reservations
           ?.filter(reservation => reservation.status === view)
-          .length === 0 && (
+          ?.length === 0) && (
             <div className='flex justify-center items-center h-[350px] w-full'>
               <p className='font-[600] md:text-[30px]'>Nothing to show</p>
             </div>
