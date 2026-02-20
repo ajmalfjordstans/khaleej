@@ -13,8 +13,7 @@ export default function CancelBooking() {
   const findBooking = async () => {
     try {
       setLoading(true)
-      // const response = await axios.get(`http://localhost:3005/majlis/findReservation/${email}`)
-      const response = await axios.get(`https://khaleej-backend.onrender.com/majlis/findReservation/${email}`)
+      const response = await axios.get(`/api/majlis/findReservation/${email}`)
       // console.log(response.data.status);
       if (response.data.status === 'pending' || response.data.status === 'confirmed') {
         setBooking(response.data);
@@ -32,8 +31,7 @@ export default function CancelBooking() {
 
   const cancelBooking = async () => {
     try {
-      // const response = await axios.post(`http://localhost:3005/majlis/cancelReservation/${email}`)
-      const response = await axios.post(`https://khaleej-backend.onrender.com/majlis/cancelReservation/${email}`)
+      const response = await axios.post(`/api/majlis/cancelReservation/${email}`)
       // console.log(response);
       setCancel(true)
     } catch (error) {

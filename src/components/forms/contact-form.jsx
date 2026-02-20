@@ -9,8 +9,7 @@ export default function ContactForm() {
   const [successful, setSuccessful] = useState(false)
   const onSubmit = async (values, action) => {
     try {
-      // const response = await fetch('http://localhost:3005/contact', {
-        const response = await fetch('https://khaleej-backend.onrender.com/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

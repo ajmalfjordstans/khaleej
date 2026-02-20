@@ -9,7 +9,7 @@ export default function Testimonial() {
   const [carsouelCount, setCarsouelCount] = useState(0);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    const apiEndpoint = "https://khaleej-backend.onrender.com/testimonial"
+    const apiEndpoint = "/api/testimonial"
     axios.get(apiEndpoint)
       .then(response => {
         setReviews(response?.data)

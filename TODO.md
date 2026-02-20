@@ -64,7 +64,7 @@ Phase 2 – Implement API routes for contact & enquiries
 
 Phase 3 – Implement API routes for majlis reservations
 
-9. Create /api/majlis POST route for new booking
+9. Create /api/majlis POST route for new booking [DONE]
    
    - File: src/app/api/majlis/route.js
    - Implement equivalent of createMajlisBooking :
@@ -73,36 +73,36 @@ Phase 3 – Implement API routes for majlis reservations
      - Call sendEmailToAdmin(formData, id, "New Majlis Booking")
      - Call sendConfirmationEmail(formData, id)
      - Return booking data.
-10. Create /api/majlis/getReservations GET route for admin list
+10. Create /api/majlis/getReservations GET route for admin list [DONE]
     
     - File: src/app/api/majlis/getReservations/route.js
     - Implement equivalent of getMajlisReservations :
       - Query reservation ordered by createddatetime desc
       - Return array of data.
-11. Create /api/majlis/findReservation/[id] GET route
+11. Create /api/majlis/findReservation/[id] GET route [DONE]
     
     - Directory: src/app/api/majlis/findReservation/[id]/route.js
     - Implement equivalent of findMajlisReservation .
-12. Create /api/majlis/cancelReservation/[id] POST route
+12. Create /api/majlis/cancelReservation/[id] POST route [DONE]
     
     - Directory: src/app/api/majlis/cancelReservation/[id]/route.js
     - Implement equivalent of cancelMajlisReservation :
       - Update status to "cancelled"
       - Fetch doc and call sendUpdateEmail(data, "cancelled", id) .
-13. Create /api/majlis/updateReservation/[id] POST route
+13. Create /api/majlis/updateReservation/[id] POST route [DONE]
     
     - Directory: src/app/api/majlis/updateReservation/[id]/route.js
     - Implement equivalent of updateMajlisReservation :
       - Update status from body
       - Send update email if status !== "completed" .
-14. Create /api/majlis/delete/[id] DELETE route
+14. Create /api/majlis/delete/[id] DELETE route [DONE]
     
     - Directory: src/app/api/majlis/delete/[id]/route.js
     - Implement equivalent of deleteMajlisReservation .
 
 Phase 4 – Implement API routes for Google testimonials & Instagram
 
-15. Create /api/testimonial GET route
+15. Create /api/testimonial GET route [DONE]
     
     - File: src/app/api/testimonial/route.js
     - Implement equivalent of routes/testimonials.js :
@@ -117,32 +117,32 @@ Phase 4 – Implement API routes for Google testimonials & Instagram
       
 Phase 5 – Wire frontend to new Next.js API routes
 
-17. Update contact form to call /api/contact
+17. Update contact form to call /api/contact [DONE]
     
     - File: src/components/forms/contact-form.jsx
     - Replace https://khaleej-backend.onrender.com/contact with relative /api/contact .
-18. Update majlis booking form to call /api/majlis
+18. Update majlis booking form to call /api/majlis [DONE]
     
     - File: src/components/majlis-booking-form.jsx
     - Replace https://khaleej-backend.onrender.com/majlis with /api/majlis .
-19. Update cancel booking form to call new majlis cancel API
+19. Update cancel booking form to call new majlis cancel API [DONE]
     
     - File: src/components/forms/cancel-booking.jsx
     - Replace https://khaleej-backend.onrender.com/majlis/cancelReservation/${email} with /api/majlis/cancelReservation/${email} .
-20. Update admin enquiries page to use /api/contact endpoints
+20. Update admin enquiries page to use /api/contact endpoints [DONE]
     
     - File: src/app/admin/enquiries.jsx
     - Replace backend URLs with:
       - /api/contact/getEnquiries
       - /api/contact/updateEnquiries/${id}
       - /api/contact/deleteEnquiries/${id} .
-21. Update admin bookings page to use /api/majlis endpoints
+21. Update admin bookings page to use /api/majlis endpoints [DONE]
     
     - File: src/app/admin/booking.jsx
     - Replace backend URLs with:
       - /api/majlis/getReservations
       - And any other majlis endpoints used here.
-22. Update testimonials component to use /api/testimonial
+22. Update testimonials component to use /api/testimonial [DONE]
     
     - File: src/app/testimonial.jsx
     - Replace https://khaleej-backend.onrender.com/testimonial with /api/testimonial .

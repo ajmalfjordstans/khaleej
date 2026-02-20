@@ -13,8 +13,7 @@ export default function Enquiries() {
 
   const getEnquiries = async () => {
     setLoading(true)
-    // const apiEndpoint = "http://localhost:3005/contact/getEnquiries"
-    const apiEndpoint = "https://khaleej-backend.onrender.com/contact/getEnquiries"
+    const apiEndpoint = "/api/contact/getEnquiries"
     axios.get(apiEndpoint)
       .then(response => {
         // console.log(response.data);
@@ -27,8 +26,7 @@ export default function Enquiries() {
   }
   const updateEnquiries = async (id, status) => {
     setLoading(true)
-    // const apiEndpoint = `http://localhost:3005/contact/updateEnquiries/${id}`
-    const apiEndpoint = `https://khaleej-backend.onrender.com/contact/updateEnquiries/${id}`
+    const apiEndpoint = `/api/contact/updateEnquiries/${id}`
     const payload = {
       status: status
     }
@@ -44,8 +42,7 @@ export default function Enquiries() {
   }
   const deleteEnquiries = async (id) => {
     setLoading(true)
-    // const apiEndpoint = `http://localhost:3005/contact/deleteEnquiries/${id}`
-    const apiEndpoint = `https://khaleej-backend.onrender.com/contact/deleteEnquiries/${id}`
+    const apiEndpoint = `/api/contact/deleteEnquiries/${id}`
     axios.delete(apiEndpoint)
       .then(response => {
         // console.log(response);

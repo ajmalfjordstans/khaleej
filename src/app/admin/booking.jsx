@@ -14,8 +14,7 @@ export default function Booking() {
 
   const getReservation = async () => {
     setLoading(true)
-    // const apiEndpoint = "http://localhost:3005/majlis/getReservations"
-    const apiEndpoint = "https://khaleej-backend.onrender.com/majlis/getReservations"
+    const apiEndpoint = "/api/majlis/getReservations"
     axios.get(apiEndpoint)
       .then(response => {
         setReservations(response?.data)
@@ -33,8 +32,7 @@ export default function Booking() {
       status: status
     };
     try {
-      // const response = await axios.post(`http://localhost:3005/majlis/updateReservation/${id}`, updateData);
-      const response = await axios.post(`https://khaleej-backend.onrender.com/majlis/updateReservation/${id}`, updateData);
+      const response = await axios.post(`/api/majlis/updateReservation/${id}`, updateData);
       // console.log('Update successful:', response.data);
       getReservation()
     } catch (error) {
