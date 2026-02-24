@@ -20,9 +20,6 @@ export default function ContactForm() {
         // Form submitted successfully
         console.log('Form submitted successfully.');
         setSuccessful(true)
-        setTimeout(() => {
-          setSuccessful(false)
-        }, 2000);
         action.resetForm()
       } else {
         // Handle error
@@ -47,7 +44,7 @@ export default function ContactForm() {
     <div className="p-[20px]">
       {successful ?
         <div className='flex justify-center items-center h-full'>
-          <p>Message sent successfully</p>
+          <p className="text-green-600 font-bold text-lg">Message sent successfully!</p>
         </div>
         :
         <form autoCapitalize="off" className="grid grid-cols-1 gap-3" onSubmit={handleSubmit}>
@@ -96,7 +93,7 @@ export default function ContactForm() {
           </div>
           {errors.message && touched.message && <p className="text-[red]">{errors.message}</p>}
           <Button type="submit" disabled={isSubmitting} className="bg-primary ">
-            Submit
+            {isSubmitting ? "Sending... Do not close this window" : "Submit"}
           </Button>
         </form>
       }

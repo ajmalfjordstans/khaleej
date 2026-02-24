@@ -1,64 +1,33 @@
 import 'server-only'
 import nodemailer from 'nodemailer'
-import axios from 'axios'
 
-const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'sendgrid'
+// SMTP Configuration
+if (!process.env.SMTP_PASS) {
+  throw new Error('Missing SMTP_PASS environment variable. Please add your Zoho App Password to .env.local and RESTART the server.')
+}
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || 'smtp.zoho.eu',
+  port: Number(process.env.SMTP_PORT || 465),
+  secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
+  auth: {
+    user: process.env.SMTP_USER || 'leicester@khaleejmandi.co.uk',
+    pass: process.env.SMTP_PASS,
+  },
+  debug: true, // Show debug info
+  logger: true // Log information to console
+})
+
+console.log(`Attempting to send email via SMTP (${process.env.SMTP_HOST}:${process.env.SMTP_PORT}) with user: ${process.env.SMTP_USER}`)
 
 async function sendWithProvider({ from, to, subject, html }) {
-  if (EMAIL_PROVIDER === 'sendgrid') {
-    try {
-      if (!process.env.SENDGRID_API_KEY) throw new Error('Missing SENDGRID_API_KEY')
-      const replyTo = process.env.REPLY_TO_ADDRESS
-      await axios.post(
-        'https://api.sendgrid.com/v3/mail/send',
-        {
-          personalizations: [{ to: [{ email: to }] }],
-          from: { email: from || 'leicester@khaleejmandi.co.uk' },
-          reply_to: replyTo ? { email: replyTo } : undefined,
-          subject,
-          content: [{ type: 'text/html', value: html }],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      return { provider: 'sendgrid' }
-    } catch (error) {}
-  }
-
-  if (EMAIL_PROVIDER === 'resend') {
-    if (!process.env.RESEND_API_KEY) throw new Error('Missing RESEND_API_KEY')
-    await axios.post(
-      'https://api.resend.com/emails',
-      { from, to, subject, html },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-    return { provider: 'resend' }
-  }
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.zoho.in',
-    port: Number(process.env.SMTP_PORT || 465),
-    secure: true,
-    auth: {
-      user: process.env.SMTP_USER || 'leicester@khaleejmandi.co.uk',
-      pass: process.env.SMTP_PASS,
-    },
-  })
-
   return new Promise((resolve, reject) => {
     transporter.sendMail({ from, to, subject, html }, (error, info) => {
       if (error) {
+        console.error('SMTP error:', error)
         reject(error)
       } else {
+        console.log('Email sent via SMTP:', info.messageId)
         resolve({ provider: 'smtp', info })
       }
     })
@@ -67,9 +36,10 @@ async function sendWithProvider({ from, to, subject, html }) {
 
 export function sendEmailToAdmin(formData, id, subject) {
   const from = process.env.EMAIL_FROM_ADDRESS || 'leicester@khaleejmandi.co.uk'
-  const to = 'khaleejfoodsuk@gmail.com'
+  const to = 'frontend.fjordstans@gmail.com' //send to admin email khaleejfoodsuk@gmail.com
 
   let html
+
   if (id === 'enquiry') {
     html = `
         <div style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
