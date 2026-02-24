@@ -36,7 +36,7 @@ async function sendWithProvider({ from, to, subject, html }) {
 
 export function sendEmailToAdmin(formData, id, subject) {
   const from = process.env.EMAIL_FROM_ADDRESS || 'leicester@khaleejmandi.co.uk'
-  const to = 'frontend.fjordstans@gmail.com' //send to admin email khaleejfoodsuk@gmail.com
+  const to = 'khaleejfoodsuk@gmail.com' //send to admin email khaleejfoodsuk@gmail.com
 
   let html
 
