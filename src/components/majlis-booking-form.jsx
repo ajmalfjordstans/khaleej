@@ -56,6 +56,7 @@ export default function Form() {
       email: '',
       date: '',
       time: '',
+      seatingPreference: '',
       numberOfPersons: '',
       phoneNumber: '',
       message: '',
@@ -126,6 +127,21 @@ export default function Form() {
                 maxTime={dayjs().endOf('day').subtract(1, 'hour')}
               />
             </div>
+          </div>
+          <div className="flex flex-col gap-[2px]">
+            <label htmlFor="seatingPreference">Seating Preference</label>
+            <select
+              value={values.seatingPreference}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id="seatingPreference" name="seatingPreference"
+              className={`bg-inherit w-full text-black border-[1px] border-primary rounded-[3px] p-3 ${errors.seatingPreference && touched.seatingPreference ? "border-[red]" : ""}`}
+            >
+              <option value="" disabled>Select Seating Preference</option>
+              <option value="Table" className="text-black">Table</option>
+              <option value="Floor" className="text-black">Floor</option>
+            </select>
+            {errors.seatingPreference && touched.seatingPreference && <p className="text-[red]">{errors.seatingPreference}</p>}
           </div>
           <div className="grid grid-cols-2 gap-3 ">
             <div className="flex flex-col gap-[2px]">

@@ -53,6 +53,7 @@ export default function Booking() {
           <div className='flex flex-col gap-2'>
             <p className='font-[700] text-[16px] md:text-[20px] leading-[22px] text-primary my-[10px]'>Booking Details</p>
             <p className='leading-[22px] text-primary'>No. of seats: {data?.numberOfPersons}</p>
+            <p className='leading-[22px] text-primary'>Seating Preference: {data?.seatingPreference}</p>
             <p className='leading-[22px] text-primary'>Date: {data?.date}</p>
             <p className='leading-[22px] text-primary'>Time: {data?.time}</p>
             <p className='leading-[22px] text-primary'>Status: {data?.status}</p>

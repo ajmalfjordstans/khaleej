@@ -70,6 +70,7 @@ export function sendEmailToAdmin(formData, id, subject) {
                   <p style="color: #666666; margin: 5px 0;"><strong>Date:</strong> ${formData.date}</p>
                   <p style="color: #666666; margin: 5px 0;"><strong>Time:</strong> ${formData.time}</p>
                 </div>` : ''}
+                <p style="color: #666666; margin: 5px 0;"><strong>Seating Preference:</strong> ${formData.seatingPreference}</p>
                 <p style="color: #666666; margin: 5px 0;"><strong>No. of Persons:</strong> ${formData.numberOfPersons}</p>
                 <p style="color: #666666; margin: 5px 0;"><strong>Message:</strong> ${formData.message}</p>
             </div>
@@ -96,7 +97,10 @@ export function sendConfirmationEmail(formData, id) {
             <p style="color: #666666; margin: 5px 0;"><strong>Phone:</strong> ${formData.phoneNumber}</p>
             <p style="color: #666666; margin: 5px 0;"><strong>Date:</strong> ${formData.date}</p>
             <p style="color: #666666; margin: 5px 0;"><strong>Time:</strong> ${formData.time}</p>
+            <p style="color: #666666; margin: 5px 0;"><strong>Seating Preference:</strong> ${formData.seatingPreference}</p>
+            <p style="color: #666666; margin: 5px 0;"><strong>No. of Persons:</strong> ${formData.numberOfPersons}</p>
         </div>
+        <p style="color: #999999; margin-top: 20px; font-size: 12px; font-style: italic;">Disclaimer: If below 4 persons, restaurant can change seating preference to table.</p>
       </div>`
 
   return sendWithProvider({ from, to, subject, html })

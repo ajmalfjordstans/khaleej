@@ -24,6 +24,7 @@ export async function POST(req) {
       name: formData.name,
       date: formData.date,
       time: formData.time,
+      seatingPreference: formData.seatingPreference,
       numberOfPersons: formData.numberOfPersons,
       phoneNumber: formData.phoneNumber,
       message: formData.message,

@@ -8,9 +8,15 @@ export const basicSchema = yup.object().shape({
     .min(10, 'Phone number must be at least 10 digits.')
     .max(15, 'Phone number must not exceed 15 digits.')
     .required('Phone number is required.'),
+  seatingPreference: yup.string().required('Seating preference is required'),
   numberOfPersons: yup.number()
     .integer('Number of persons must be an integer.')
     .positive('Number of persons must be a positive integer.')
+    .when('seatingPreference', {
+      is: 'Floor',
+      then: (schema) => schema.min(4, 'Minimum 4 persons needed for Floor seating'),
+      otherwise: (schema) => schema.min(1, 'Number of persons must be a positive integer.')
+    })
     .required('Number of persons is required.'),
 })
 
