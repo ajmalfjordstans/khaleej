@@ -59,7 +59,7 @@ export function sendEmailToAdmin(formData, id, subject) {
   } else {
     html = `
         <div style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
-            <h1 style="color: #333333; margin-bottom: 20px;">New Majlis Booking Received</h1>
+            <h1 style="color: #333333; margin-bottom: 20px;">New Booking Received</h1>
             <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
                 <p style="color: #666666; margin: 5px 0;"><strong>Booking number:</strong> ${id}</p>
                 <p style="color: #666666; margin: 5px 0;"><strong>Name:</strong> ${formData.name}</p>
@@ -82,13 +82,13 @@ export function sendEmailToAdmin(formData, id, subject) {
 export function sendConfirmationEmail(formData, id) {
   const from = process.env.EMAIL_FROM_ADDRESS || 'leicester@khaleejmandi.co.uk'
   const to = formData.email
-  const subject = 'Majlis Booking Received'
+  const subject = 'Booking Received'
   const html = `
       <div style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);" >
         <div style="text-align: center; margin-bottom: 20px;">
             <img src="https://www.khaleejmandi.co.uk/Logo.png" alt="Restaurant Logo" style="width: auto; max-height: 150px;  margin-left: auto; margin-right: auto;">
         </div>
-        <h1 style="color: #333333; margin-bottom: 20px;">Majlis Booking Received</h1>
+        <h1 style="color: #333333; margin-bottom: 20px;">Booking Received</h1>
         <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
             <p style="color: #666666; margin: 5px 0;"><strong>Booking number:</strong> ${id}</p>
             <p style="color: #666666; margin: 5px 0;"><strong>Name:</strong> ${formData.name}</p>
@@ -105,13 +105,13 @@ export function sendConfirmationEmail(formData, id) {
 export function sendUpdateEmail(formData, update, id) {
   const from = process.env.EMAIL_FROM_ADDRESS || 'leicester@khaleejmandi.co.uk'
   const to = formData.email
-  const subject = `Majlis booking ${update}`
+  const subject = `Booking ${update}`
   const html = `
       <div style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);" >
         <div style="text-align: center; margin-bottom: 20px;">
             <img src="https://www.khaleejmandi.co.uk/Logo.png" alt="Restaurant Logo" style="width: auto; max-height: 150px;  margin-left: auto; margin-right: auto;">
         </div>
-        <h1 style="color: #333333; margin-bottom: 20px;">Majlis booking ${update}</h1>
+        <h1 style="color: #333333; margin-bottom: 20px;">Booking ${update}</h1>
         <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
             <p style="color: #666666; margin: 5px 0;"><strong>Booking number:</strong> ${id}</p>
             <p style="color: #666666; margin: 5px 0;"><strong>Name:</strong> ${formData.name}</p>

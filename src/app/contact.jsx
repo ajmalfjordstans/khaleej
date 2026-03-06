@@ -23,7 +23,9 @@ export default function ContactSection() {
       <div className='md:container mx-auto grid grid-cols-1 lg:grid-cols-2 md:gap-3 md:pb-10'>
         <div className='bg-majlis-bg md:bg-none bg-cover min-h-[400px] flex items-center'>
           <div className='flex flex-col justify-center scrollElement5 container mx-auto px-[5%] lg:px-0 py-10'>
-            <p className='text-[22px] md:text-[36px] font-[600] leading-normal pb-[40px] text-left font-source '> Majlis Magic<br />Book your’s Now!</p>
+            <p className='text-[22px] md:text-[36px] font-[600] leading-normal pb-[40px] text-left font-source '>
+              {/* Majlis Magic<br /> */}
+              Book your’s Now!</p>
             <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>
           </div>
         </div>

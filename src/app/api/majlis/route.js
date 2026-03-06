@@ -33,7 +33,7 @@ export async function POST(req) {
 
     await db.collection('reservation').doc(id).set(userJson)
 
-    await sendEmailToAdmin(formData, id, 'New Majlis Booking')
+    await sendEmailToAdmin(formData, id, 'New Booking')
     await sendConfirmationEmail(formData, id)
 
     return NextResponse.json(userJson, { status: 201 })

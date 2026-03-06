@@ -13,7 +13,7 @@ export default function SideMenu({ showSection, setShowSection, closeDrawer }) {
             setShowSection('booking')
           }}
         >
-          <p className={`text-[16px] leading-[24px] text-primary`}>Majlis Booking</p>
+          <p className={`text-[16px] leading-[24px] text-primary`}>Booking</p>
         </div>
       </div>
       <div className={`${showSection == "enquiries" ? "bg-[#ECE7FC]" : "bg-white"} w-full`}>
