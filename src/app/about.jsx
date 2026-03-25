@@ -30,7 +30,7 @@ export default function About() {
           <p className='mt-[30px] text-[14px] md:text-[16px]'>In Khaleej&apos;s ovens, Mandi magic unfolds, slow-cooking rice and tender meats to perfection. We&apos;ve brought the Middle East&apos;s unity and culture to the UK, inviting you to savor Mandi&apos;s rich heritage at Khaleej.</p>
           <div className='w-full flex justify-center'>
             <Link
-              href="/about#hero"
+              href="/about"
             >
               <Button
                 className='bg-primary rounded-[5px] w-[242px] mt-[45px] capitalize font-[400] font-source'
@@ -47,7 +47,7 @@ export default function About() {
           <p className='mt-[30px] text-[14px] md:text-[16px]'>This concept extends beyond meals, encouraging social interaction and creating an immersive experience that celebrates the joy of dining together.</p>
           <div className='w-full flex justify-center'>
             <Link
-              href="/about#hero"
+              href="/about"
             >
               <Button
                 className='bg-primary rounded-[5px] w-[242px] mt-[45px] capitalize font-[400] font-source'

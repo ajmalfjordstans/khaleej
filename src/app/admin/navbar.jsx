@@ -29,7 +29,7 @@ export default function Navbar({ showSection, setShowSection }) {
     // <div className='relative'>
     <div className='px-[5%] flex items-center justify-evenly text-[14px] font-[600] text-primary sticky top-0 bg-white z-[20] h-[10dvh] shadow-md'>
       <Link
-        href="/#hero"
+        href="/"
       // onClick={() => clickHandle()}
       >
         <Image

@@ -31,20 +31,20 @@ export default function Navbar() {
         <div className='flex w-full justify-around'>
           <Link
             // onClick={() => clickHandle()}
-            href="/#hero"
+            href="/"
           >Home</Link>
           <Link
             // onClick={() => clickHandle()}
-            href="/about#hero"
+            href="/about"
           >About</Link>
           <Link
             // onClick={() => clickHandle()}
-            href="/menu#hero"
+            href="/menu"
           >Menu</Link>
         </div>
       </div>
       <Link
-        href="/#hero"
+        href="/"
       // onClick={() => clickHandle()}
       >
         <Image
@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className='flex w-full justify-around'>
           <Link
             // onClick={() => clickHandle()}
-            href="/contact#hero"
+            href="/contact"
           >Contact</Link>
           <Link
             // onClick={() => clickHandle()}
@@ -67,7 +67,7 @@ export default function Navbar() {
           >Careers</Link>
           {/* <Link
               // onClick={() => clickHandle()}
-              href="/book-now#hero"
+              href="/book-now"
             >Book Now</Link> */}
           <Link
             href="tel:+44 116 507 4571"
@@ -112,28 +112,28 @@ export default function Navbar() {
                   closeDrawer()
                   // clickHandle()
                 }}
-                href="/#hero"
+                href="/"
               >Home</Link>
               <Link
                 onClick={() => {
                   closeDrawer()
                   // clickHandle()
                 }}
-                href="/about#hero"
+                href="/about"
               >About</Link>
               <Link
                 onClick={() => {
                   closeDrawer()
                   // clickHandle()
                 }}
-                href="/menu#hero"
+                href="/menu"
               >Menu</Link>
               <Link
                 onClick={() => {
                   closeDrawer()
                   // clickHandle()
                 }}
-                href="/contact#hero"
+                href="/contact"
               >Contact</Link>
               <Link
                 onClick={() => {
