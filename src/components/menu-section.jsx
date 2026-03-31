@@ -33,14 +33,14 @@ export default function MenuSection() {
   };
   return (
     <section className='bg-primary text-white'>
-      <div className='container mx-auto px-[5%] xl:px-0 py-10 scrollElement3'>
+      <div className='container mx-auto md:px-[5%] xl:px-0 py-10 scrollElement3'>
         <p className='text-julius text-[42px] md:text-[64px] font-[400] leading-normal text-center font-julius scrollElement3'>KHALEEJ MENU</p>
 
         <div className='mt-[37px] flex flex-col relative'>
           <div className="flex items-center gap-[15px]">
 
             <div
-              className='h-[20px] w-[20px] text-black '
+              className='h-[20px] w-[20px] text-black hidden lg:block'
               onClick={() => {
                 // setPageNo(pageNo - 1)
                 handlePrevClick()
@@ -61,19 +61,21 @@ export default function MenuSection() {
               {Array.from({ length: 24 }, (_, index) => {
                 return (
                   <SwiperSlide key={index + 1}>
-                    <Image
-                      src={`/new-menu/${index + 1}.jpg`}
-                      height={350}
-                      width={400}
-                      className=''
-                      alt={`menu page ${index + 1}`}
-                    />
+                    <div className='relative w-full aspect-[3/4]'>
+                      <Image
+                        src={`/new-menu/${index + 1}.webp`}
+                        fill
+                        sizes='(max-width: 530px) 100vw, (max-width: 960px) 50vw, 33vw'
+                        className='object-contain'
+                        alt={`menu page ${index + 1}`}
+                      />
+                    </div>
                   </SwiperSlide>
                 )
               })}
             </Swiper>
             <div
-              className='h-[20px] w-[20px] text-black '
+              className='h-[20px] w-[20px] text-black  hidden lg:block'
               onClick={() => {
                 // setPageNo(pageNo + 1)
                 handleNextClick()
@@ -84,6 +86,7 @@ export default function MenuSection() {
               </svg>
             </div>
           </div>
+          <p className='text-center text-[14px] md:text-[16px] font-[400] leading-normal font-source md:hidden'>Swipe to view menu</p>
           <div className='flex justify-center items-center gap-[50px] my-[30px] w-full  z-[10]'>
 
             {/* <p className='transition-opacity duration-100'>{pageNo  + " - "}{pageNo + 2}/24</p> */}

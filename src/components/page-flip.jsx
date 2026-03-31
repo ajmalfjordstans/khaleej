@@ -10,7 +10,7 @@ export default function PageFlip() {
   const book = useRef();
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [dimensions, setDimensions] = useState({ width: 330, height: 300 });
+  const [dimensions, setDimensions] = useState({ width: 430, height: 400 });
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -62,59 +62,59 @@ export default function PageFlip() {
       <HTMLFlipBook
         width={dimensions.width}
         height={dimensions.height}
-        className='mx-auto w-[330px] md:w-[400px]'
+        className='md:mx-auto w-[full] md:w-[400px]'
         ref={book}
         showCover={true}
         onFlip={onFlip}
         onInit={onInit}
       >
-        <Image src={`/new-menu/1.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/2.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/3.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/4.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/5.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/6.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/7.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/8.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/9.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/10.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/11.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/12.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/13.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/14.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/15.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/16.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/17.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/18.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/19.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/20.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/21.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/22.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/23.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/24.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/25.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/26.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/27.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/28.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/29.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/30.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/31.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/32.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/33.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/34.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/35.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/36.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/37.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/38.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/39.jpg`} height={350} width={380} className='' alt='menu page' />
-        <Image src={`/new-menu/40.jpg`} height={350} width={380} className='' alt='menu page' />
+        <Image src={`/new-menu/1.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/2.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/3.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/4.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/5.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/6.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/7.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/8.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/9.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/10.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/11.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/12.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/13.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/14.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/15.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/16.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/17.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/18.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/19.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/20.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/21.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/22.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/23.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/24.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/25.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/26.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/27.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/28.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/29.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/30.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/31.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/32.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/33.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/34.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/35.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/36.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/37.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/38.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/39.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
+        <Image src={`/new-menu/40.webp`} height={850} width={880} className='max-w-full' alt='menu page' />
       </HTMLFlipBook>
       <div className='flex justify-center items-center gap-[50px] my-[30px]'>
         <Button
           className='bg-secondary text-black'
           onClick={() => book.current.pageFlip().flipPrev()}
         >Prev</Button>
-        <p className='transition-opacity duration-100'>{page + 1 + " - "}{page + 2}/24</p>
+        <p className='transition-opacity duration-100'>{page + 1 + " - "}{page + 2}/40</p>
         <Button
           className='bg-secondary text-black'
           onClick={() => book.current.pageFlip().flipNext('bottom')}
