@@ -10,22 +10,22 @@ import Loading from './loading'
 
 export default function Hero() {
   const [loading, setLoading] = React.useState(false)
-  const [bg, setBg] = useState('/Images/carousel/landingpage.jpg')
-  const [carouselBg, setCarouselBg] = useState('/Images/carousel/landingpage.jpg')
+  const [bg, setBg] = useState('/Images/carousel/landingpage.webp')
+  const [carouselBg, setCarouselBg] = useState('/Images/carousel/landingpage.webp')
   const pathname = usePathname()
-  let carousel = ['/Images/carousel/landingpage.jpg',  '/Images/carousel/carousel1.jpeg',"/Images/carousel/carousel2.jpeg", "/Images/carousel/carousel3.jpeg", "/Images/carousel/carousel4.jpg", "/Images/carousel/carousel5.jpg"]
+  let carousel = ['/Images/carousel/landingpage.webp', '/Images/carousel/carousel1.webp', "/Images/carousel/carousel2.webp", "/Images/carousel/carousel3.webp", "/Images/carousel/carousel4.webp", "/Images/carousel/carousel5.webp"]
 
   useEffect(() => {
     // setBg('/Images/carousel/landingpage.jpg') startSlide()
     if (pathname == '/') {
-      setBg('/Images/carousel/landingpage.jpg')
+      setBg('/Images/carousel/landingpage.webp')
       startSlide()
     }
-    else if (pathname == '/about') setBg('/Images/newimages/aboutus1.jpg')
-    else if (pathname == '/menu') setBg('/Images/newimages/ourmenu.jpg')
-    else if (pathname == '/contact') setBg('/Images/newimages/contactus.jpg')
-    else if (pathname == '/book-now') setBg('/Images/newimages/contactus.jpg')
-    else if (pathname == '/careers') setBg('/Images/newimages/career.jpg')
+    else if (pathname == '/about') setBg('/Images/newimages/aboutus1.webp')
+    else if (pathname == '/menu') setBg('/Images/newimages/ourmenu.webp')
+    else if (pathname == '/contact') setBg('/Images/newimages/contactus.webp')
+    else if (pathname == '/book-now') setBg('/Images/newimages/contactus.webp')
+    else if (pathname == '/careers') setBg('/Images/newimages/career.webp')
   }, [pathname])
 
   const startSlide = () => {

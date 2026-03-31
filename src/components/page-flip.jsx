@@ -62,7 +62,7 @@ export default function PageFlip() {
       <HTMLFlipBook
         width={dimensions.width}
         height={dimensions.height}
-        className='md:mx-auto w-[full] md:w-[400px]'
+        className='md:mx-auto w-[full]'
         ref={book}
         showCover={true}
         onFlip={onFlip}
