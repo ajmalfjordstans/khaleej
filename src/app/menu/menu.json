@@ -1,0 +1,531 @@
+{
+    "menu": [
+        {
+            "category": "Salads",
+            "items": [
+                {
+                    "title": "Zaitoon Salad",
+                    "price": "£4.00",
+                    "description": "Mix of black and green olives topped with sumac powder and olive oil dressing.",
+                    "is_vegetarian": true
+                },
+                {
+                    "title": "Arabic Salad",
+                    "price": "£4.00",
+                    "description": "Traditional middle eastern salad that is mixed with cucumber, tomatoes, parsley, feta cheese, olive oil and sumac spices.",
+                    "is_vegetarian": true
+                },
+                {
+                    "title": "Fattoush Salad",
+                    "price": "£4.50",
+                    "description": "Mediterranean fried bread salad that typically includes lettuce, tomatoes, cucumbers, radishes and fried pieces of pita bread.",
+                    "is_vegetarian": true
+                },
+                {
+                    "title": "Tabbuleh Salad",
+                    "price": "£4.50",
+                    "description": "A refreshing middle eastern salad made with finely chopped parsley, tomatoes, mint, bulgur, and onions, tossed in a light lemon and olive oil dressing.",
+                    "is_vegetarian": true
+                },
+                {
+                    "title": "Khaleej Special Salad",
+                    "price": "£6.00",
+                    "description": "Our special combination of arabic, fattoush and tabbuleh salad.",
+                    "is_vegetarian": true
+                }
+            ]
+        },
+        {
+            "category": "Starters",
+            "items": [
+                {
+                    "title": "Hummus With Bread",
+                    "price": "£5.50",
+                    "description": "A smooth and creamy puree of cooked chickpeas (garbanzo beans), tahini and lemon juice. Served with half portion of Arabic bread.",
+                    "is_vegetarian": true
+                },
+                {
+                    "title": "Falafel",
+                    "price": "£6.00",
+                    "description": "Crispy, golden-brown fritters made from ground chickpeas, herbs, and spices, offering a deliciously savory flavor. Accompanied with special sauce.",
+                    "is_vegetarian": true
+                },
+                {
+                    "title": "Calamari Fried",
+                    "price": "£6.50",
+                    "description": "Deep fried squid served with sauce",
+                    "quantity": "6 pieces"
+                },
+                {
+                    "title": "Chicken Kofta Kebab",
+                    "price": "£7.00",
+                    "description": "Two skewers of juicy minced chicken, seasoned with aromatic spices and grilled to perfection over charcoal. Accompanied with special sauce."
+                },
+                {
+                    "title": "Chicken Shish Taouf",
+                    "price": "£7.50",
+                    "description": "1 skewer of chicken breast marinated in yogurt and a lot of warm spices, grilled over charcoal served with sauce & arabic roti.",
+                    "quantity": "5 pieces"
+                },
+                {
+                    "title": "Charcoal Chicken Wings",
+                    "price": "£9.00",
+                    "description": "Succulent chicken wings, marinated and grilled over charcoal for a rich, smoky flavor. Accompanied with special sauce.",
+                    "quantity": "6 pieces"
+                },
+                {
+                    "title": "Lamb Chops",
+                    "price": "£12.00",
+                    "description": "Succulent lamb chops, seasoned with aromatic spices and grilled to perfection for a tender, flavorful bite. Served with special sauce.",
+                    "quantity": "4 pieces"
+                },
+                {
+                    "title": "Lamb Kofta Kebab",
+                    "price": "£8.00",
+                    "description": "Juicy minced lamb, seasoned with aromatic spices and grilled to perfection over charcoal. Accompanied with special sauce."
+                },
+                {
+                    "title": "Mixed Platter",
+                    "price": "£20.00",
+                    "description": "A generous mixed platter featuring 2 tender lamb chops, 2 charcoal-grilled chicken wings, lamb shish kebab skewer, 1 chicken shish taouf skewer & 3 pieces of fried kalamari, all served on a freshly baked Arabic bread. Accompanied with special sauce."
+                }
+            ]
+        },
+        {
+            "category": "Chicken",
+            "pricing_notes": {
+                "1 Person": "£11.50",
+                "2 Persons": "£18.00"
+            },
+            "items": [
+                {
+                    "title": "Chicken Mandi",
+                    "description": "Chicken marinated in special mandi spices and cooked in steam for 1-2 hour until meltingly tender. Garnished with raisins, nuts & fried onion. Served with flavourful mandi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Chicken Kabsa",
+                    "description": "A traditional Saudi dish, made of chicken that is slowly simmered for 1-2 hour in a spicy broth of tomatoes and spices. Garnished with fried onion. Served with flavourful kabsa rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Chicken Madhbi",
+                    "description": "Slow cooked tender chicken semi grilled over a traditional grill, to give a unique charred smoky flavor. Garnished with raisins, nuts and fried onions. Served with flavourful Madhbi rice, soup, spicy chutney, salad and Arabic tea."
+                },
+                {
+                    "title": "Chicken Madghout",
+                    "description": "Chicken cooked in the steam for 1-2 hours with aromatic arabic spices. Garnished with fried onion. Served with flavourful madghout rice, soup, spicy chutney, salad & arabic tea."
+                }
+            ]
+        },
+        {
+            "category": "Lamb",
+            "pricing_notes": {
+                "1 Person": "£14.50",
+                "2 Persons": "£27.50",
+                "4 Persons": "£50.00",
+                "6 Persons": "£75.00",
+                "10 Persons": "£125.00"
+            },
+            "items": [
+                {
+                    "title": "Lamb Mandi",
+                    "description": "Lamb marinated in special mandi spices and cooked in steam for 3-4 hour until meltingly tender. Garnished with raisins, nuts & fried onion. Served with flavourful mandi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Lamb Kabsa",
+                    "description": "A traditional Saudi dish, made of lamb that is slowly simmered for 3-4 hour in a spicy broth of tomatoes and spices. Garnished with fried onion. Served with flavourful kabsa rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Lamb Madhbi",
+                    "description": "Lamb grilled over a traditional grill, uniquely barbecued with a smoky flavour. Garnished with raisins, nuts & fried onion. Served with flavourful madhbi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Lamb Madghout",
+                    "description": "Lamb cooked in the steam for 3-4 hours with aromatic arabic spices. Garnished with fried onion. Served with flavourful madghout rice, soup, spicy chutney, salad & arabic tea."
+                }
+            ]
+        },
+        {
+            "category": "Beef",
+            "items": [
+                {
+                    "title": "Beef Ribs Mandi",
+                    "price": "£18.50",
+                    "description": "Tender, slow-cooked beef ribs, marinated in aromatic Arabian spices for over four hours. Served with flavourful Mandi rice, topped with nuts, raisins, and crispy fried onions. Accompanied by spicy chutney, salad, soup, and traditional Arabic tea."
+                },
+                {
+                    "title": "Beef Ribs Kabsa",
+                    "price": "£18.50",
+                    "description": "Tender, slow-cooked beef ribs, marinated in aromatic Arabian spices for over four hours. Served with fragrant Kabsa rice, topped with nuts, raisins, and crispy fried onions. Accompanied by spicy chutney, salad, soup, and traditional Arabic tea."
+                },
+                {
+                    "title": "Beef Ribs Madhbi",
+                    "price": "£18.50",
+                    "description": "Tender, slow-cooked beef ribs, marinated in aromatic Arabian spices for over four hours. Served with rich Madhbi rice, topped with nuts, raisins, and crispy fried onions. Accompanied by spicy chutney, salad, soup, and traditional Arabic tea."
+                }
+            ]
+        },
+        {
+            "category": "Seafood",
+            "items": [
+                {
+                    "title": "Fish Mandi",
+                    "price": "£16.00",
+                    "description": "Fresh whole sea bream marinated with arabic spices and grilled. Garnished with raisins, nuts & fried onion. Served with flavourful mandi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Fish Madhbi",
+                    "price": "£16.00",
+                    "description": "Fresh whole sea bream marinated and grilled with arabic spices and lemon. Garnished with raisins, nuts and fried onion. Served with flavourful madhbi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Prawns Mandi",
+                    "price": "£15.00",
+                    "description": "Grilled prawns, marinated in aromatic Arabian spices and perfectly charred. Served with fragrant Mandi rice, topped with nuts, raisins, and crispy fried onions. Accompanied by spicy chutney, salad, soup, and traditional Arabic tea."
+                },
+                {
+                    "title": "Prawns Kabsa",
+                    "price": "£15.00",
+                    "description": "Grilled prawns, marinated in aromatic Arabian spices and perfectly charred. Served with fragrant Kabsa rice, topped with nuts, raisins, and crispy fried onions. Accompanied by spicy chutney, salad, soup, and traditional Arabic tea."
+                }
+            ]
+        },
+        {
+            "category": "Special Platters",
+            "items": [
+                {
+                    "title": "Lamb Haneeth (Ribs)",
+                    "price": "£16.50",
+                    "description": "Lamb ribs marinated in special arabic spices and cooked in steam for 3-4 hour and uniquely barbecued. Garnished with raisins, nuts and fried onion. Served with flavourful mandi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Lamb Shoulder",
+                    "price": "£55.00",
+                    "description": "Lamb shoulder marinated in special mandi spices and cooked in steam for 3-4 hour until meltingly tender. Garnished with raisins, nuts & fried onion. Served with flavourful mandi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Lamb Leg",
+                    "price": "£65.00",
+                    "description": "Lamb leg marinated in special mandi spices and cooked in steam for 3-4 hour until meltingly tender. Garnished with raisins, nuts & fried onion. Served with flavourful mandi rice, soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Mixed Platter",
+                    "price": "£65.00",
+                    "description": "A combination of whole chicken, tender lamb, and your choice of beef ribs or a whole fish, perfect for sharing and experiencing the full essence of our signature mains. Served with the rice of your choice. Backed by popular demand!"
+                }
+            ]
+        },
+        {
+            "category": "Traditional Dishes",
+            "items": [
+                {
+                    "title": "Al Faham",
+                    "pricing": {
+                        "Half": "£9.50",
+                        "Full": "£14.00"
+                    },
+                    "description": "Succulent whole chicken marinated in a blend of aromatic spices, then grilled to perfection over charcoal for a smoky, flavorful finish."
+                },
+                {
+                    "title": "Yemeni Zurbian",
+                    "pricing": {
+                        "Chicken": "£11.50",
+                        "Lamb": "£14.50"
+                    },
+                    "description": "A traditional Yemeni biryani that has a fragrant chicken or lamb and rice cooked in aromatic Yemeni spices. Garnished with raisins, nuts & fried onion. Served with soup, spicy chutney, salad & arabic tea."
+                },
+                {
+                    "title": "Arabic Maqluba",
+                    "price": "£10.00",
+                    "description": "A prevalent Middle Eastern rice dish from Palestine that is sure to impress. It consists of seasoned rice, baked vegetables like cauliflower, potatoes & eggplant. Garnished with raisins & fried onion. Served with soup, spicy chutney, salad & arabic tea.",
+                    "is_vegetarian": true
+                }
+            ]
+        },
+        {
+            "category": "Curries",
+            "items": [
+                {
+                    "title": "Fahsa",
+                    "price": "£11.00",
+                    "description": "Yemeni stew with shredded lamb, cooked in lamb broth."
+                },
+                {
+                    "title": "Saltah",
+                    "price": "£11.00",
+                    "description": "Traditional Yemeni dish featuring slow-cooked beef, vegetables and a flavourful spice blend."
+                },
+                {
+                    "title": "Nashif",
+                    "price": "£10.50",
+                    "description": "Modern arabic chicken dish featuring a dry texture, complimented by a hint of gravy, enriched with aromatic arabian spices."
+                },
+                {
+                    "title": "Soya Chunks Kurma",
+                    "price": "£9.00",
+                    "description": "A rich and savory curry made with soya chunks, simmered in a fragrant blend of spices and herbs, creating a hearty and flavorful dish.",
+                    "is_vegetarian": true
+                }
+            ]
+        },
+        {
+            "category": "Breads",
+            "items": [
+                {
+                    "title": "Plain Paratha",
+                    "price": "£2.50",
+                    "quantity": "2 pieces",
+                    "description": "A soft, flaky, and buttery Indian flatbread, expertly layered and cooked to golden perfection."
+                },
+                {
+                    "title": "Arabic Bread - Kuboos",
+                    "price": "£1.50",
+                    "quantity": "2 pieces",
+                    "description": "A soft, round, and airy Arabic flatbread."
+                },
+                {
+                    "title": "Yemeni Bread - Mulauwah",
+                    "price": "£3.50",
+                    "description": "A traditional Yemeni Malawah bread, with a crispy, golden exterior and soft, flaky layers inside."
+                },
+                {
+                    "title": "Tandoori Naan",
+                    "price": "£2.50",
+                    "description": "Soft, pillowy naan bread, baked in a traditional tandoor oven for a smoky flavor and a perfectly crispy texture."
+                }
+            ]
+        },
+        {
+            "category": "Rice",
+            "items": [
+                {
+                    "title": "Mandi",
+                    "price": "£5.00"
+                },
+                {
+                    "title": "Kabsa",
+                    "price": "£5.00"
+                },
+                {
+                    "title": "Madhbi",
+                    "price": "£5.00"
+                },
+                {
+                    "title": "Madghout",
+                    "price": "£5.00"
+                }
+            ]
+        },
+        {
+            "category": "Add Ons",
+            "items": [
+                {
+                    "title": "Spicy Chutney",
+                    "price": "£1.50"
+                },
+                {
+                    "title": "Extra Topping",
+                    "price": "£1.00"
+                },
+                {
+                    "title": "Mayonise",
+                    "price": "£1.50"
+                },
+                {
+                    "title": "Yoghurt",
+                    "price": "£1.50"
+                },
+                {
+                    "title": "Soup",
+                    "price": "£1.50"
+                },
+                {
+                    "title": "Fries",
+                    "price": "£2.50"
+                }
+            ]
+        },
+        {
+            "category": "Fresh Juice",
+            "items": [
+                {
+                    "title": "Orange",
+                    "price": "£5.00"
+                },
+                {
+                    "title": "Watermelon",
+                    "price": "£6.00"
+                },
+                {
+                    "title": "Pineapple",
+                    "price": "£6.00"
+                },
+                {
+                    "title": "Papaya",
+                    "price": "£6.50"
+                }
+            ]
+        },
+        {
+            "category": "Mojitos",
+            "items": [
+                {
+                    "title": "Mussandam Bliss",
+                    "price": "£6.00",
+                    "description": "Hues of mussandam blue curaçao intertwine gracefully with the crispness of mint and the zest of lime, creating a refreshing oasis."
+                },
+                {
+                    "title": "Petra Dreams",
+                    "price": "£6.00",
+                    "description": "Ripe strawberries, aromatic mint, and tangy lime whisk you away to the mesmerizing landscapes of Petra."
+                },
+                {
+                    "title": "Persian Punch",
+                    "price": "£6.00",
+                    "description": "Passion fruit, mint and lime collide together to bring the perfect flavourful explosion."
+                },
+                {
+                    "title": "Arabian Sunset",
+                    "price": "£6.00",
+                    "description": "A tropical blend of coconut, pineapple, and soothing mint, inviting you to unwind with every sip."
+                }
+            ]
+        },
+        {
+            "category": "Drinks",
+            "items": [
+                {
+                    "title": "Bottled Drinks",
+                    "price": "£2.50",
+                    "description": "Coke, Diet Coke, Pepsi, Rubicon Mango, J2O, Barbican (Strawberry) Mountain Dew, 7up, Mineral Water"
+                },
+                {
+                    "title": "Leban",
+                    "price": "£2.00"
+                },
+                {
+                    "title": "Fruit Shoot",
+                    "price": "£1.50"
+                },
+                {
+                    "title": "Arabic Champagne",
+                    "description": "Non-Alcohol",
+                    "pricing": {
+                        "Glass": "£4.00",
+                        "Jug": "£10.00"
+                    }
+                },
+                {
+                    "title": "Mint Lime",
+                    "pricing": {
+                        "Glass": "£4.00",
+                        "Jug": "£10.00"
+                    }
+                },
+                {
+                    "title": "Mango Lassi",
+                    "pricing": {
+                        "Glass": "£4.00",
+                        "Jug": "£10.00"
+                    }
+                }
+            ]
+        },
+        {
+            "category": "Hot Beverages",
+            "items": [
+                {
+                    "title": "Arabian Tea",
+                    "price": "£2.50"
+                },
+                {
+                    "title": "Karak Tea",
+                    "price": "£2.50"
+                },
+                {
+                    "title": "Mint Tea",
+                    "price": "£2.50"
+                },
+                {
+                    "title": "Ginger Tea",
+                    "price": "£2.50"
+                },
+                {
+                    "title": "Tea Pot",
+                    "price": "£8.00",
+                    "quantity": "3-4 people"
+                }
+            ]
+        },
+        {
+            "category": "Kids Meal",
+            "notes": "All served with fries & drink",
+            "items": [
+                {
+                    "title": "Chicken Nuggets",
+                    "price": "£6.00"
+                },
+                {
+                    "title": "Fish Finger",
+                    "price": "£6.00"
+                },
+                {
+                    "title": "Chicken Burger",
+                    "price": "£6.00"
+                }
+            ]
+        },
+        {
+            "category": "Desserts",
+            "items": [
+                {
+                    "title": "Kunafa - Cheese",
+                    "price": "£7.00",
+                    "description": "A deliciously sweet dessert made with layers of crispy filo pastry, filled with melted cheese, and soaked in fragrant sugar syrup. A perfect balance of sweetness and richness."
+                },
+                {
+                    "title": "Luqaimat",
+                    "price": "£6.00",
+                    "description": "Crispy, golden-fried dumplings with a soft, airy center, drizzled with sweet syrup and sprinkled with sesame seeds."
+                },
+                {
+                    "title": "Baklawa with Ice Cream",
+                    "price": "£5.00",
+                    "description": "A rich, sweet layered pastry made of phyllo dough. Topped with chopped pistachio, sweetened and held together with syrup. 2 pieces with scoop of rich vanilla ice cream."
+                },
+                {
+                    "title": "Fettah",
+                    "price": "£7.00",
+                    "description": "Traditional Yemeni dessert, made with mashed bread, dates and bananas, garnished with black sesame seeds."
+                },
+                {
+                    "title": "Areeka",
+                    "price": "£7.00",
+                    "description": "Yemeni delight with dates, crumbled bread, cream, honey, and black sesame seeds."
+                },
+                {
+                    "title": "Molten Chocolate Cake",
+                    "price": "£5.50",
+                    "description": "A rich and decadent chocolate cake with a warm, gooey molten center."
+                }
+            ]
+        },
+        {
+            "category": "Exclusive Menu",
+            "notes": "All with choice of rice. 24 hours of time required. For take away extra £10.",
+            "items": [
+                {
+                    "title": "Quarter Lamb",
+                    "price": "£95.00"
+                },
+                {
+                    "title": "Half Lamb",
+                    "price": "£160.00"
+                },
+                {
+                    "title": "Full Lamb",
+                    "price": "£300.00"
+                }
+            ]
+        }
+    ]
+}
