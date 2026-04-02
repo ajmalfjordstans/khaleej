@@ -27,8 +27,16 @@ const MenuSection = nextDynamic(() => import('@/components/menu-section'), { ssr
 export default function Home() {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 5000)
-    return () => clearTimeout(t)
+    const hasLoadedBefore = sessionStorage.getItem('khaleej-splash-shown')
+    if (hasLoadedBefore) {
+      setLoading(false)
+    } else {
+      const t = setTimeout(() => {
+        setLoading(false)
+        sessionStorage.setItem('khaleej-splash-shown', 'true')
+      }, 3000)
+      return () => clearTimeout(t)
+    }
   }, [])
 
   return (

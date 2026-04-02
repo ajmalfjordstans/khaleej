@@ -23,7 +23,7 @@ const LeafIcon = () => (
 
 const MenuGrid = () => {
     return (
-        <div className="bg-[#FFFAFA] py-12 px-[5%] md:px-[10%]">
+        <div className="bg-[#FFFAFA] py-12 container-px">
             <div className="container mx-auto">
                 {menuData.menu.map((category, idx) => (
                     <div key={idx} className="mb-16 scroll-mt-20" id={category.category.toLowerCase().replace(/\s+/g, '-')}>
@@ -52,7 +52,7 @@ const MenuGrid = () => {
                         {/* Items Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                             {category.items.map((item, iIdx) => (
-                                <div key={iIdx} className="group border-b border-primary/10 pb-6 transition-all duration-300 hover:border-secondary">
+                                <div key={iIdx} className="group border-b border-primary/5 pb-6 transition-premium hover:-translate-y-1 hover:shadow-premium p-4 rounded-lg hover:bg-white">
                                     <div className="flex justify-between items-start mb-2">
                                         <div className="flex items-center gap-2">
                                             <h3 className="font-julius font-bold text-lg md:text-xl text-primary flex items-center gap-2">

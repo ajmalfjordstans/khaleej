@@ -26,7 +26,7 @@ export default function Navbar() {
   }
   return (
     // <div className='relative'>
-    <div className='px-[5%] flex items-center justify-evenly text-[14px] font-[600] text-primary sticky top-0 bg-white z-[20] h-[60px] md:h-[80px]'>
+    <div className='container-px flex items-center justify-evenly text-[14px] font-[600] text-primary sticky top-0 md:top-2 glass-nav z-[20] h-[60px] md:h-[80px] transition-all duration-300 md:rounded-full md:mx-auto md:max-w-[95%] shadow-premium mt-0 md:mt-2'>
       <div className='hidden lg:block w-[40%]'>
         <div className='flex w-full justify-around'>
           <Link
