@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: 'https://www.khaleejmandi.co.uk/book-now' },
+}
+
 import React from 'react'
 
 export default function BookPage() {
