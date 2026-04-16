@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'About Khaleej Mandi House',
+  description: 'Discover the story of Khaleej. Bringing the heart of Arabian hospitality to Leicester through traditional Majlis seating and authentic Middle Eastern flavors',
+}
+
 import React from 'react'
 import AboutSection from './about'
 import Services from './services'

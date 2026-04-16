@@ -41,7 +41,7 @@ export default function Hero() {
   const template = (heading, desc) => {
     return (
       <div className='text-center flex flex-col items-center'>
-        <p className='font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>{heading}</p>
+        <h1 className='font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>{heading}</h1>
         <p className='font-julius text-[15px] lg:text-[30px] uppercase mt-[40px] max-w-[903px] w-[80%] p-[15px]'
           style={{
             backgroundColor: 'rgba(207, 157, 64, 0.53)'
@@ -75,13 +75,13 @@ export default function Hero() {
       ))
     } else if (pathname == '/menu') {
       return (template(
-        'OUR MENU',
+        'Our Menu | Authentic Mandi & Arabian Cuisine in Leicester',
         'Immerse yourself in an unparalleled experience of authentic arabic hospitality serving an exciting culinary adventure ! "'
       ))
     } else if (pathname == '/contact') {
       return (
         <div className='text-center flex flex-col items-center'>
-          <p className='font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>Contact us</p>
+          <h1 className='font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>Contact Khaleej Mandi Leicester | Book Your Table</h1>
           <GoogleMapComponent />
         </div>
       )
@@ -95,7 +95,7 @@ export default function Hero() {
     } else if (pathname == '/careers') {
       return (
         <div className='text-center flex flex-col items-center'>
-          <p className='text-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>Careers</p>
+          <h1 className='font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>Join the Khaleej Team | Restaurant Jobs in Leicester</h1>
         </div>
       )
     }
@@ -108,7 +108,7 @@ export default function Hero() {
       >
         <div className='absolute inset-0 bg-black opacity-40 z-[9] h-[100dvh]'></div>
         <div className='text-center z-[10]'>
-          <p className={`font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase`}>Khaleej<br /> Mandi House</p>
+          <h1 className={`font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase`}>Authentic Middle Eastern Restaurant in Leicester</h1>
           <p className='font-julius text-[15px] md:text-[24px] font-[600] uppercase mt-[20px]'>The Authentic Mandi in United Kingdom </p>
           <p className='font-julius text-[15px] md:text-[24px] font-[600] uppercase '>Flavours of royalty</p>
           <Link

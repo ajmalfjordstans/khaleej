@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Our Menu | Authentic Mandi & Yemeni Cuisine in Leicester',
+  description: 'Explore the Khaleej Mandi menu. From slow-cooked Lamb Madghout to Haneeth, enjoy Leicester\'s finest Halal Arabian dishes. View our full menu online!',
+}
+
 import React from 'react'
 import MenuSection from './menu-section'
 import Footer from '@/components/footer'
