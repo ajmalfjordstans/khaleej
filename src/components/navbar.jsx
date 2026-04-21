@@ -77,8 +77,7 @@ export default function Navbar() {
       <div className='absolute right-4 lg:hidden'>
         <Bars3Icon onClick={openDrawer} className='h-[30px] w-[30px]' />
       </div>
-      <React.Fragment>
-        {/* <Button onClick={openDrawer}>Open Drawer</Button> */}
+      <div className='lg:hidden'>
         <Drawer open={open} onClose={closeDrawer} placement="right" className="p-4">
           <div className="mb-6 flex flex-col items-center justify-between">
             <div className='flex items-center justify-between w-full'>
@@ -148,7 +147,7 @@ export default function Navbar() {
             </div>
           </div>
         </Drawer>
-      </React.Fragment>
+      </div>
     </div>
     // </div>
   )

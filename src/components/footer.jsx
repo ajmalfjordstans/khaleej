@@ -5,7 +5,7 @@ import React from 'react'
 export default function Footer() {
   return (
     <div className='bg-gray-900 border-t border-white/5'>
-      <div className="container mx-auto container-px py-16 text-off-white/80 text-[14px] font-source leading-relaxed tracking-wide">
+      <div className="container mx-auto container-px py-16 text-white/80 text-[14px] font-source leading-relaxed tracking-wide">
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8'>
           <div className="flex flex-col items-center lg:items-start">
             <Image
