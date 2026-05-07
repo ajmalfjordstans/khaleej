@@ -26,6 +26,7 @@ export default function Hero() {
     else if (pathname == '/contact') setBg('/Images/newimages/contactus.webp')
     else if (pathname == '/book-now') setBg('/Images/newimages/contactus.webp')
     else if (pathname == '/careers') setBg('/Images/newimages/career.webp')
+    else if (pathname == '/blog') setBg('/Images/newimages/aboutus1.webp')
   }, [pathname])
 
   const startSlide = () => {
@@ -98,6 +99,11 @@ export default function Hero() {
           <h1 className='font-julius text-[42px] md:text-[64px] font-[300] leading-normal uppercase'>Join the Khaleej Team | Restaurant Jobs in Leicester</h1>
         </div>
       )
+    } else if (pathname == '/blog') {
+      return (template(
+        'The Khaleej Blog',
+        '"Stories of tradition, spice, and the culture behind every plate of Mandi."'
+      ))
     }
   }
 

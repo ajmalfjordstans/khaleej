@@ -19,7 +19,7 @@ export default function Footer() {
               The Authentic Mandi Experience in the heart of United Kingdom.
             </p>
           </div>
-          
+
           <div className='flex flex-col gap-6 pt-4'>
             <h4 className="text-secondary font-julius text-lg uppercase tracking-widest border-b border-secondary/20 pb-2 w-fit">Visit Us</h4>
             <Link href="https://maps.app.goo.gl/d9fndSD1sEV3dBnH7" className="hover:text-secondary transition-colors">
@@ -27,33 +27,34 @@ export default function Footer() {
               <p>12-14 Highfield St, Leicester <br />LE2 1AB, UK</p>
             </Link>
             <div className="flex flex-col gap-2">
-                <Link href="mailto:leicester@khaleejmandi.co.uk" className="hover:text-secondary transition-colors">
+              <Link href="mailto:leicester@khaleejmandi.co.uk" className="hover:text-secondary transition-colors">
                 <p>leicester@khaleejmandi.co.uk</p>
-                </Link>
-                <Link href='tel:+44 116 507 4571' className="hover:text-secondary transition-colors">
+              </Link>
+              <Link href='tel:+44 116 507 4571' className="hover:text-secondary transition-colors">
                 <p className="text-lg font-bold text-secondary">+44 116 507 4571</p>
-                </Link>
+              </Link>
             </div>
           </div>
 
           <div className='flex flex-col gap-6 pt-4'>
             <h4 className="text-secondary font-julius text-lg uppercase tracking-widest border-b border-secondary/20 pb-2 w-fit">Opening Hours</h4>
             <div className="flex flex-col gap-3 font-medium">
-                <div className="flex justify-between border-b border-white/5 pb-1">
-                    <span>Monday - Sunday</span>
-                    <span className="text-secondary">12:00 PM - 11:00 PM</span>
-                </div>
-                <p className="text-xs opacity-60">Last order 30 minutes before closing.</p>
+              <div className="flex justify-between border-b border-white/5 pb-1">
+                <span>Monday - Sunday</span>
+                <span className="text-secondary">12:00 PM - 11:00 PM</span>
+              </div>
+              <p className="text-xs opacity-60">Last order 30 minutes before closing.</p>
             </div>
-            
+
             <div className="mt-4 flex flex-col gap-3">
-                <h4 className="text-secondary font-julius text-sm uppercase tracking-widest opacity-80">Quick Links</h4>
-                <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-tighter">
-                    <Link href="/about" className="hover:text-secondary">About</Link>
-                    <Link href="/menu" className="hover:text-secondary">Menu</Link>
-                    <Link href="/contact" className="hover:text-secondary">Contact</Link>
-                    <Link href="/careers" className="hover:text-secondary">Careers</Link>
-                </div>
+              <h4 className="text-secondary font-julius text-sm uppercase tracking-widest opacity-80">Quick Links</h4>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-tighter">
+                <Link href="/about" className="hover:text-secondary">About</Link>
+                <Link href="/menu" className="hover:text-secondary">Menu</Link>
+                <Link href="/blog" className="hover:text-secondary">Blog</Link>
+                <Link href="/contact" className="hover:text-secondary">Contact</Link>
+                <Link href="/careers" className="hover:text-secondary">Careers</Link>
+              </div>
             </div>
           </div>
           <div className='pt-[40px] flex flex-col'>
@@ -72,7 +73,7 @@ export default function Footer() {
             />
             <div className='grid grid-cols-4 mt-8 '>
               <Link
-                href="https://instagram.com/khaleejmandi.uk?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"
+                href="https://www.instagram.com/khaleejmandi.uk/"
               >
                 <Image
                   src='/Images/instagram.png'
