@@ -34,9 +34,9 @@ export default function ContactDetails() {
                 <p>Phone : +44 116 507 4571</p>
               </Link>
               <Link
-                href="mailto:leicester@khaleejmandi.co.uk"
+                href="mailto:info@khaleejmandi.co.uk"
               >
-                <p>Email : leicester@khaleejmandi.co.uk</p>
+                <p>Email : info@khaleejmandi.co.uk</p>
               </Link>
             </div>
           </div>

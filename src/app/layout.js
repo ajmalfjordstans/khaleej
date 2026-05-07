@@ -51,7 +51,7 @@ export default function RootLayout({ children, isAdminPage }) {
                 "description": "Authentic Mandi restaurant in Leicester, UK. Serving traditional Yemeni and Middle Eastern cuisine including Mandi, Kabsa, Madghout, Maqluba and Madhbi.",
                 "url": "https://www.khaleejmandi.co.uk",
                 "telephone": "+441165074571",
-                "email": "leicester@khaleejmandi.co.uk",
+                "email": "info@khaleejmandi.co.uk",
                 "servesCuisine": ["Middle Eastern", "Yemeni", "Arabic"],
                 "priceRange": "££",
                 "address": {
@@ -63,7 +63,7 @@ export default function RootLayout({ children, isAdminPage }) {
                 },
                 "openingHoursSpecification": {
                   "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                   "opens": "12:00",
                   "closes": "23:00"
                 },

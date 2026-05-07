@@ -27,8 +27,8 @@ export default function Footer() {
               <p>12-14 Highfield St, Leicester <br />LE2 1AB, UK</p>
             </Link>
             <div className="flex flex-col gap-2">
-              <Link href="mailto:leicester@khaleejmandi.co.uk" className="hover:text-secondary transition-colors">
-                <p>leicester@khaleejmandi.co.uk</p>
+              <Link href="mailto:info@khaleejmandi.co.uk" className="hover:text-secondary transition-colors">
+                <p>info@khaleejmandi.co.uk</p>
               </Link>
               <Link href='tel:+44 116 507 4571' className="hover:text-secondary transition-colors">
                 <p className="text-lg font-bold text-secondary">+44 116 507 4571</p>
