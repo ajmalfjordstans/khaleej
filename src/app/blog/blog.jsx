@@ -2,8 +2,18 @@
 
 import applyScrollAnimation from '@/components/scroll-animation'
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 const posts = [
+  {
+    id: 7,
+    category: 'Food Culture',
+    title: 'The Ultimate Guide to Authentic Arabic & Yemeni Cuisine: Top 10 Must-Try Dishes in Leicester',
+    date: '18 May 2024',
+    excerpt: 'Leicester’s food scene has entered a new era with authentic Arabic and Yemeni cuisines. Explore the top 10 must-try dishes, from slow-cooked Mandi to hand-crafted Falafel.',
+    slug: 'top-10-arabic-yemeni-dishes-leicester',
+    content: '',
+  },
   {
     id: 1,
     category: 'Our Story',
@@ -159,26 +169,45 @@ export default function Blog() {
                   {post.excerpt}
                 </p>
 
-                <button
-                  onClick={() => toggle(post.id)}
-                  className='flex items-center gap-2 text-secondary font-julius text-[12px] uppercase tracking-[3px] hover:text-white transition-colors duration-200 group'
-                >
-                  {expandedId === post.id ? 'Close Article' : 'Read Article'}
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    strokeWidth={1.5}
-                    stroke='currentColor'
-                    className={`w-4 h-4 transition-transform duration-300 ${expandedId === post.id ? 'rotate-180' : ''}`}
+                {post.slug ? (
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className='flex items-center gap-2 text-secondary font-julius text-[12px] uppercase tracking-[3px] hover:text-white transition-colors duration-200 group'
                   >
-                    <path strokeLinecap='round' strokeLinejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' />
-                  </svg>
-                </button>
+                    Read Full Article
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      strokeWidth={1.5}
+                      stroke='currentColor'
+                      className='w-4 h-4 transition-transform duration-300'
+                    >
+                      <path strokeLinecap='round' strokeLinejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' />
+                    </svg>
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => toggle(post.id)}
+                    className='flex items-center gap-2 text-secondary font-julius text-[12px] uppercase tracking-[3px] hover:text-white transition-colors duration-200 group'
+                  >
+                    {expandedId === post.id ? 'Close Article' : 'Read Article'}
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      strokeWidth={1.5}
+                      stroke='currentColor'
+                      className={`w-4 h-4 transition-transform duration-300 ${expandedId === post.id ? 'rotate-180' : ''}`}
+                    >
+                      <path strokeLinecap='round' strokeLinejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' />
+                    </svg>
+                  </button>
+                )}
               </div>
 
               {/* Expanded Content */}
-              {expandedId === post.id && (
+              {!post.slug && expandedId === post.id && (
                 <div className='px-8 md:px-10 pb-10 border-t border-white/10'>
                   <div className='pt-8 max-w-[760px]'>
                     {post.content.split('\n\n').map((paragraph, i) => (
