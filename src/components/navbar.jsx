@@ -35,9 +35,9 @@ export default function Navbar() {
         </Link>
         <div className='hidden lg:block w-[40%]'>
           <div className='flex w-full justify-around'>
+            <Link href="/blog">Blog</Link>
             <Link href="/contact">Contact</Link>
             <Link href="/careers">Careers</Link>
-            <Link href="tel:+44 116 507 4571">Call Us</Link>
           </div>
         </div>
         <div className='absolute right-4 lg:hidden'>
@@ -85,6 +85,7 @@ export default function Navbar() {
               <Link onClick={closeDrawer} href="/menu">Menu</Link>
               <Link onClick={closeDrawer} href="/contact">Contact</Link>
               <Link onClick={closeDrawer} href="/careers">Careers</Link>
+              <Link onClick={closeDrawer} href="/blog">Blog</Link>
               <Link href="tel:+44 116 507 4571">Call Us</Link>
             </div>
           </div>
