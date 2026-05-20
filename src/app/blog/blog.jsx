@@ -1,20 +1,20 @@
-‘use client’
+'use client'
 
-import applyScrollAnimation from ‘@/components/scroll-animation’
-import React, { useEffect, useState } from ‘react’
-import Link from ‘next/link’
-import Image from ‘next/image’
+import applyScrollAnimation from '@/components/scroll-animation'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const posts = [
   {
     id: 1,
-    category: ‘Food Culture’,
-    title: ‘The Ultimate Guide to Authentic Arabic & Yemeni Cuisine: Top 10 Must-Try Dishes in Leicester’,
-    date: ‘18 May 2026’,
-    excerpt: ‘Leicester’s food scene has entered a new era with authentic Arabic and Yemeni cuisines. Explore the top 10 must-try dishes, from slow-cooked Mandi to hand-crafted Falafel.’,
-    slug: ‘top-10-arabic-yemeni-dishes-leicester’,
-    image: ‘/Images/blog/20240421-DSC03113.webp’,
-    content: ‘’,
+    category: 'Food Culture',
+    title: 'The Ultimate Guide to Authentic Arabic & Yemeni Cuisine: Top 10 Must-Try Dishes in Leicester',
+    date: '18 May 2026',
+    excerpt: "Leicester's food scene has entered a new era with authentic Arabic and Yemeni cuisines. Explore the top 10 must-try dishes, from slow-cooked Mandi to hand-crafted Falafel.",
+    slug: 'top-10-arabic-yemeni-dishes-leicester',
+    image: '/Images/blog/20240421-DSC03113.webp',
+    content: '',
   },
   //   {
   //     id: 1,
@@ -107,7 +107,7 @@ const posts = [
   //     title: "Leicester's Multicultural Food Scene and Where Khaleej Fits In",
   //     date: '3 June 2024',
   //     excerpt:
-  //       'Leicester has long been one of the UK\'s most diverse cities. We explore the city\'s vibrant food culture and why bringing authentic Mandi here felt like a natural homecoming.',
+  //       "Leicester has long been one of the UK's most diverse cities. We explore the city's vibrant food culture and why bringing authentic Mandi here felt like a natural homecoming.",
   //     content: `Leicester has a long and proud history of welcoming the world. As one of the first cities in the UK where no single ethnic group forms an outright majority, Leicester has built a food culture that reflects its extraordinary diversity — and has quietly become one of the best cities in England to eat well.
 
   // The Golden Mile along Belgrave Road is legendary among those who know South Asian cuisine, offering dozens of vegetarian restaurants, sweet shops, and street food stalls that rival anything you would find in Mumbai or Delhi. The city's Somali, Eritrean, and Caribbean communities have also built their own vibrant food corridors, each offering a window into cultures that have made Leicester their home.
@@ -169,9 +169,7 @@ export default function Blog() {
               {/* Card Header */}
               <div className='p-8 md:p-10'>
                 <div className='flex flex-wrap items-center gap-4 mb-4'>
-                  <span
-                    className='text-[11px] uppercase tracking-[3px] font-julius px-3 py-1 border border-secondary/40 text-secondary'
-                  >
+                  <span className='text-[11px] uppercase tracking-[3px] font-julius px-3 py-1 border border-secondary/40 text-secondary'>
                     {post.category}
                   </span>
                   <span className='text-white/30 font-source text-[13px]'>{post.date}</span>
