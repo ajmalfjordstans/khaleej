@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Top 10 Must-Try Arabic Dishes in Leicester | Khaleej Mandi House',
@@ -30,6 +31,19 @@ export default function ArticlePage() {
                 The Ultimate Guide to Authentic Arabic &amp; Yemeni Cuisine: Top 10 Must-Try Dishes in Leicester
               </h1>
               <div className='w-[60px] h-[2px] bg-secondary mx-auto mt-6'></div>
+            </div>
+
+            {/* Hero Image */}
+            <div className='relative w-full h-[300px] md:h-[480px] rounded-sm overflow-hidden mb-12'>
+              <Image
+                src='/Images/blog/20240421-DSC03113.webp'
+                alt='Authentic Arabic and Yemeni cuisine at Khaleej Mandi House'
+                fill
+                className='object-cover object-center'
+                sizes='(max-width: 768px) 100vw, 1120px'
+                priority
+              />
+              <div className='absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent' />
             </div>
 
             <div className='font-source text-white/75 text-[14px] md:text-[16px] leading-[1.9] text-justify'>

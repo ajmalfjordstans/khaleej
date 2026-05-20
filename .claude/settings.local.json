@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"d:\\\\Code\\\\Fjordstans\\\\Other\\\\Khaleej\\\\code\\\\khaleej\\\\src\\\\app\\\\blog\" -Recurse)"
+    ]
+  }
+}
