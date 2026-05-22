@@ -119,16 +119,37 @@ export default function ArticlePage() {
                 </Link>
               </div>
 
-              <h2 className='font-julius text-[24px] uppercase text-white mt-12 mb-6'>Frequently Asked Questions</h2>
+              {/* FAQ Section */}
+              <div className='mt-16 mb-6'>
+                <div className='w-full h-[1px] bg-white/10 mb-12' />
+                <p className='text-secondary font-julius text-[12px] uppercase tracking-[5px] mb-3'>Got Questions?</p>
+                <h2 className='font-julius text-[28px] md:text-[34px] uppercase text-white mb-10 font-[300]'>Frequently Asked Questions</h2>
 
-              <h3 className='font-julius text-[20px] text-secondary mt-8 mb-4'>What makes Yemeni Mandi different from Biryani?</h3>
-              <p className='mb-6'>While both are delicious rice dishes, Mandi is defined by slow-cooking in a pit oven and a more subtle, aromatic spice profile. Biryani is often more heavily layered with sauce and spices, whereas Mandi focuses on the natural flavour of the meat dripping into the rice below.</p>
-
-              <h3 className='font-julius text-[20px] text-secondary mt-8 mb-4'>Is Khaleej Mandi family-friendly?</h3>
-              <p className='mb-6'>Yes. Traditional Arabic culture is built around the family. We have seating and platters specifically designed for families to eat together in the traditional communal style.</p>
-
-              <h3 className='font-julius text-[20px] text-secondary mt-8 mb-4'>Do you offer Halal food?</h3>
-              <p className='mb-6'>Our entire menu is 100% Halal, prepared according to traditional standards to serve the diverse community of Leicester.</p>
+                <div className='flex flex-col gap-4'>
+                  {[
+                    {
+                      q: 'What makes Yemeni Mandi different from Biryani?',
+                      a: 'While both are delicious rice dishes, Mandi is defined by slow-cooking in a pit oven and a more subtle, aromatic spice profile. Biryani is often more heavily layered with sauce and spices, whereas Mandi focuses on the natural flavour of the meat dripping into the rice below.',
+                    },
+                    {
+                      q: 'Is Khaleej Mandi family-friendly?',
+                      a: 'Yes. Traditional Arabic culture is built around the family. We have seating and platters specifically designed for families to eat together in the traditional communal style.',
+                    },
+                    {
+                      q: 'Do you offer Halal food?',
+                      a: 'Our entire menu is 100% Halal, prepared according to traditional standards to serve the diverse community of Leicester.',
+                    },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className='border border-white/10 border-l-secondary border-l-2 bg-white/[0.03] px-6 py-6'
+                    >
+                      <p className='font-julius text-[16px] md:text-[18px] text-white mb-3 leading-snug'>{item.q}</p>
+                      <p className='font-source text-white/60 text-[14px] md:text-[15px] leading-relaxed'>{item.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </article>
         </div>
