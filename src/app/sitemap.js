@@ -38,5 +38,17 @@ export default function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/top-10-arabic-yemeni-dishes-leicester`,
+      lastModified: new Date('2026-05-18'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 }

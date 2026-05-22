@@ -73,7 +73,7 @@ export default function RootLayout({ children, isAdminPage }) {
                 ],
                 "image": "https://www.khaleejmandi.co.uk/icon.jpg",
                 "hasMap": "https://maps.google.com/?q=12-14+Highfield+St,+Leicester+LE2+1AB",
-                "reservations": "https://www.khaleejmandi.co.uk/book-now",
+                "acceptsReservations": "https://www.khaleejmandi.co.uk/book-now",
                 "potentialAction": {
                   "@type": "ReserveAction",
                   "target": {

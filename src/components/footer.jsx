@@ -15,6 +15,7 @@ export default function Footer() {
               alt='footer logo'
               className='brightness-200 contrast-125 mb-6'
             />
+            <p className='text-md font-bold font-julius'>Khaleej Mandhi House</p>
             <p className="text-sm text-center lg:text-left italic opacity-70">
               The Authentic Mandi Experience in the heart of United Kingdom.
             </p>
