@@ -12,7 +12,7 @@ const posts = [
     title: 'The Ultimate Guide to Authentic Arabic & Yemeni Cuisine: Top 10 Must-Try Dishes in Leicester',
     date: '18 May 2026',
     excerpt: "Leicester's food scene has entered a new era with authentic Arabic and Yemeni cuisines. Explore the top 10 must-try dishes, from slow-cooked Mandi to hand-crafted Falafel.",
-    slug: 'top-10-arabic-yemeni-dishes-leicester',
+    slug: 'top-arabic-yemeni-dishes-leicester',
     image: '/Images/blog/20240421-DSC03113.webp',
     content: '',
   },
