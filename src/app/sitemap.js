@@ -45,7 +45,7 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog/top-arabic-yemeni-dishes-leicester`,
+      url: `${baseUrl}/top-arabic-yemeni-dishes-leicester`,
       lastModified: new Date('2026-05-18'),
       changeFrequency: 'monthly',
       priority: 0.7,

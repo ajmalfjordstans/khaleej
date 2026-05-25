@@ -5,8 +5,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata = {
-  title: 'Top 10 Must-Try Arabic Dishes in Leicester | Khaleej Mandi House',
-  description: 'Explore the top 10 must-try Arabic and Yemeni dishes in Leicester, from slow-cooked Mandi to hand-crafted Falafel.',
+  title: 'Top Must-Try Arabic & Yemeni Dishes in Leicester | Khaleej Mandi House',
+  description: 'Explore the top must-try Arabic and Yemeni dishes in Leicester, from slow-cooked Mandi to hand-crafted Falafel.',
+  alternates: { canonical: 'https://www.khaleejmandi.co.uk/top-arabic-yemeni-dishes-leicester' },
 }
 
 export default function ArticlePage() {
