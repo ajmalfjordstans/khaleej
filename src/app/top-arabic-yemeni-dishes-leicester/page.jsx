@@ -8,11 +8,68 @@ export const metadata = {
   title: 'Top Must-Try Arabic & Yemeni Dishes in Leicester | Khaleej Mandi House',
   description: 'Explore the top must-try Arabic and Yemeni dishes in Leicester, from slow-cooked Mandi to hand-crafted Falafel.',
   alternates: { canonical: 'https://www.khaleejmandi.co.uk/top-arabic-yemeni-dishes-leicester' },
+  openGraph: {
+    title: 'Top Must-Try Arabic & Yemeni Dishes in Leicester | Khaleej Mandi House',
+    description: 'Explore the top must-try Arabic and Yemeni dishes in Leicester, from slow-cooked Mandi to hand-crafted Falafel.',
+    url: 'https://www.khaleejmandi.co.uk/top-arabic-yemeni-dishes-leicester',
+    type: 'article',
+    publishedTime: '2026-05-18T00:00:00.000Z',
+    images: [
+      {
+        url: '/Images/blog/20240421-DSC03113.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Top Arabic and Yemeni dishes at Khaleej Mandi House Leicester',
+      },
+    ],
+  },
+  twitter: {
+    title: 'Top Must-Try Arabic & Yemeni Dishes in Leicester | Khaleej Mandi House',
+    description: 'Explore the top must-try Arabic and Yemeni dishes in Leicester, from slow-cooked Mandi to hand-crafted Falafel.',
+    images: ['/Images/blog/20240421-DSC03113.webp'],
+  },
 }
 
 export default function ArticlePage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Top Must-Try Arabic & Yemeni Dishes in Leicester',
+    description: 'Explore the top must-try Arabic and Yemeni dishes in Leicester, from slow-cooked Mandi to hand-crafted Falafel.',
+    image: 'https://www.khaleejmandi.co.uk/Images/blog/20240421-DSC03113.webp',
+    datePublished: '2026-05-18',
+    dateModified: '2026-05-18',
+    author: { '@type': 'Organization', name: 'Khaleej Mandi House', url: 'https://www.khaleejmandi.co.uk' },
+    publisher: { '@type': 'Organization', name: 'Khaleej Mandi House', url: 'https://www.khaleejmandi.co.uk', logo: { '@type': 'ImageObject', url: 'https://www.khaleejmandi.co.uk/icon.jpg' } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.khaleejmandi.co.uk/top-arabic-yemeni-dishes-leicester' },
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What makes Yemeni Mandi different from Biryani?',
+        acceptedAnswer: { '@type': 'Answer', text: 'While both are delicious rice dishes, Mandi is defined by slow-cooking in a pit oven and a more subtle, aromatic spice profile. Biryani is often more heavily layered with sauce and spices, whereas Mandi focuses on the natural flavour of the meat dripping into the rice below.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is Khaleej Mandi family-friendly?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Yes. Traditional Arabic culture is built around the family. We have seating and platters specifically designed for families to eat together in the traditional communal style.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you offer Halal food?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Our entire menu is 100% Halal, prepared according to traditional standards to serve the diverse community of Leicester.' },
+      },
+    ],
+  }
+
   return (
     <div>
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div id='nav'></div>
       <Navbar />
 
@@ -115,7 +172,7 @@ export default function ArticlePage() {
               <p className='mb-6'>Whether you&apos;re dining with family, meeting friends, or exploring Arabic flavours for the first time, an unforgettable meal is waiting for you.</p>
 
               <div className='mt-8 mb-12'>
-                <Link href='/book-now' className='inline-block border border-secondary text-secondary font-julius text-[12px] uppercase tracking-[3px] px-8 py-4 hover:bg-secondary hover:text-black transition-all duration-300'>
+                <Link href='/menu' className='inline-block border border-secondary text-secondary font-julius text-[12px] uppercase tracking-[3px] px-8 py-4 hover:bg-secondary hover:text-black transition-all duration-300'>
                   Explore our full menu and book your table here
                 </Link>
               </div>

@@ -26,12 +26,30 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
-  title: 'Khaleej - The Authentic Mandi in United Kingdom',
-  description: 'Authentic Mandi in United Kingdom',
+  metadataBase: new URL('https://www.khaleejmandi.co.uk'),
+  title: 'Khaleej Mandi House | Authentic Yemeni & Arabian Restaurant in Leicester',
+  description: 'Khaleej Mandi House serves authentic Yemeni and Middle Eastern cuisine in Leicester. Experience slow-cooked Mandi, Haneeth, Kabsa and traditional Majlis dining.',
   icons: {
-    icon: "/icon.jpg",
-    apple: "/icon.jpg",
-  }
+    icon: '/icon.jpg',
+    apple: '/icon.jpg',
+  },
+  openGraph: {
+    siteName: 'Khaleej Mandi House',
+    type: 'website',
+    locale: 'en_GB',
+    images: [
+      {
+        url: '/Images/blog/20240421-DSC03113.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Khaleej Mandi House — Authentic Yemeni & Arabian Restaurant in Leicester',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/Images/blog/20240421-DSC03113.webp'],
+  },
 }
 
 
