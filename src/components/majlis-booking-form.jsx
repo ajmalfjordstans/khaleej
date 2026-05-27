@@ -8,6 +8,11 @@ import { basicSchema } from "@/schemas";
 import Lottie from 'react-lottie';
 import animationData from '../json/booking-animation.json'
 
+const BLOCKED_DATES = ['2026-05-28']
+
+const isDateBlocked = (dayjsDate) =>
+  BLOCKED_DATES.some((d) => dayjsDate.isSame(dayjs(d), 'day'))
+
 export default function Form() {
   const [date, setDate] = useState(new Date())
   const [submitted, setSubmitted] = useState(false)
@@ -113,7 +118,11 @@ export default function Form() {
                 className="bg-inherit w-full !text-white border-[1px] border-primary rounded-[3px] "
                 format='D MMMM YYYY'
                 minDate={dayjs(new Date())}
+                shouldDisableDate={isDateBlocked}
               />
+              {isDateBlocked(dayjs(date)) && (
+                <p className="text-[red] text-sm mt-1">Sorry, we are not available on the selected date.</p>
+              )}
             </div>
             <div className="flex flex-col gap-[2px]">
               <label htmlFor="time">Time</label>
@@ -177,7 +186,7 @@ export default function Form() {
               className="bg-inherit w-full text-black border-[1px] border-primary rounded-[3px] p-3"
             />
           </div>
-          <Button type="submit" disabled={isSubmitting} className="bg-primary ">
+          <Button type="submit" disabled={isSubmitting || isDateBlocked(dayjs(date))} className="bg-primary ">
             Book
           </Button>
         </form>
