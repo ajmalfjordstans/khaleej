@@ -122,6 +122,15 @@ export default function ArticlePage() {
               <p className='mb-6'><strong className='text-secondary'>Perfect for:</strong> First-time visitors to Arabic restaurants.</p>
 
               <h3 className='font-julius text-[20px] text-secondary mt-8 mb-4'>2. Lamb Mandi: The Master of Tradition</h3>
+              <div className='relative w-full h-[260px] md:h-[420px] rounded-sm overflow-hidden mb-6'>
+                <Image
+                  src='/Images/blog/Lamb-Mandi.png'
+                  alt='Slow-cooked Lamb Mandi served over fragrant spiced rice at Khaleej Mandi House Leicester'
+                  fill
+                  className='object-cover object-center'
+                  sizes='(max-width: 768px) 100vw, 1120px'
+                />
+              </div>
               <p className='mb-6'>If you are a fan of rich, tender meat, then Lamb Mandi should definitely be on your list. Our lamb is slow-cooked in traditional ovens for several hours, making the meat exceptionally soft as it absorbs the smokiness of the charcoal and the flavour of our blend of exclusive spices.</p>
               <p className='mb-6'>Most roasts have the meat placed separately, but Mandi lamb is suspended over the rice so that the natural meat juices trickle down and flavour the grain. This &quot;flavour loop&quot; is what creates the distinct, dewy texture the dish is named for.</p>
               <p className='mb-6'><strong className='text-secondary'>Why people love it:</strong> Deep flavours, tender fall-off-the-bone texture, and authentic cooking methods.</p>
