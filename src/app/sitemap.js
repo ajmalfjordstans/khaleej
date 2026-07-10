@@ -50,5 +50,11 @@ export default function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/history-of-mandi-yemen-to-leicester`,
+      lastModified: new Date('2026-06-20'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 }

@@ -7,6 +7,16 @@ import Image from 'next/image'
 
 const posts = [
   {
+    id: 2,
+    category: 'Our Story',
+    title: 'The History of Mandi: From the Mountains of Yemen to Your Plate in Leicester',
+    date: '20 June 2026',
+    excerpt: 'Discover how Mandi, born in the ancient valleys of Hadhramaut, Yemen, journeyed across the Arabian Peninsula and arrived in Leicester — a dish that carries a thousand years of hospitality and history on one platter.',
+    slug: '/history-of-mandi-yemen-to-leicester',
+    image: '/Images/blog/IMG_2480.PNG',
+    content: '',
+  },
+  {
     id: 1,
     category: 'Food Culture',
     title: 'The Ultimate Guide to Authentic Arabic & Yemeni Cuisine: Top 10 Must-Try Dishes in Leicester',
