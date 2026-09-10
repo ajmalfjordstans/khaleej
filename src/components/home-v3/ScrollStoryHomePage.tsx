@@ -113,6 +113,8 @@ export default function ScrollStoryHomePage() {
 
   const menuSpacerRef = useRef<HTMLDivElement>(null);
   const menuHeadingRef = useRef<HTMLDivElement>(null);
+  const menuViewportRef = useRef<HTMLDivElement>(null);
+  const menuTrackRef = useRef<HTMLDivElement>(null);
   const menuCardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const processSpacerRef = useRef<HTMLDivElement>(null);
@@ -222,8 +224,10 @@ export default function ScrollStoryHomePage() {
       });
 
       /* ---------------- Menu ----------------
-         A staggered horizontal row of dish cards, alternating vertical offset
-         for rhythm — a filmstrip, not a center-medallion-with-wings layout. */
+         Desktop: a staggered horizontal row of dish cards, alternating vertical
+         offset for rhythm. Mobile has no room to show all five at once and a
+         manual side-swipe reads as broken, so the filmstrip instead auto-pans
+         as you scroll down — the vertical scroll IS the horizontal reveal. */
       s.menu = lerp(s.menu, getSectionProgress(menuSpacerRef.current), SMOOTHING);
       const menuP = s.menu;
       if (menuHeadingRef.current) {
@@ -231,12 +235,25 @@ export default function ScrollStoryHomePage() {
         menuHeadingRef.current.style.opacity = `${hp}`;
         menuHeadingRef.current.style.transform = `translateY(${lerp(-8, 0, hp)}px)`;
       }
+      const isMobileMenu = window.innerWidth < 1024;
+      if (menuTrackRef.current && menuViewportRef.current) {
+        if (isMobileMenu) {
+          // All cards finish revealing early (by ~0.3) so the pan below never
+          // has to chase a still-fading card — reveal and reposition don't race.
+          const maxScroll = Math.max(0, menuTrackRef.current.scrollWidth - menuViewportRef.current.clientWidth);
+          const panP = easeOutCubic(localProgress(menuP, 0.35, 1));
+          menuTrackRef.current.style.transform = `translateX(${-panP * maxScroll}px)`;
+        } else {
+          menuTrackRef.current.style.transform = 'translateX(0px)';
+        }
+      }
       const zigzag = [-1, 1, -1, 1, -1];
       menuCardRefs.current.forEach((el, i) => {
         if (!el) return;
-        const start = 0.1 + i * 0.14;
-        const local = easeOutBack(localProgress(menuP, start, start + 0.4));
-        const restY = zigzag[i % zigzag.length] * 18;
+        const start = isMobileMenu ? i * 0.03 : 0.1 + i * 0.14;
+        const end = isMobileMenu ? start + 0.25 : start + 0.4;
+        const local = easeOutBack(localProgress(menuP, start, end));
+        const restY = isMobileMenu ? 0 : zigzag[i % zigzag.length] * 18;
         el.style.transform = `translateY(${lerp(60, restY, local)}px) scale(${lerp(0.8, 1, local)})`;
         el.style.opacity = `${clamp(local * 1.3)}`;
       });
@@ -332,7 +349,7 @@ export default function ScrollStoryHomePage() {
           with the navbar (z-[20]) floating over it — instead of leaving a flat maroon gap
           between the navbar's own flow space and where the hero's image starts. */}
       <div ref={heroSpacerRef} className="relative -mt-[60px] md:-mt-[88px]" style={{ height: '180vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden">
+        <div className="sticky top-0 h-dvh overflow-hidden">
           <div ref={heroImageRef} className="absolute inset-0 will-change-transform">
             <Image
               src="/Images/carousel/carousel1.webp"
@@ -374,12 +391,12 @@ export default function ScrollStoryHomePage() {
 
       {/* ================= OUR ROOTS — layered photo + overlapping card ================= */}
       <div ref={rootsSpacerRef} className="relative" style={{ height: '180vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden flex items-start pt-8 pb-6 lg:items-center lg:py-0">
+        <div className="sticky top-0 h-dvh overflow-hidden flex items-start pt-6 pb-4 lg:items-center lg:py-0">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
             <div className="relative">
               <div
                 ref={rootsImageWrapRef}
-                className="relative w-full lg:w-[68%] aspect-[4/5] lg:aspect-[16/10] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl will-change-transform"
+                className="relative w-full lg:w-[68%] aspect-[4/3] lg:aspect-[16/10] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl will-change-transform"
                 style={{ opacity: 0.55 }}
               >
                 <Image src="/Images/story.JPG" alt="Our Story" fill className="object-cover object-center" />
@@ -387,30 +404,30 @@ export default function ScrollStoryHomePage() {
 
               <div
                 ref={rootsCardRef}
-                className="relative lg:absolute lg:-bottom-10 lg:right-0 mt-[-3rem] lg:mt-0 mx-4 lg:mx-0 lg:w-[46%] bg-primary/95 backdrop-blur-md border border-white/10 rounded-[1.5rem] shadow-2xl p-6 lg:p-10 will-change-transform"
+                className="relative lg:absolute lg:-bottom-10 lg:right-0 mt-[-3rem] lg:mt-0 mx-4 lg:mx-0 lg:w-[46%] bg-primary/95 backdrop-blur-md border border-white/10 rounded-[1.5rem] shadow-2xl p-4 lg:p-10 will-change-transform"
                 style={{ opacity: 0.4 }}
               >
-                <p className="text-secondary font-julius uppercase tracking-[0.3em] mb-2 lg:mb-3 text-xs lg:text-sm">Our Story</p>
-                <h2 className="text-2xl lg:text-3xl font-source font-semibold mb-3 lg:mb-5 text-white leading-tight">
+                <p className="text-secondary font-julius uppercase tracking-[0.3em] mb-1 lg:mb-3 text-xs lg:text-sm">Our Story</p>
+                <h2 className="text-xl lg:text-3xl font-source font-semibold mb-2 lg:mb-5 text-white leading-tight">
                   Bringing Arabian Flavours To Leicester
                 </h2>
-                <p className="text-sm lg:text-base text-white/70 mb-5 lg:mb-6 leading-relaxed">
+                <p className="text-xs lg:text-base text-white/70 mb-3 lg:mb-6 leading-relaxed">
                   Welcome to Khaleej — where Mandi&apos;s heart beats from Yemen&apos;s Hadramaut region,
                   now brought to Leicester. Rice and tender meats slow-cook to perfection, absorbing
                   aromatic spices and bridging cultures with every bite.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 lg:gap-x-4 lg:gap-y-2.5">
                   {ROOTS_POINTS.map((point, i) => (
                     <div
                       key={point}
                       ref={el => { rootsPointRefs.current[i] = el; }}
-                      className="flex items-center gap-2 will-change-transform"
+                      className="flex items-center gap-1.5 lg:gap-2 will-change-transform"
                       style={{ opacity: 0.4 }}
                     >
-                      <svg className="w-4 h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                       </svg>
-                      <span className="text-white/80 text-xs lg:text-sm">{point}</span>
+                      <span className="text-white/80 text-[11px] lg:text-sm">{point}</span>
                     </div>
                   ))}
                 </div>
@@ -422,7 +439,7 @@ export default function ScrollStoryHomePage() {
 
       {/* ================= MAJLIS DINING — full-bleed image, text on scrim ================= */}
       <div ref={majlisSpacerRef} className="relative" style={{ height: '160vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden">
+        <div className="sticky top-0 h-dvh overflow-hidden">
           <div ref={majlisImageWrapRef} className="absolute inset-0 will-change-transform">
             <Image src="/Images/majlis.jpg" alt="Majlis Dining" fill className="object-cover object-center" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-black/30" />
@@ -462,35 +479,36 @@ export default function ScrollStoryHomePage() {
 
       {/* ================= THE MENU — staggered filmstrip ================= */}
       <div ref={menuSpacerRef} className="relative" style={{ height: '200vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center px-4 lg:px-10">
+        <div className="sticky top-0 h-dvh overflow-hidden flex flex-col items-center justify-center px-4 lg:px-10">
           <div ref={menuHeadingRef} className="text-center mb-10 lg:mb-16" style={{ opacity: 0.6 }}>
             <p className="text-secondary font-julius uppercase tracking-[0.3em] mb-2 lg:mb-3 text-xs lg:text-sm">Know Your Rice</p>
             <h2 className="text-2xl lg:text-4xl font-source font-semibold text-white">Signature Dishes</h2>
           </div>
 
-          <div className="flex gap-4 lg:gap-6 overflow-x-auto lg:overflow-visible max-w-6xl w-full pl-4 pr-10 lg:px-2 pb-4 lg:pb-0 lg:justify-center snap-x snap-mandatory scroll-px-4">
-            {DISHES.map((dish, i) => (
-              <div
-                key={dish.name}
-                ref={el => { menuCardRefs.current[i] = el; }}
-                className="flex-shrink-0 snap-center w-[180px] lg:w-[220px] aspect-[3/4] rounded-[1.5rem] bg-gradient-to-b from-white/10 to-white/[0.03] border border-white/10 shadow-2xl p-5 lg:p-6 flex flex-col justify-between will-change-transform"
-                style={{ opacity: 0 }}
-              >
-                <span className="text-secondary/50 font-julius text-2xl lg:text-3xl">{dish.n}</span>
-                <div>
-                  <h3 className="font-julius text-white text-lg lg:text-xl uppercase tracking-wide mb-2">{dish.name}</h3>
-                  <p className="text-xs lg:text-sm text-white/65 leading-relaxed">{dish.desc}</p>
+          <div ref={menuViewportRef} className="overflow-hidden lg:overflow-visible max-w-6xl w-full">
+            <div ref={menuTrackRef} className="flex gap-4 lg:gap-6 pl-4 pr-10 lg:px-2 lg:justify-center will-change-transform">
+              {DISHES.map((dish, i) => (
+                <div
+                  key={dish.name}
+                  ref={el => { menuCardRefs.current[i] = el; }}
+                  className="flex-shrink-0 w-[180px] lg:w-[220px] aspect-[3/4] rounded-[1.5rem] bg-gradient-to-b from-white/10 to-white/[0.03] border border-white/10 shadow-2xl p-5 lg:p-6 flex flex-col justify-between will-change-transform"
+                  style={{ opacity: 0 }}
+                >
+                  <span className="text-secondary/50 font-julius text-2xl lg:text-3xl">{dish.n}</span>
+                  <div>
+                    <h3 className="font-julius text-white text-lg lg:text-xl uppercase tracking-wide mb-2">{dish.name}</h3>
+                    <p className="text-xs lg:text-sm text-white/65 leading-relaxed">{dish.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          <p className="lg:hidden text-white/40 text-[11px] text-center mt-3 tracking-widest uppercase">Swipe for more →</p>
         </div>
       </div>
 
       {/* ================= HOW IT WORKS — vertical timeline ================= */}
       <div ref={processSpacerRef} className="relative" style={{ height: '180vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center px-6">
+        <div className="sticky top-0 h-dvh overflow-hidden flex flex-col items-center justify-center px-6">
           <div ref={processHeadingRef} className="text-center mb-10 lg:mb-16" style={{ opacity: 0.6 }}>
             <p className="text-secondary font-julius uppercase tracking-[0.3em] mb-2 lg:mb-3 text-xs lg:text-sm">The Khaleej Way</p>
             <h2 className="text-2xl lg:text-4xl font-source font-semibold text-white max-w-lg mx-auto">
@@ -536,7 +554,7 @@ export default function ScrollStoryHomePage() {
 
       {/* ================= FINALE / CTA — bold type over a geometric pattern ================= */}
       <div ref={ctaSpacerRef} className="relative" style={{ height: '120vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
+        <div className="sticky top-0 h-dvh overflow-hidden flex items-center justify-center">
           <div
             ref={ctaPatternRef}
             className="absolute inset-0 will-change-[opacity]"
