@@ -1,11 +1,9 @@
 import { Inter, Source_Serif_4, Julius_Sans_One, Montserrat, Nunito_Sans } from 'next/font/google'
 import './globals.css'
-import Hero from '@/components/hero'
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
-import Layout from '@/components/layout'
-import Loading from '@/components/loading'
 import { ContextProvider } from '@/context/context'
+import { OrderCartProvider } from '@/context/OrderCartContext'
+import { STORE_SLUG } from '@/lib/order/config'
+import FloatingCallButton from '@/components/FloatingCallButton'
 
 const nunito = Nunito_Sans({
   subsets: ['latin']
@@ -182,14 +180,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        {/* <Loading /> */}
         <ContextProvider>
-          <Layout>
-            {/* <Hero />
-            <div id='nav'></div>
-            <Navbar /> */}
+          <OrderCartProvider storeId={STORE_SLUG}>
             {children}
-          </Layout>
+            <FloatingCallButton />
+          </OrderCartProvider>
         </ContextProvider>
       </body>
     </html>

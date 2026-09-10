@@ -26,7 +26,7 @@ export default function Services() {
     },
   ]
   return (
-    <section className='container mx-auto px-[5%] lg:px-0 py-20'>
+    <section className='container mx-auto px-[5%] py-20'>
       <p className='text-[22px] md:text-[36px] font-[600] leading-normal pb-[40px] text-left font-source'>Khaleej team, catering services <br />
         and success stories</p>
       <div className='w-full max-w-[310px] h-[3px] bg-[#F3F25B]'></div>

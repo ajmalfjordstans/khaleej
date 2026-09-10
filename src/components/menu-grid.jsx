@@ -2,7 +2,6 @@
 
 import React from 'react'
 import menuData from '@/app/menu/menu.json'
-import { Typography, Card, CardBody } from "@material-tailwind/react"
 const LeafIcon = () => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 

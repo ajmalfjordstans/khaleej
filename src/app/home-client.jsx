@@ -1,49 +1,27 @@
-// Module: Home page component
 'use client'
-export const dynamic = 'force-dynamic'
-import { useEffect, useState } from 'react'
-import Loading from './loading'
-import nextDynamic from 'next/dynamic'
 
-// Dynamically import client-only components to avoid server-side evaluation
-const Hero = nextDynamic(() => import('@/components/hero'), { ssr: false })
-const Navbar = nextDynamic(() => import('@/components/navbar'), { ssr: false })
-const About = nextDynamic(() => import('./about'), { ssr: false })
-const Gallery = nextDynamic(() => import('./gallery'), { ssr: false })
-const Testimonial = nextDynamic(() => import('./testimonial'), { ssr: false })
-const ContactSection = nextDynamic(() => import('./contact'), { ssr: false })
-const Footer = nextDynamic(() => import('@/components/footer'), { ssr: false })
-const MenuSection = nextDynamic(() => import('@/components/menu-section'), { ssr: false })
+import Navbar from '@/components/navbar'
+import ScrollStoryHomePage from '@/components/home-v3/ScrollStoryHomePage'
+import Gallery from './gallery'
+import Testimonial from './testimonial'
+import ContactSection from './contact'
+import Footer from '@/components/footer'
 
 export default function Home() {
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    const hasLoadedBefore = sessionStorage.getItem('khaleej-splash-shown')
-    if (hasLoadedBefore) {
-      setLoading(false)
-    } else {
-      const t = setTimeout(() => {
-        setLoading(false)
-        sessionStorage.setItem('khaleej-splash-shown', 'true')
-      }, 3000)
-      return () => clearTimeout(t)
-    }
-  }, [])
-
   return (
-    loading ?
-      <Loading />
-      :
-      <div>
-        <Hero />
-        <div id='nav'></div>
-        <Navbar />
-        <About />
-        <MenuSection />
-        <Gallery />
-        <Testimonial />
-        <ContactSection />
-        <Footer />
-      </div>
+    // bg-primary here (not just on ScrollStoryHomePage below) so the small gap
+    // around the floating pill navbar — mt-2 above it, the rounded corners at
+    // its sides — shows dark maroon instead of the page's white default,
+    // blending with the hero image's own dark-to-maroon gradient instead of
+    // reading as a mismatched seam.
+    <div className='bg-primary'>
+      <div id='nav'></div>
+      <Navbar />
+      <ScrollStoryHomePage />
+      <Gallery />
+      <Testimonial />
+      <ContactSection />
+      <Footer />
+    </div>
   )
 }

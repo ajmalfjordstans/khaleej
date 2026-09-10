@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@material-tailwind/react'
+import Button from '@/components/ui/Button'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 

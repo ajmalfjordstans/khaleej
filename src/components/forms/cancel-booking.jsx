@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@material-tailwind/react'
+import Button from '@/components/ui/Button'
 import axios from 'axios'
 import React, { useState } from 'react'
 

@@ -1,13 +1,38 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Julius+Sans+One&family=Source+Serif+4:opsz@8..60&display=swap');
+@import "tailwindcss";
 
 :root {
   --primary: #89182E;
+  --primary-dark: #6B1322;
   --secondary: #FFD369;
   --off-white: #FDF5E6;
+  /* Ordering-system interactive accent (links, focus rings, secondary buttons) — a deep
+     gold rather than the light --secondary tone, chosen for contrast: readable as text on
+     cream/white and as white-text-on-fill, which --secondary is too light for. */
+  --accent: #B8860B;
+  --accent-dark: #96690A;
+  /* Muted tan used for borders/dividers on cream (--off-white) panels in the ordering system. */
+  --tan: #E4D3A8;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-off-white: var(--off-white);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-tan: var(--tan);
+
+  --font-julius: var(--font-julius);
+  --font-source: var(--font-source);
+  --font-montserrat: var(--font-montserrat);
+
+  --shadow-custom: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+@utility majlis-bg {
+  background-image: url('/Images/majlis2.jpg');
 }
 
 html {

@@ -1,6 +1,6 @@
 'use client'
 import CareersForm from '@/components/forms/careers-form'
-import { Button } from '@material-tailwind/react'
+import Button from '@/components/ui/Button'
 import React, { useEffect, useState } from 'react'
 
 const vacancies = {

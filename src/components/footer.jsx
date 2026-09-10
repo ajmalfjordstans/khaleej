@@ -1,8 +1,13 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Footer() {
+  const pathname = usePathname()
+  if (pathname?.startsWith('/order')) return null
+
   return (
     <div className='bg-gray-900 border-t border-white/5'>
       <div className="container mx-auto container-px py-16 text-white/80 text-[14px] font-source leading-relaxed tracking-wide">
@@ -121,7 +126,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className='bg-primary py-6 px-[5%] lg:px-0 text-white'>
+      <div className='bg-primary py-6 px-[5%] text-white'>
         <div className='container mx-auto'>
           <p>© 2023 Khaleej. All Rights Reserved.</p>
         </div>

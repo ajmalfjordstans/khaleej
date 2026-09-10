@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@material-tailwind/react';
+import Button from '@/components/ui/Button';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import HTMLFlipBook from "react-pageflip";

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { useFormik } from "formik";
-import { Button } from "@material-tailwind/react";
+import Button from '@/components/ui/Button';
 import { careersFormSchema } from "@/schemas";
 
 export default function CareersForm({ position }) {

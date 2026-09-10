@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button } from '@material-tailwind/react'
+import Button from '@/components/ui/Button'
 
 export default function Booking() {
   const [view, setView] = useState('pending')

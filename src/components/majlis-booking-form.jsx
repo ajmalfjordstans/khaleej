@@ -3,7 +3,7 @@ import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { useFormik } from "formik";
-import { Button } from "@material-tailwind/react";
+import Button from '@/components/ui/Button';
 import { basicSchema } from "@/schemas";
 import Lottie from 'react-lottie';
 import animationData from '../json/booking-animation.json'
