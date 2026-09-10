@@ -374,7 +374,7 @@ export default function ScrollStoryHomePage() {
 
       {/* ================= OUR ROOTS — layered photo + overlapping card ================= */}
       <div ref={rootsSpacerRef} className="relative" style={{ height: '180vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden flex items-center py-16 lg:py-0">
+        <div className="sticky top-0 h-screen overflow-hidden flex items-start pt-8 pb-6 lg:items-center lg:py-0">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
             <div className="relative">
               <div
@@ -468,7 +468,7 @@ export default function ScrollStoryHomePage() {
             <h2 className="text-2xl lg:text-4xl font-source font-semibold text-white">Signature Dishes</h2>
           </div>
 
-          <div className="flex gap-4 lg:gap-6 overflow-x-auto lg:overflow-visible max-w-6xl w-full px-2 pb-4 lg:pb-0 lg:justify-center snap-x">
+          <div className="flex gap-4 lg:gap-6 overflow-x-auto lg:overflow-visible max-w-6xl w-full pl-4 pr-10 lg:px-2 pb-4 lg:pb-0 lg:justify-center snap-x snap-mandatory scroll-px-4">
             {DISHES.map((dish, i) => (
               <div
                 key={dish.name}
@@ -484,6 +484,7 @@ export default function ScrollStoryHomePage() {
               </div>
             ))}
           </div>
+          <p className="lg:hidden text-white/40 text-[11px] text-center mt-3 tracking-widest uppercase">Swipe for more →</p>
         </div>
       </div>
 
