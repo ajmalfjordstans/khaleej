@@ -6,6 +6,8 @@ import { Loader2, AlertCircle } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { getCheckoutStatusApi } from '@/lib/order/api';
 import { useAuth } from '@/context/OrderAuthContext';
+import { useCart } from '@/context/OrderCartContext';
+import { recordPlacedOrder, takePendingOrderDetails } from '@/lib/order/postOrder';
 
 const SESSION_KEY = 'sc_pending_checkout_identity';
 
@@ -21,6 +23,7 @@ export default function PendingCheckoutPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { session, initialized } = useAuth();
+  const { clearCart } = useCart();
   const mountedRef = useRef(true);
 
   const paymentIntentId = searchParams.get('payment_intent');
@@ -63,9 +66,21 @@ export default function PendingCheckoutPage() {
   useEffect(() => {
     if (status?.status === 'created' && status.orderId) {
       setPollEnabled(false);
+      // What CheckoutPage's afterOrderPlaced does for an immediately-created order — without the
+      // guest_order_phone_<id> entry, OrderStatusPage has no way to look the order up for a guest
+      // and dead-ends on "Could not load your order", and the paid-for items stay in the cart.
+      const details = takePendingOrderDetails();
+      const phone = details?.phone ?? trackBy?.phone;
+      if (details) {
+        recordPlacedOrder(status.orderId, details);
+      } else if (phone) {
+        try { localStorage.setItem(`guest_order_phone_${status.orderId}`, phone); } catch { /* ignore */ }
+      }
+      try { sessionStorage.removeItem(SESSION_KEY); } catch { /* ignore */ }
+      clearCart();
       router.replace(`/order/orders/${status.orderId}`);
     }
-  }, [status, router]);
+  }, [status, router, trackBy?.phone, clearCart]);
 
   useEffect(() => {
     if (error && mountedRef.current) setPollEnabled(false);

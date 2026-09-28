@@ -35,6 +35,7 @@ export default function OrderStatusPage({ orderId }: { orderId: string }) {
   const stripeUnavailableParam = searchParams.get('stripe_unavailable') === '1';
   const [pollEnabled, setPollEnabled] = useState(true);
   const [localPhone, setLocalPhone] = useState<string | null | undefined>(undefined);
+  const [phoneInput, setPhoneInput] = useState('');
   const { session, initialized } = useAuth();
   const mountedRef = useRef(true);
   const [payClientSecret, setPayClientSecret] = useState<string | null>(null);
@@ -90,7 +91,39 @@ export default function OrderStatusPage({ orderId }: { orderId: string }) {
     );
   }
 
-  if (!trackBy || error || !order) {
+  // No way to identify the order on this device (e.g. a guest whose checkout didn't leave the
+  // phone behind) — ask for it rather than dead-ending on "Could not load your order".
+  if (!trackBy) {
+    return (
+      <div className="max-w-lg mx-auto flex flex-col items-center text-center gap-3">
+        <h1 className="text-xl font-bold text-primary">Find your order</h1>
+        <p className="text-sm text-primary/50">Enter the phone number you checked out with.</p>
+        <form
+          className="w-full flex gap-2 mt-2"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const phone = phoneInput.trim();
+            if (!phone) return;
+            try { localStorage.setItem(`guest_order_phone_${orderId}`, phone); } catch { /* ignore */ }
+            setLocalPhone(phone);
+          }}
+        >
+          <input
+            type="tel"
+            value={phoneInput}
+            onChange={(e) => setPhoneInput(e.target.value)}
+            placeholder="Phone number"
+            className="flex-1 border border-tan rounded-lg px-3 py-2 text-sm bg-white text-primary"
+          />
+          <button type="submit" className="bg-accent hover:bg-accent-dark text-white text-sm font-semibold px-4 rounded-lg">
+            Continue
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  if (error || !order) {
     return (
       <div className="flex flex-col items-center justify-center min-h-64 gap-3 text-primary/60 px-4">
         <AlertCircle size={36} className="text-red-400" />

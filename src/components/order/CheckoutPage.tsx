@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Loader2, MapPin, Calendar, ChevronRight, Gift, X, Clock } from 'lucide-react';
 import { useCart } from '@/context/OrderCartContext';
+import { recordPlacedOrder, savePendingOrderDetails, type PlacedOrderDetails } from '@/lib/order/postOrder';
 import { useAuth } from '@/context/OrderAuthContext';
 import { getStoreBySlugApi, createGuestOrderApi, createGuestCheckoutIntentApi, checkDeliveryPostcodeApi, lookupGiftCardApi } from '@/lib/order/api';
 import { STORE_SLUG } from '@/lib/order/config';
@@ -217,21 +218,15 @@ export default function CheckoutPage() {
           : {}),
       };
 
-      const afterOrderPlaced = (orderId: string, orderTotal: number, successMessage: string) => {
-        localStorage.setItem(`guest_order_phone_${orderId}`, phone.trim());
+      const placedDetails = (orderTotal: number): PlacedOrderDetails => ({
+        phone: phone.trim(),
+        total: orderTotal,
+        orderType,
+        historyKey: session?.user.id ? `sc_orders_${session.user.id}` : 'sc_orders_guest',
+      });
 
-        const entry = {
-          id: orderId,
-          phone: phone.trim(),
-          total: orderTotal,
-          orderType,
-          createdAt: new Date().toISOString(),
-        };
-        const historyKey = session?.user.id ? `sc_orders_${session.user.id}` : 'sc_orders_guest';
-        try {
-          const existing = JSON.parse(localStorage.getItem(historyKey) ?? '[]');
-          localStorage.setItem(historyKey, JSON.stringify([entry, ...existing].slice(0, 20)));
-        } catch {
+      const afterOrderPlaced = (orderId: string, orderTotal: number, successMessage: string) => {
+        if (!recordPlacedOrder(orderId, placedDetails(orderTotal))) {
           toast('Order placed, but history couldn\'t be saved — storage may be full.', { icon: '⚠️' });
         }
 
@@ -253,6 +248,11 @@ export default function CheckoutPage() {
           } catch {
             // Best-effort — if storage is unavailable the pending page will just ask again.
           }
+          // The order doesn't exist until Stripe's webhook creates it, after a full-page
+          // redirect — park the post-order bookkeeping for PendingCheckoutPage to finish,
+          // otherwise the order page has no phone to look the order up with (and the cart
+          // is never cleared).
+          savePendingOrderDetails(placedDetails(total));
           setPayment({ clientSecret: result.data.clientSecret });
           setPlacing(false);
           return;
