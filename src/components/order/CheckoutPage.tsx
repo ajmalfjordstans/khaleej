@@ -20,7 +20,7 @@ import { getStripe } from '@/lib/order/stripe';
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { cart, clearCart, subtotal, tax, total, setScheduledAt, setDeliveryDetails } = useCart();
+  const { cart, clearCart, subtotal, tax, total, setScheduledAt, setDeliveryDetails, hydrated } = useCart();
   const { session, isLoggedIn } = useAuth();
 
   const [name, setName] = useState(session?.user.name ?? '');
@@ -143,11 +143,13 @@ export default function CheckoutPage() {
     return () => { clearTimeout(timer); controller.abort(); };
   }, [postcode, cart.orderType, storeId, address, setDeliveryDetails]);
 
+  // Waits for `hydrated`: this effect runs before the cart provider has loaded the saved cart,
+  // so opening or refreshing checkout directly used to see an empty cart and bounce to the menu.
   useEffect(() => {
-    if (cart.items.length === 0 && !payment && !placing && !orderCompleteRef.current) {
+    if (hydrated && cart.items.length === 0 && !payment && !placing && !orderCompleteRef.current) {
       router.replace('/order');
     }
-  }, [cart.items.length, router, payment, placing]);
+  }, [hydrated, cart.items.length, router, payment, placing]);
 
   if (cart.items.length === 0 && !payment && !placing && !orderCompleteRef.current) {
     return null;

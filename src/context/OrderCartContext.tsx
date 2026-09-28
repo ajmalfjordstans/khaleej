@@ -107,6 +107,8 @@ interface CartContextValue {
   setScheduledAt: (scheduledAt: string | undefined) => void;
   clearCart: () => void;
   itemCount: number;
+  /** False until the saved cart has been read from localStorage on mount. */
+  hydrated: boolean;
   subtotal: number;
   tax: number;
   total: number;
@@ -132,6 +134,7 @@ export function computeCartTotals(cart: Pick<Cart, 'items' | 'deliveryDetails' |
 
 export function OrderCartProvider({ children, storeId }: { children: React.ReactNode; storeId: string }) {
   const [cart, dispatch] = useReducer(reducer, makeEmptyCart(storeId));
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     try {
@@ -141,6 +144,7 @@ export function OrderCartProvider({ children, storeId }: { children: React.React
         if (saved.storeId === storeId) dispatch({ type: 'LOAD', cart: saved });
       }
     } catch { /* ignore */ }
+    setHydrated(true);
   }, [storeId]);
 
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -174,7 +178,7 @@ export function OrderCartProvider({ children, storeId }: { children: React.React
     <CartContext.Provider value={{
       cart, addItem, updateQuantity, updateInstructions, removeItem,
       setOrderType, setDeliveryDetails, setScheduledAt, clearCart,
-      itemCount, subtotal, tax, total,
+      itemCount, subtotal, tax, total, hydrated,
     }}>
       {children}
     </CartContext.Provider>
