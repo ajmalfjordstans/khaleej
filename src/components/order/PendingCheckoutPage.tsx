@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { toInternationalPhone, isValidPhone } from '@/lib/order/phone';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Loader2, AlertCircle } from 'lucide-react';
@@ -112,7 +113,7 @@ export default function PendingCheckoutPage() {
           onSubmit={(e) => {
             e.preventDefault();
             if (!manualPhone.trim()) return;
-            setIdentity({ phone: manualPhone.trim() });
+            setIdentity({ phone: toInternationalPhone(manualPhone) });
           }}
         >
           <input

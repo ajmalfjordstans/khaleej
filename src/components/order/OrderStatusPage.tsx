@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { toInternationalPhone, isValidPhone } from '@/lib/order/phone';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { CheckCircle, Clock, ChefHat, Package, Bike, Loader2, AlertCircle, CreditCard } from 'lucide-react';
@@ -91,20 +92,31 @@ export default function OrderStatusPage({ orderId }: { orderId: string }) {
     );
   }
 
+  // The details we tried don't match this order — typically a logged-in customer whose account
+  // phone/email differ from what they typed at checkout (the order is looked up by the checkout
+  // details, not the account). A 404 here means "no match", not "no order".
+  const lookupNotMatched = !!error
+    && (error as { response?: { status?: number } })?.response?.status === 404;
+
   // No way to identify the order on this device (e.g. a guest whose checkout didn't leave the
-  // phone behind) — ask for it rather than dead-ending on "Could not load your order".
-  if (!trackBy) {
+  // phone behind), or the details we tried didn't match — ask for the checkout phone rather than
+  // dead-ending on "Could not load your order".
+  if (!trackBy || lookupNotMatched) {
     return (
       <div className="max-w-lg mx-auto flex flex-col items-center text-center gap-3">
         <h1 className="text-xl font-bold text-primary">Find your order</h1>
-        <p className="text-sm text-primary/50">Enter the phone number you checked out with.</p>
+        <p className="text-sm text-primary/50">{lookupNotMatched
+          ? 'We couldn\u2019t find this order with those details. Enter the phone number you used at checkout.'
+          : 'Enter the phone number you checked out with.'}</p>
         <form
           className="w-full flex gap-2 mt-2"
           onSubmit={(e) => {
             e.preventDefault();
-            const phone = phoneInput.trim();
+            const phone = toInternationalPhone(phoneInput);
             if (!phone) return;
             try { localStorage.setItem(`guest_order_phone_${orderId}`, phone); } catch { /* ignore */ }
+            // Polling stops on an error — turn it back on for the new lookup.
+            setPollEnabled(true);
             setLocalPhone(phone);
           }}
         >

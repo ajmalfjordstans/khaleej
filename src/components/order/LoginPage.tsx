@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { toInternationalPhone, isValidPhone } from '@/lib/order/phone';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Loader2, Eye, EyeOff } from 'lucide-react';
@@ -53,14 +54,15 @@ export default function LoginPage({ next }: { next?: string }) {
 
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault();
-    if (!regName || !regEmail || !regPassword) { toast.error('Please fill in all required fields.'); return; }
+    if (!regName || !regEmail || !regPassword || !regPhone.trim()) { toast.error('Please fill in all required fields.'); return; }
+    if (!isValidPhone(regPhone)) { toast.error('Please enter a valid phone number, e.g. 07700 900000.'); return; }
     setLoading(true);
     try {
       await customerRegisterApi({
         name: regName.trim(),
         email: regEmail.trim(),
         password: regPassword,
-        phone: regPhone.trim() || undefined,
+        phone: toInternationalPhone(regPhone),
       });
       const loginResult = await customerLoginApi(regEmail.trim(), regPassword);
       const token = loginResult?.data?.token ?? loginResult?.token;
@@ -206,7 +208,7 @@ export default function LoginPage({ next }: { next?: string }) {
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-primary mb-1">Phone</label>
+            <label className="block text-sm font-medium text-primary mb-1">Phone *</label>
             <input
               type="tel"
               value={regPhone}

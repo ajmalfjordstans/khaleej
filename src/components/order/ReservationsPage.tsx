@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { toInternationalPhone, isValidPhone } from '@/lib/order/phone';
 import { useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { Elements } from '@stripe/react-stripe-js';
@@ -153,7 +154,7 @@ export default function ReservationsPage() {
       const res = await createReservationApi({
         storeId: store.id,
         customerName: form.name.trim(),
-        customerPhone: form.phone.trim(),
+        customerPhone: toInternationalPhone(form.phone),
         customerEmail: form.email.trim() || undefined,
         partySize,
         reservationDate: dt.toISOString(),
@@ -164,7 +165,7 @@ export default function ReservationsPage() {
       sessionStorage.setItem(`reservation_${res.data.reservationId}`, JSON.stringify({
         ...res.data,
         customerName: form.name.trim(),
-        customerPhone: form.phone.trim(),
+        customerPhone: toInternationalPhone(form.phone),
         notes: form.notes.trim() || undefined,
       }));
 

@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useMemo, useRef } from 'react';
+import { toInternationalPhone, isValidPhone } from '@/lib/order/phone';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Loader2, MapPin, Calendar, ChevronRight, Gift, X, Clock } from 'lucide-react';
@@ -181,6 +182,8 @@ export default function CheckoutPage() {
       storeId, storeClosed, preOrderEnabled, scheduleForLater, deliveryCheck,
     });
     if (fieldsError) { toast.error(fieldsError); return; }
+    if (!isValidPhone(phone)) { toast.error('Please enter a valid phone number, e.g. 07700 900000.'); return; }
+    const normalizedPhone = toInternationalPhone(phone);
 
     const scheduleResult = resolvePreOrderSchedule({
       preOrderEnabled, scheduleForLater, scheduledAtIso, earliestSlot, latestDate, leadHours, maxDays,
@@ -201,7 +204,7 @@ export default function CheckoutPage() {
         orderType,
         scheduledAt,
         customer: {
-          phone: phone.trim(),
+          phone: normalizedPhone,
           name: name.trim() || undefined,
           email: email.trim() || undefined,
           address: orderType === 'DELIVERY' ? address.trim() || undefined : undefined,
@@ -210,7 +213,9 @@ export default function CheckoutPage() {
         items: cartSnapshot.map(item => ({
           menuItemId: item.menuItemId,
           quantity: item.quantity,
-          modifiers: item.selectedModifiers.map(m => ({ modifierId: m.modifierId })),
+          // The server resolves each option within its group — without modifierGroupId it can't,
+          // and rejects the order as "Modifier … not found or inactive".
+          modifiers: item.selectedModifiers.map(m => ({ modifierId: m.modifierId, modifierGroupId: m.modifierGroupId })),
           notes: item.specialInstructions || undefined,
         })),
         ...(gcCodeSnapshot && gcApplySnapshot > 0
@@ -219,7 +224,7 @@ export default function CheckoutPage() {
       };
 
       const placedDetails = (orderTotal: number): PlacedOrderDetails => ({
-        phone: phone.trim(),
+        phone: normalizedPhone,
         total: orderTotal,
         orderType,
         historyKey: session?.user.id ? `sc_orders_${session.user.id}` : 'sc_orders_guest',
@@ -242,7 +247,7 @@ export default function CheckoutPage() {
         if ('clientSecret' in result.data) {
           try {
             sessionStorage.setItem('sc_pending_checkout_identity', JSON.stringify({
-              phone: phone.trim(),
+              phone: normalizedPhone,
               email: email.trim() || undefined,
             }));
           } catch {

@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { toInternationalPhone, isValidPhone } from '@/lib/order/phone';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, User, Phone, Mail, MapPin, Loader2, LogOut, Clock, ChevronRight } from 'lucide-react';
@@ -52,11 +53,12 @@ export default function AccountPage() {
   async function handleSaveProfile(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim()) { toast.error('Name is required.'); return; }
+    if (!isValidPhone(phone)) { toast.error('Please enter a valid phone number, e.g. 07700 900000.'); return; }
     setSavingProfile(true);
     try {
       const result = await updateUserProfileApi({
         name: name.trim(),
-        phone: phone.trim() || undefined,
+        phone: toInternationalPhone(phone),
       });
       const updated = result?.data?.user ?? result?.user;
       if (updated && session) {
