@@ -28,6 +28,7 @@ export default function CheckoutPage() {
   const [phone, setPhone] = useState(session?.user.phone ?? '');
   const [address, setAddress] = useState('');
   const [postcode, setPostcode] = useState('');
+  const [landmark, setLandmark] = useState('');
   const [placing, setPlacing] = useState(false);
   const [deliveryCheck, setDeliveryCheck] = useState<
     { checking: boolean; ok: boolean; message?: string } | null
@@ -97,8 +98,10 @@ export default function CheckoutPage() {
     if (session.user.phone) setPhone(prev => prev || session.user.phone!);
     const savedAddr = localStorage.getItem(`sc_address_${session.user.id}`);
     const savedPost = localStorage.getItem(`sc_postcode_${session.user.id}`);
+    const savedLandmark = localStorage.getItem(`sc_landmark_${session.user.id}`);
     if (savedAddr) setAddress(prev => prev || savedAddr);
     if (savedPost) setPostcode(prev => prev || savedPost);
+    if (savedLandmark) setLandmark(prev => prev || savedLandmark);
   }, [session]);
 
   useEffect(() => {
@@ -211,6 +214,7 @@ export default function CheckoutPage() {
           email: email.trim() || undefined,
           address: orderType === 'DELIVERY' ? address.trim() || undefined : undefined,
           postcode: orderType === 'DELIVERY' ? postcode.trim().toUpperCase() : undefined,
+          landmark: orderType === 'DELIVERY' ? landmark.trim() || undefined : undefined,
         },
         items: cartSnapshot.map(item => ({
           menuItemId: item.menuItemId,
@@ -456,6 +460,13 @@ export default function CheckoutPage() {
               placeholder="Postcode *"
               value={postcode}
               onChange={e => setPostcode(e.target.value.toUpperCase())}
+              className="w-full border border-tan rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 bg-white text-primary"
+            />
+            <input
+              type="text"
+              placeholder="Landmark (optional, e.g. next to the pharmacy)"
+              value={landmark}
+              onChange={e => setLandmark(e.target.value)}
               className="w-full border border-tan rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 bg-white text-primary"
             />
             {!!cart.deliveryDetails?.minOrderValue && cart.deliveryDetails.minOrderValue > 0 && (

@@ -180,6 +180,7 @@ export interface Order {
   scheduledAt?: string;
   deliveryAddress?: string;
   deliveryPostcode?: string;
+  deliveryLandmark?: string;
   items?: OrderLineItem[];
   customer?: { name?: string; email?: string; phone?: string };
 }
@@ -205,6 +206,7 @@ export interface GuestOrder {
   tax: number;
   total: number;
   deliveryAddress?: string | null;
+  deliveryLandmark?: string | null;
   notes?: string | null;
   paymentStatus?: 'PENDING' | 'PAID' | 'FAILED';
   createdAt: string;

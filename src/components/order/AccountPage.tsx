@@ -18,6 +18,7 @@ interface StoredOrder {
 
 const ADDR_KEY = (id: string) => `sc_address_${id}`;
 const POST_KEY = (id: string) => `sc_postcode_${id}`;
+const LANDMARK_KEY = (id: string) => `sc_landmark_${id}`;
 
 export default function AccountPage() {
   const router = useRouter();
@@ -29,6 +30,7 @@ export default function AccountPage() {
 
   const [address, setAddress] = useState('');
   const [postcode, setPostcode] = useState('');
+  const [landmark, setLandmark] = useState('');
   const [savedAddress, setSavedAddress] = useState(false);
   const [orderHistory, setOrderHistory] = useState<StoredOrder[]>([]);
 
@@ -44,6 +46,7 @@ export default function AccountPage() {
     setPhone(session.user.phone ?? '');
     setAddress(localStorage.getItem(ADDR_KEY(session.user.id)) ?? '');
     setPostcode(localStorage.getItem(POST_KEY(session.user.id)) ?? '');
+    setLandmark(localStorage.getItem(LANDMARK_KEY(session.user.id)) ?? '');
     try {
       const raw = localStorage.getItem(`sc_orders_${session.user.id}`);
       setOrderHistory(raw ? JSON.parse(raw) : []);
@@ -77,6 +80,7 @@ export default function AccountPage() {
     if (!session) return;
     localStorage.setItem(ADDR_KEY(session.user.id), address.trim());
     localStorage.setItem(POST_KEY(session.user.id), postcode.trim().toUpperCase());
+    localStorage.setItem(LANDMARK_KEY(session.user.id), landmark.trim());
     setSavedAddress(true);
     toast.success('Delivery address saved.');
     setTimeout(() => setSavedAddress(false), 2500);
@@ -247,6 +251,19 @@ export default function AccountPage() {
               placeholder="CF35 5NW"
               maxLength={8}
               className="w-full border border-tan rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 uppercase bg-white text-primary"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-primary/50 uppercase tracking-wide mb-1.5">
+              Landmark
+            </label>
+            <input
+              type="text"
+              value={landmark}
+              onChange={e => setLandmark(e.target.value)}
+              placeholder="Next to the pharmacy"
+              className="w-full border border-tan rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 bg-white text-primary"
             />
           </div>
 

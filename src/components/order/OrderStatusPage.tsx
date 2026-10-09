@@ -293,7 +293,7 @@ export default function OrderStatusPage({ orderId }: { orderId: string }) {
           {order.orderType === 'DELIVERY' && order.deliveryAddress && (
             <div className="flex justify-between">
               <span>Delivery to</span>
-              <span className="font-medium">{order.deliveryAddress}</span>
+              <span className="font-medium">{order.deliveryAddress}{order.deliveryLandmark ? ` (near ${order.deliveryLandmark})` : ''}</span>
             </div>
           )}
           {order.scheduledAt && (
