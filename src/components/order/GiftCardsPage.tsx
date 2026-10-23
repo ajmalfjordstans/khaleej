@@ -159,10 +159,10 @@ function BuyGiftCard({ store }: { store: Store | undefined }) {
       purchaseGiftCardApi({
         storeId,
         amount: parseFloat(gcAmount),
-        purchaserName: gcPurchaser || undefined,
-        purchaserEmail: gcPurchaserEmail || undefined,
-        recipientName: gcRecipient || undefined,
-        recipientEmail: gcRecipientEmail || undefined,
+        purchaserName: gcPurchaser || '',
+        purchaserEmail: gcPurchaserEmail || '',
+        recipientName: gcRecipient || '',
+        recipientEmail: gcRecipientEmail || '',
         message: gcMessage || undefined,
         paymentIntentId: paymentIntent,
       }).then(res => {
@@ -180,6 +180,8 @@ function BuyGiftCard({ store }: { store: Store | undefined }) {
   const handlePay = async () => {
     if (!finalAmount || finalAmount < 1) { toast.error('Please choose or enter an amount (minimum £1)'); return; }
     if (!storeId) { toast.error('Store not loaded'); return; }
+    if (!form.purchaserName.trim() || !form.purchaserEmail.trim()) { toast.error('Please enter your name and email'); return; }
+    if (!form.recipientName.trim() || !form.recipientEmail.trim()) { toast.error("Please enter the recipient's name and email"); return; }
 
     setLoadingPI(true);
     try {
@@ -284,21 +286,21 @@ function BuyGiftCard({ store }: { store: Store | undefined }) {
       </div>
 
       <div>
-        <label className="block text-xs font-bold text-primary/50 uppercase tracking-wider mb-2">Your details (optional)</label>
+        <label className="block text-xs font-bold text-primary/50 uppercase tracking-wider mb-2">Your details</label>
         <div className="space-y-2">
-          <input value={form.purchaserName} onChange={e => setForm(f => ({ ...f, purchaserName: e.target.value }))}
+          <input required value={form.purchaserName} onChange={e => setForm(f => ({ ...f, purchaserName: e.target.value }))}
             placeholder="Your name" className={inp} />
-          <input type="email" value={form.purchaserEmail} onChange={e => setForm(f => ({ ...f, purchaserEmail: e.target.value }))}
+          <input required type="email" value={form.purchaserEmail} onChange={e => setForm(f => ({ ...f, purchaserEmail: e.target.value }))}
             placeholder="Your email (for receipt)" className={inp} />
         </div>
       </div>
 
       <div>
-        <label className="block text-xs font-bold text-primary/50 uppercase tracking-wider mb-2">Send to (optional)</label>
+        <label className="block text-xs font-bold text-primary/50 uppercase tracking-wider mb-2">Send to</label>
         <div className="space-y-2">
-          <input value={form.recipientName} onChange={e => setForm(f => ({ ...f, recipientName: e.target.value }))}
+          <input required value={form.recipientName} onChange={e => setForm(f => ({ ...f, recipientName: e.target.value }))}
             placeholder="Recipient's name" className={inp} />
-          <input type="email" value={form.recipientEmail} onChange={e => setForm(f => ({ ...f, recipientEmail: e.target.value }))}
+          <input required type="email" value={form.recipientEmail} onChange={e => setForm(f => ({ ...f, recipientEmail: e.target.value }))}
             placeholder="Recipient's email" className={inp} />
           <textarea value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
             placeholder="Personal message (optional)" rows={2} className={`${inp} resize-none`} />
@@ -316,7 +318,7 @@ function BuyGiftCard({ store }: { store: Store | undefined }) {
           <p className="text-sm text-amber-700">Online payment is not currently available for this store. Please contact us to purchase a gift card.</p>
         </div>
       ) : (
-        <button onClick={handlePay} disabled={loadingPI || !finalAmount}
+        <button onClick={handlePay} disabled={loadingPI || !finalAmount || !form.purchaserName.trim() || !form.purchaserEmail.trim() || !form.recipientName.trim() || !form.recipientEmail.trim()}
           className="w-full py-4 bg-accent hover:bg-accent-dark text-white font-bold rounded-2xl flex items-center justify-center gap-2 disabled:opacity-60 transition-colors">
           {loadingPI ? <Loader2 size={18} className="animate-spin" /> : <CreditCard size={18} />}
           {loadingPI ? 'Setting up payment…' : `Pay £${(finalAmount ?? 0).toFixed(2)}`}
