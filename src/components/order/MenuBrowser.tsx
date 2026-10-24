@@ -9,7 +9,8 @@ import {
   MapPin, Phone, Clock, Search, X, SlidersHorizontal, Check,
 } from 'lucide-react';
 import { getStoreBySlugApi, getPublicMenuApi, checkDeliveryPostcodeApi } from '@/lib/order/api';
-import { STORE_SLUG, ORDERING_PAUSED } from '@/lib/order/config';
+import { STORE_SLUG } from '@/lib/order/config';
+import { useOrderingPaused } from '@/lib/order/useOrderingPaused';
 import type { Category, MenuItem, CartItem, OrderType } from '@/types/order';
 import { getStoreOpenStatus } from '@/lib/order/storeHours';
 import { getMinItemPrice } from '@/lib/order/pricing';
@@ -158,6 +159,7 @@ export default function MenuBrowser() {
 
   const storeStatus = useMemo(() => getStoreOpenStatus(storeData?.data?.hours), [storeData]);
 
+  const orderingPaused = useOrderingPaused();
   const [showClosedPopup, setShowClosedPopup] = useState(false);
   const closedPopupShownRef = useRef(false);
 
@@ -745,7 +747,7 @@ export default function MenuBrowser() {
                   <span>£{total.toFixed(2)}</span>
                 </div>
               </div>
-              {ORDERING_PAUSED ? (
+              {orderingPaused ? (
                 <div className="flex items-center justify-center w-full text-white font-bold py-3.5 px-5 rounded-xl bg-primary/30 cursor-not-allowed">
                   Ordering unavailable right now
                 </div>

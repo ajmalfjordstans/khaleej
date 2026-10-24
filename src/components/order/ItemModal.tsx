@@ -5,7 +5,7 @@ import { X, Plus, Minus, Check } from 'lucide-react';
 import { useCart } from '@/context/OrderCartContext';
 import type { MenuItem, ModifierGroup, Modifier, SelectedModifier } from '@/types/order';
 import { getMinItemPrice, hasRequiredModifiers } from '@/lib/order/pricing';
-import { ORDERING_PAUSED } from '@/lib/order/config';
+import { useOrderingPaused } from '@/lib/order/useOrderingPaused';
 import toast from 'react-hot-toast';
 
 interface Props {
@@ -17,6 +17,7 @@ type SelectionMap = Record<string, Set<string>>;
 
 export default function ItemModal({ item, onClose }: Props) {
   const { addItem } = useCart();
+  const orderingPaused = useOrderingPaused();
   const basePrice = item.price ?? item.eatInPrice;
   // £0 items priced entirely via a required modifier group show the cheapest possible total in the header until the user picks one.
   const showFromPrice = basePrice === 0 && hasRequiredModifiers(item);
@@ -75,7 +76,7 @@ export default function ItemModal({ item, onClose }: Props) {
   }
 
   function handleAdd() {
-    if (ORDERING_PAUSED) return;
+    if (orderingPaused) return;
     if (!isValid() || justAdded) {
       if (!isValid()) toast.error('Please complete all required options.');
       return;
@@ -183,13 +184,13 @@ export default function ItemModal({ item, onClose }: Props) {
 
           <button
             onClick={handleAdd}
-            disabled={ORDERING_PAUSED}
+            disabled={orderingPaused}
             className={`flex-1 text-white font-semibold py-3 rounded-full transition-colors duration-200 flex items-center px-4 ${
-              ORDERING_PAUSED ? 'bg-primary/30 cursor-not-allowed justify-center' :
+              orderingPaused ? 'bg-primary/30 cursor-not-allowed justify-center' :
               justAdded ? 'bg-green-500 justify-center gap-2' : 'bg-accent hover:bg-accent-dark justify-between'
             }`}
           >
-            {ORDERING_PAUSED ? (
+            {orderingPaused ? (
               <span>Ordering unavailable right now</span>
             ) : justAdded ? (
               <>

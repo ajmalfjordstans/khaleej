@@ -8,7 +8,8 @@ import { useCart } from '@/context/OrderCartContext';
 import { recordPlacedOrder, savePendingOrderDetails, type PlacedOrderDetails } from '@/lib/order/postOrder';
 import { useAuth } from '@/context/OrderAuthContext';
 import { getStoreBySlugApi, createGuestOrderApi, createGuestCheckoutIntentApi, checkDeliveryPostcodeApi, lookupGiftCardApi } from '@/lib/order/api';
-import { STORE_SLUG, ORDERING_PAUSED, ORDERING_PAUSED_MESSAGE } from '@/lib/order/config';
+import { STORE_SLUG, ORDERING_PAUSED_MESSAGE } from '@/lib/order/config';
+import { useOrderingPaused } from '@/lib/order/useOrderingPaused';
 import { getStoreOpenStatus } from '@/lib/order/storeHours';
 import { computeGiftCardApplication, validateCheckoutFields, resolvePreOrderSchedule } from '@/lib/order/checkoutValidation';
 import { useQuery } from '@tanstack/react-query';
@@ -71,6 +72,7 @@ export default function CheckoutPage() {
 
   const storeStatus = useMemo(() => getStoreOpenStatus(store?.hours), [store?.hours]);
   const storeClosed = storeStatus !== null && !storeStatus.open;
+  const orderingPaused = useOrderingPaused();
   const closedNoticeMessage = `We're closed right now — orders can only be scheduled for when we reopen${
     storeStatus && !storeStatus.open && storeStatus.reopenTime ? ` (${storeStatus.reopenDay} at ${storeStatus.reopenTime})` : ''
   }.`;
@@ -315,7 +317,7 @@ export default function CheckoutPage() {
     );
   }
 
-  if (ORDERING_PAUSED) {
+  if (orderingPaused) {
     return (
       <div className="max-w-lg mx-auto ">
         <Link

@@ -14,6 +14,7 @@ export interface Store {
   postcode?: string;
   phone?: string;
   isActive: boolean;
+  onlineOrderingEnabled?: boolean;
   preOrderEnabled?: boolean;
   preOrderLeadHours?: number;
   preOrderMaxDays?: number;
