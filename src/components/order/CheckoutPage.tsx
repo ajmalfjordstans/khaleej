@@ -8,7 +8,7 @@ import { useCart } from '@/context/OrderCartContext';
 import { recordPlacedOrder, savePendingOrderDetails, type PlacedOrderDetails } from '@/lib/order/postOrder';
 import { useAuth } from '@/context/OrderAuthContext';
 import { getStoreBySlugApi, createGuestOrderApi, createGuestCheckoutIntentApi, checkDeliveryPostcodeApi, lookupGiftCardApi } from '@/lib/order/api';
-import { STORE_SLUG } from '@/lib/order/config';
+import { STORE_SLUG, ORDERING_PAUSED, ORDERING_PAUSED_MESSAGE } from '@/lib/order/config';
 import { getStoreOpenStatus } from '@/lib/order/storeHours';
 import { computeGiftCardApplication, validateCheckoutFields, resolvePreOrderSchedule } from '@/lib/order/checkoutValidation';
 import { useQuery } from '@tanstack/react-query';
@@ -310,6 +310,33 @@ export default function CheckoutPage() {
           <Elements stripe={getStripe(store?.stripePublishableKey)} options={{ clientSecret: payment.clientSecret }}>
             <PaymentForm returnUrl={`${window.location.origin}/order/orders/pending`} />
           </Elements>
+        </div>
+      </div>
+    );
+  }
+
+  if (ORDERING_PAUSED) {
+    return (
+      <div className="max-w-lg mx-auto ">
+        <Link
+          href="/order/cart"
+          className="inline-flex items-center gap-1.5 text-sm text-primary/60 hover:text-primary mb-5 transition-colors"
+        >
+          <ArrowLeft size={16} />
+          Back to order
+        </Link>
+        <div className="bg-off-white rounded-2xl border border-tan p-8 flex flex-col items-center text-center gap-3">
+          <div className="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center">
+            <Clock size={26} className="text-amber-600" />
+          </div>
+          <h1 className="text-xl font-bold text-primary">Online ordering is paused</h1>
+          <p className="text-sm text-gray-700">{ORDERING_PAUSED_MESSAGE}</p>
+          <Link
+            href="/order"
+            className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-dark"
+          >
+            <ArrowLeft size={14} /> Back to menu
+          </Link>
         </div>
       </div>
     );

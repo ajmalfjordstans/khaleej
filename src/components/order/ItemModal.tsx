@@ -5,6 +5,7 @@ import { X, Plus, Minus, Check } from 'lucide-react';
 import { useCart } from '@/context/OrderCartContext';
 import type { MenuItem, ModifierGroup, Modifier, SelectedModifier } from '@/types/order';
 import { getMinItemPrice, hasRequiredModifiers } from '@/lib/order/pricing';
+import { ORDERING_PAUSED } from '@/lib/order/config';
 import toast from 'react-hot-toast';
 
 interface Props {
@@ -74,6 +75,7 @@ export default function ItemModal({ item, onClose }: Props) {
   }
 
   function handleAdd() {
+    if (ORDERING_PAUSED) return;
     if (!isValid() || justAdded) {
       if (!isValid()) toast.error('Please complete all required options.');
       return;
@@ -181,11 +183,15 @@ export default function ItemModal({ item, onClose }: Props) {
 
           <button
             onClick={handleAdd}
+            disabled={ORDERING_PAUSED}
             className={`flex-1 text-white font-semibold py-3 rounded-full transition-colors duration-200 flex items-center px-4 ${
+              ORDERING_PAUSED ? 'bg-primary/30 cursor-not-allowed justify-center' :
               justAdded ? 'bg-green-500 justify-center gap-2' : 'bg-accent hover:bg-accent-dark justify-between'
             }`}
           >
-            {justAdded ? (
+            {ORDERING_PAUSED ? (
+              <span>Ordering unavailable right now</span>
+            ) : justAdded ? (
               <>
                 <Check size={18} className="animate-bump" />
                 <span>Added to order</span>

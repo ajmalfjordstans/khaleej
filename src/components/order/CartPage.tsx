@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Plus, Minus, Trash2, ArrowLeft, ShoppingBag, Pencil } from 'lucide-react';
 import { useCart } from '@/context/OrderCartContext';
 import { getStoreBySlugApi } from '@/lib/order/api';
-import { STORE_SLUG } from '@/lib/order/config';
+import { STORE_SLUG, ORDERING_PAUSED } from '@/lib/order/config';
 import type { OrderType } from '@/types/order';
 
 const ALL_ORDER_TYPES: { value: OrderType; label: string; description: string }[] = [
@@ -212,9 +212,12 @@ export default function CartPage() {
 
       <button
         onClick={() => router.push('/order/checkout')}
-        className="w-full text-white font-bold py-4 rounded-2xl transition-all text-center flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark"
+        disabled={ORDERING_PAUSED}
+        className={`w-full text-white font-bold py-4 rounded-2xl transition-all text-center flex items-center justify-center gap-2 ${
+          ORDERING_PAUSED ? 'bg-primary/30 cursor-not-allowed' : 'bg-accent hover:bg-accent-dark'
+        }`}
       >
-        Proceed to Checkout
+        {ORDERING_PAUSED ? 'Ordering unavailable right now' : 'Proceed to Checkout'}
       </button>
     </div>
   );

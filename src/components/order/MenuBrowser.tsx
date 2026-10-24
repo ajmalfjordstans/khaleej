@@ -9,7 +9,7 @@ import {
   MapPin, Phone, Clock, Search, X, SlidersHorizontal, Check,
 } from 'lucide-react';
 import { getStoreBySlugApi, getPublicMenuApi, checkDeliveryPostcodeApi } from '@/lib/order/api';
-import { STORE_SLUG } from '@/lib/order/config';
+import { STORE_SLUG, ORDERING_PAUSED } from '@/lib/order/config';
 import type { Category, MenuItem, CartItem, OrderType } from '@/types/order';
 import { getStoreOpenStatus } from '@/lib/order/storeHours';
 import { getMinItemPrice } from '@/lib/order/pricing';
@@ -745,13 +745,19 @@ export default function MenuBrowser() {
                   <span>£{total.toFixed(2)}</span>
                 </div>
               </div>
-              <Link
-                href="/order/checkout"
-                className="flex items-center justify-between w-full text-white font-bold py-3.5 px-5 rounded-xl transition-all group bg-accent hover:bg-accent-dark"
-              >
-                <span>Go to Checkout</span>
-                <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+              {ORDERING_PAUSED ? (
+                <div className="flex items-center justify-center w-full text-white font-bold py-3.5 px-5 rounded-xl bg-primary/30 cursor-not-allowed">
+                  Ordering unavailable right now
+                </div>
+              ) : (
+                <Link
+                  href="/order/checkout"
+                  className="flex items-center justify-between w-full text-white font-bold py-3.5 px-5 rounded-xl transition-all group bg-accent hover:bg-accent-dark"
+                >
+                  <span>Go to Checkout</span>
+                  <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              )}
             </div>
           )}
         </aside>

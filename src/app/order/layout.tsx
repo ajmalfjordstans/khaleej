@@ -1,6 +1,7 @@
 import OrderProviders from '@/components/order/OrderProviders';
 import OrderHeader from '@/components/order/OrderHeader';
 import OrderBottomNav from '@/components/order/OrderBottomNav';
+import OrderingPausedBanner from '@/components/order/OrderingPausedBanner';
 import { getStoreBySlugApi } from '@/lib/order/api';
 import { STORE_SLUG } from '@/lib/order/config';
 import type { Metadata } from 'next';
@@ -28,6 +29,7 @@ export default async function OrderLayout({ children }: { children: React.ReactN
       <div className="bg-off-white min-h-screen pb-24 md:pb-0">
         <OrderHeader />
         <div className="max-w-6xl mx-auto px-4 py-6">
+          <OrderingPausedBanner />
           {children}
         </div>
         <OrderBottomNav reservationEnabled={reservationEnabled} giftCardEnabled={giftCardEnabled} />
