@@ -30,6 +30,7 @@ export interface Store {
   maxPartySize?: number;
   giftCardEnabled?: boolean;
   giftCardValidityMonths?: number | null;
+  deliveryEnabled?: boolean;
 }
 
 export interface ReservationAvailability {

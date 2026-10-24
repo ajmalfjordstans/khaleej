@@ -1,13 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
 import { Plus, Minus, Trash2, ArrowLeft, ShoppingBag, Pencil } from 'lucide-react';
 import { useCart } from '@/context/OrderCartContext';
+import { getStoreBySlugApi } from '@/lib/order/api';
+import { STORE_SLUG } from '@/lib/order/config';
 import type { OrderType } from '@/types/order';
 
-const ORDER_TYPES: { value: OrderType; label: string; description: string }[] = [
+const ALL_ORDER_TYPES: { value: OrderType; label: string; description: string }[] = [
   { value: 'TAKEAWAY', label: 'Collection', description: 'Pick up your order' },
   { value: 'DELIVERY', label: 'Delivery', description: 'Delivered to your door' },
 ];
@@ -17,6 +20,22 @@ export default function CartPage() {
   const { cart, updateQuantity, updateInstructions, removeItem, setOrderType, itemCount, subtotal, tax, total } = useCart();
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState('');
+
+  const { data: storeData } = useQuery({
+    queryKey: ['order-store'],
+    queryFn: () => getStoreBySlugApi(STORE_SLUG),
+    retry: false,
+  });
+  const deliveryEnabled = storeData?.data?.deliveryEnabled !== false;
+  const ORDER_TYPES = deliveryEnabled ? ALL_ORDER_TYPES : ALL_ORDER_TYPES.filter((t) => t.value !== 'DELIVERY');
+
+  // Fall back to Collection if Delivery got disabled after DELIVERY was already selected
+  // (e.g. picked earlier in the session, or restored from a persisted cart).
+  useEffect(() => {
+    if (!deliveryEnabled && cart.orderType === 'DELIVERY') {
+      setOrderType('TAKEAWAY');
+    }
+  }, [deliveryEnabled, cart.orderType, setOrderType]);
 
   const startEditing = (cartItemId: string, current?: string) => {
     setEditingId(cartItemId);
@@ -62,7 +81,12 @@ export default function CartPage() {
 
       <div className="mb-6">
         <p className="text-xs font-bold text-primary/50 uppercase tracking-widest mb-3">Order Type</p>
-        <div className="grid grid-cols-2 gap-2">
+        {!deliveryEnabled && (
+          <p className="text-xs text-primary/60 bg-off-white border border-tan rounded-xl px-3 py-2 mb-3">
+            Sorry, we are not delivering right now.
+          </p>
+        )}
+        <div className={`grid gap-2 ${ORDER_TYPES.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
           {ORDER_TYPES.map(({ value, label, description }) => (
             <button
               key={value}

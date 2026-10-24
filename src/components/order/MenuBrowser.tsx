@@ -23,7 +23,7 @@ const ACCENT_COLORS = [
   '#4A6B7C', '#7A4A6B', '#A67C3D',
 ];
 
-const ORDER_TYPE_TABS: { value: OrderType; label: string }[] = [
+const ALL_ORDER_TYPE_TABS: { value: OrderType; label: string }[] = [
   { value: 'TAKEAWAY', label: 'Collection' },
   { value: 'DELIVERY', label: 'Delivery' },
 ];
@@ -68,6 +68,8 @@ export default function MenuBrowser() {
   const storeId = storeData?.data?.id;
   const storeName = storeData?.data?.name ?? 'Khaleej Mandi House';
   const preOrderEnabled = storeData?.data?.preOrderEnabled ?? false;
+  const deliveryEnabled = storeData?.data?.deliveryEnabled !== false;
+  const ORDER_TYPE_TABS = deliveryEnabled ? ALL_ORDER_TYPE_TABS : ALL_ORDER_TYPE_TABS.filter((t) => t.value !== 'DELIVERY');
 
   const { data: menuData, isLoading: menuLoading, error } = useQuery({
     queryKey: ['order-menu', storeId],
@@ -171,6 +173,14 @@ export default function MenuBrowser() {
       setActiveCategoryId(categories[0].id);
     }
   }, [categories, activeCategoryId]);
+
+  // Fall back to Collection if Delivery got disabled after DELIVERY was already selected
+  // (e.g. picked earlier in the session, or restored from a persisted cart).
+  useEffect(() => {
+    if (!deliveryEnabled && cart.orderType === 'DELIVERY') {
+      setOrderType('TAKEAWAY');
+    }
+  }, [deliveryEnabled, cart.orderType, setOrderType]);
 
   // Tracks which category section is in view as the page scrolls (root: viewport).
   useEffect(() => {
@@ -619,6 +629,12 @@ export default function MenuBrowser() {
                 </button>
               ))}
             </div>
+
+            {!deliveryEnabled && (
+              <p className="text-xs text-primary/60 bg-off-white rounded-lg px-2.5 py-1.5">
+                Sorry, we are not delivering right now.
+              </p>
+            )}
 
             {cart.orderType === 'DELIVERY' && (
               <div className="space-y-1.5">

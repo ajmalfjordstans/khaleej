@@ -55,6 +55,15 @@ export default function CheckoutPage() {
   const preOrderEnabled = store?.preOrderEnabled ?? false;
   const leadHours = store?.preOrderLeadHours ?? 0;
   const maxDays = store?.preOrderMaxDays ?? 7;
+  const deliveryEnabled = store?.deliveryEnabled !== false;
+
+  // Belt-and-suspenders: Cart/MenuBrowser already steer away from DELIVERY once it's disabled,
+  // but checkout can be reached directly (e.g. a restored tab), so guard here too.
+  useEffect(() => {
+    if (!deliveryEnabled && cart.orderType === 'DELIVERY') {
+      router.replace('/order/cart');
+    }
+  }, [deliveryEnabled, cart.orderType, router]);
 
   const [scheduleForLater, setScheduleForLater] = useState(false);
   const [scheduledAtIso, setScheduledAtIso] = useState<string | undefined>(undefined);
